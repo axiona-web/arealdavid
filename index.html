@@ -3,244 +3,224 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Areál David – Rozvojová štúdia a investičné podklady</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>Areál David – Investment Opportunity | Košice</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --gold:#C9A84C;--gold-dim:#9A7A32;--gold-pale:#F0E0B0;
   --dark:#0A0D0B;--dark2:#111714;--dark3:#182018;
-  --panel:#1C2A1E;--panel2:#243028;
-  --border:rgba(201,168,76,0.18);--border2:rgba(201,168,76,0.08);
+  --panel:#1C2A1E;--border:rgba(201,168,76,0.18);--border2:rgba(201,168,76,0.08);
   --text:#E4E8E0;--muted:#8A9A88;--white:#F2F5EF;
   --red:#E05050;--green:#4CAF7A;--blue:#5B9BD5;
+  --orange:#E09050;
 }
 html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;background:var(--dark);color:var(--text);font-size:14px;line-height:1.65;}
+body{font-family:'DM Sans',sans-serif;background:var(--dark);color:var(--text);font-size:14px;line-height:1.65}
 
-.sidenav{position:fixed;left:0;top:0;bottom:0;width:230px;background:var(--dark2);border-right:1px solid var(--border);padding:28px 0;z-index:100;overflow-y:auto;}
-.nav-logo{padding:0 20px 24px;border-bottom:1px solid var(--border2);margin-bottom:16px;}
-.nav-logo-title{font-family:'Playfair Display',serif;font-size:17px;color:var(--gold);line-height:1.2;}
-.nav-logo-sub{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-top:4px;}
-.nav-section{padding:6px 20px 2px;font-size:8px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-dim);font-weight:600;margin-top:12px;}
-.nav-link{display:block;padding:7px 20px 7px 24px;font-size:12px;color:var(--muted);text-decoration:none;border-left:2px solid transparent;transition:all .2s;}
-.nav-link:hover,.nav-link.active{color:var(--gold-pale);border-left-color:var(--gold);background:rgba(201,168,76,0.05);}
+/* NAV */
+.hamburger{display:none;position:fixed;top:16px;left:16px;z-index:200;background:var(--dark2);border:1px solid var(--border);padding:10px 12px;cursor:pointer;flex-direction:column;gap:5px}
+.hamburger span{display:block;width:22px;height:2px;background:var(--gold)}
+.nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:150}
+.sidenav{position:fixed;left:0;top:0;bottom:0;width:230px;background:var(--dark2);border-right:1px solid var(--border);padding:28px 0;z-index:160;overflow-y:auto;transition:transform .3s ease}
+.nav-logo{padding:0 20px 20px;border-bottom:1px solid var(--border2);margin-bottom:12px}
+.nav-logo-title{font-family:'Playfair Display',serif;font-size:16px;color:var(--gold);line-height:1.2}
+.nav-logo-sub{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-top:3px}
+.nav-section{padding:5px 20px 2px;font-size:8px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-dim);font-weight:600;margin-top:10px}
+.nav-link{display:block;padding:6px 20px 6px 24px;font-size:12px;color:var(--muted);text-decoration:none;border-left:2px solid transparent;transition:all .2s}
+.nav-link:hover,.nav-link.active{color:var(--gold-pale);border-left-color:var(--gold);background:rgba(201,168,76,0.05)}
+.main{margin-left:230px;min-height:100vh}
 
-.main{margin-left:230px;min-height:100vh;}
+/* HERO */
+.hero{position:relative;padding:72px 60px 52px;background:linear-gradient(135deg,var(--dark2) 0%,var(--dark3) 60%,#0D1A0F 100%);border-bottom:1px solid var(--border);overflow:hidden}
+.hero::before{content:'';position:absolute;top:-80px;right:-80px;width:500px;height:500px;background:radial-gradient(circle,rgba(201,168,76,0.09) 0%,transparent 65%);pointer-events:none}
+.hero-tag{display:inline-block;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);border:1px solid rgba(201,168,76,0.3);padding:4px 12px;margin-bottom:18px}
+.hero-title{font-family:'Playfair Display',serif;font-size:48px;font-weight:700;color:var(--white);line-height:1.1;margin-bottom:6px}
+.hero-title em{font-style:italic;color:var(--gold)}
+.hero-sub{font-size:13px;color:var(--muted);margin-bottom:36px}
+.hero-kpi{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--border);border:1px solid var(--border);max-width:900px}
+.kpi{background:var(--dark2);padding:14px 16px;text-align:center}
+.kpi-val{font-family:'Playfair Display',serif;font-size:20px;font-weight:600;color:var(--gold);display:block;line-height:1}
+.kpi-label{font-size:8.5px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;display:block;margin-top:4px}
 
-.hero{position:relative;padding:80px 60px 60px;background:linear-gradient(135deg,var(--dark2) 0%,var(--dark3) 60%,#0D1A0F 100%);border-bottom:1px solid var(--border);overflow:hidden;}
-.hero::before{content:'';position:absolute;top:-100px;right:-100px;width:600px;height:600px;background:radial-gradient(circle,rgba(201,168,76,0.08) 0%,transparent 65%);pointer-events:none;}
-.hero::after{content:'AREÁL DAVID';position:absolute;right:-20px;top:50%;transform:translateY(-50%);font-family:'Playfair Display',serif;font-size:120px;font-weight:700;color:rgba(201,168,76,0.04);letter-spacing:-4px;pointer-events:none;white-space:nowrap;}
-.hero-tag{display:inline-block;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);border:1px solid rgba(201,168,76,0.3);padding:4px 12px;margin-bottom:20px;}
-.hero-title{font-family:'Playfair Display',serif;font-size:52px;font-weight:700;color:var(--white);line-height:1.1;margin-bottom:8px;}
-.hero-title em{font-style:italic;color:var(--gold);}
-.hero-sub{font-size:13px;color:var(--muted);letter-spacing:1px;margin-bottom:40px;}
-.hero-stats{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);border:1px solid var(--border);max-width:820px;}
-.hero-stat{background:var(--dark2);padding:16px 20px;text-align:center;}
-.hero-stat-num{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:var(--gold);display:block;line-height:1;}
-.hero-stat-label{font-size:9px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;display:block;margin-top:4px;}
-
-section{padding:60px;border-bottom:1px solid var(--border2);}
+/* SECTIONS */
+section{padding:52px 60px;border-bottom:1px solid var(--border2)}
 section:last-child{border-bottom:none}
+.sh{display:flex;align-items:baseline;gap:14px;margin-bottom:32px}
+.sn{font-family:'DM Mono',monospace;font-size:11px;color:var(--gold-dim);letter-spacing:1px;flex-shrink:0}
+.st{font-family:'Playfair Display',serif;font-size:26px;font-weight:600;color:var(--white)}
+.sl{flex:1;height:1px;background:var(--border)}
 
-.section-header{display:flex;align-items:baseline;gap:16px;margin-bottom:36px;}
-.section-num{font-family:'DM Mono',monospace;font-size:11px;color:var(--gold-dim);letter-spacing:1px;}
-.section-title{font-family:'Playfair Display',serif;font-size:28px;font-weight:600;color:var(--white);}
-.section-title-line{flex:1;height:1px;background:var(--border);}
+/* ALERTS */
+.alert{padding:16px 20px;border-left:3px solid;margin-bottom:16px}
+.a-gold{border-color:var(--gold);background:rgba(201,168,76,0.06)}
+.a-green{border-color:var(--green);background:rgba(76,175,122,0.06)}
+.a-blue{border-color:var(--blue);background:rgba(91,155,213,0.08)}
+.a-red{border-color:var(--red);background:rgba(224,80,80,0.06)}
+.at{font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:600;margin-bottom:6px}
+.a-gold .at{color:var(--gold)}.a-green .at{color:var(--green)}.a-blue .at{color:var(--blue)}.a-red .at{color:var(--red)}
+.alert p,.alert li{font-size:13px;color:var(--text);line-height:1.65}
+.alert strong{color:var(--white)}
+.alert ul{padding-left:16px;margin-top:6px}
+.alert li{margin-bottom:4px}
 
-.alert{padding:16px 20px;border-left:3px solid;margin-bottom:16px;background:rgba(255,255,255,0.02);}
-.alert-red{border-color:var(--red);background:rgba(224,80,80,0.06)}
-.alert-gold{border-color:var(--gold);background:rgba(201,168,76,0.06)}
-.alert-green{border-color:var(--green);background:rgba(76,175,122,0.06)}
-.alert-blue{border-color:var(--blue);background:rgba(91,155,213,0.08)}
-.alert-title{font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:600;margin-bottom:6px;}
-.alert-red .alert-title{color:var(--red)}.alert-gold .alert-title{color:var(--gold)}.alert-green .alert-title{color:var(--green)}.alert-blue .alert-title{color:var(--blue)}
-.alert p{font-size:13px;color:var(--text);line-height:1.6}.alert strong{color:var(--white)}
+/* GRIDS */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
-.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+/* CARDS */
+.card{background:var(--panel);border:1px solid var(--border2);padding:20px}
+.card.hl{background:linear-gradient(135deg,rgba(201,168,76,0.07) 0%,var(--panel) 100%);border-color:rgba(201,168,76,0.25)}
+.ct{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dim);font-weight:600;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--border2)}
 
-.card{background:var(--panel);border:1px solid var(--border2);padding:20px;}
-.card-title{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dim);font-weight:600;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--border2);}
+/* METRICS */
+.metric{background:var(--panel);border:1px solid var(--border2);padding:20px;position:relative;overflow:hidden}
+.metric::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gold)}
+.metric.green::before{background:var(--green)}.metric.blue::before{background:var(--blue)}.metric.red::before{background:var(--red)}.metric.orange::before{background:var(--orange)}
+.mv{font-family:'Playfair Display',serif;font-size:28px;font-weight:600;color:var(--gold);display:block;line-height:1;margin-bottom:4px}
+.metric.green .mv{color:var(--green)}.metric.blue .mv{color:var(--blue)}.metric.orange .mv{color:var(--orange)}
+.ml{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
+.mn{font-size:11px;color:var(--muted);margin-top:6px}
 
-.fact-table{width:100%;border-collapse:collapse}
-.fact-table tr{border-bottom:1px solid var(--border2)}
-.fact-table tr:last-child{border-bottom:none}
-.fact-table td{padding:8px 0;font-size:13px;vertical-align:top}
-.fact-table td:first-child{color:var(--muted);width:55%;font-weight:300}
-.fact-table td:last-child{color:var(--text);font-weight:500;text-align:right}
-.val-gold{color:var(--gold)!important;font-family:'Playfair Display',serif;font-size:15px!important;font-weight:600!important}
-.val-red{color:var(--red)!important}.val-green{color:var(--green)!important}
+/* TABLES */
+.ft{width:100%;border-collapse:collapse}
+.ft tr{border-bottom:1px solid var(--border2)}
+.ft tr:last-child{border-bottom:none}
+.ft td{padding:8px 0;font-size:13px;vertical-align:top}
+.ft td:first-child{color:var(--muted);width:55%;font-weight:300}
+.ft td:last-child{color:var(--text);font-weight:500;text-align:right}
+.vg{color:var(--gold)!important;font-family:'Playfair Display',serif;font-size:15px!important;font-weight:600!important}
+.vr{color:var(--red)!important}.vgr{color:var(--green)!important}
 
-.metric{background:var(--panel);border:1px solid var(--border2);padding:20px;position:relative;overflow:hidden;}
-.metric::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gold);}
-.metric-val{font-family:'Playfair Display',serif;font-size:30px;font-weight:600;color:var(--gold);display:block;line-height:1;margin-bottom:4px;}
-.metric-label{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);}
-.metric-note{font-size:11px;color:var(--muted);margin-top:8px;}
-.metric.green::before{background:var(--green)}.metric.green .metric-val{color:var(--green)}
-.metric.red::before{background:var(--red)}.metric.red .metric-val{color:var(--red)}
-.metric.blue::before{background:var(--blue)}.metric.blue .metric-val{color:var(--blue)}
+.fin{width:100%;border-collapse:collapse;margin-top:8px}
+.fin thead tr{background:rgba(201,168,76,0.08);border-bottom:1px solid var(--border)}
+.fin th{padding:9px 12px;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dim);font-weight:600;text-align:left}
+.fin th:not(:first-child){text-align:right}
+.fin td{padding:8px 12px;font-size:12.5px;border-bottom:1px solid var(--border2)}
+.fin td:not(:first-child){text-align:right;font-family:'DM Mono',monospace;font-size:12px}
+.fin td.pl{font-family:'DM Sans',sans-serif;font-size:12.5px}
+.fin tr.sub td{background:rgba(255,255,255,0.02);font-weight:600}
+.fin tr.tot td{background:rgba(201,168,76,0.08);border-top:1px solid var(--border);border-bottom:none;font-weight:700;color:var(--gold);font-size:13px}
+.neg{color:var(--red)}.pos{color:var(--green)}.neu{color:var(--muted)}
 
-.timeline{position:relative;padding-left:40px}
-.timeline::before{content:'';position:absolute;left:12px;top:0;bottom:0;width:1px;background:var(--border);}
-.phase{position:relative;margin-bottom:32px;}
-.phase::before{content:'';position:absolute;left:-32px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 3px var(--dark2),0 0 0 4px var(--gold-dim);}
-.phase-header{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
-.phase-num{font-family:'DM Mono',monospace;font-size:10px;color:var(--gold);background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.2);padding:2px 8px;}
-.phase-name{font-family:'Playfair Display',serif;font-size:18px;font-weight:600;color:var(--white);}
-.phase-years{font-size:11px;color:var(--muted);margin-left:auto;font-family:'DM Mono',monospace;}
-.phase-body{background:var(--panel);border:1px solid var(--border2);padding:16px 20px;}
-.phase-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--border2);}
-.phase-stat-val{font-family:'Playfair Display',serif;font-size:18px;color:var(--gold);display:block;}
-.phase-stat-lbl{font-size:9px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;}
-.phase-desc{font-size:12.5px;color:var(--muted);line-height:1.65;}
+/* EXEC SUMMARY BULLETS */
+.exec-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px}
+.exec-item{background:var(--panel);border:1px solid var(--border2);border-left:3px solid var(--gold);padding:14px 16px;display:flex;gap:14px;align-items:flex-start}
+.exec-num{font-family:'DM Mono',monospace;font-size:10px;color:var(--gold-dim);flex-shrink:0;padding-top:2px}
+.exec-label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px}
+.exec-val{font-family:'Playfair Display',serif;font-size:18px;color:var(--gold);font-weight:600;line-height:1.1}
+.exec-sub{font-size:11px;color:var(--muted);margin-top:3px}
+
+/* HIGHLIGHTS */
+.hi-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.hi-item{background:var(--panel);border:1px solid var(--border2);padding:16px 18px;display:flex;gap:14px}
+.hi-icon{font-size:20px;flex-shrink:0;line-height:1;margin-top:2px}
+.hi-title{font-size:12px;font-weight:600;color:var(--white);margin-bottom:4px}
+.hi-text{font-size:12px;color:var(--muted);line-height:1.55}
+.hi-text strong{color:var(--gold-pale)}
+
+/* PHASING */
+.phase-row{background:var(--panel);border:1px solid var(--border2);margin-bottom:12px}
+.phase-head{display:flex;align-items:center;gap:16px;padding:14px 20px;border-bottom:1px solid var(--border2);flex-wrap:wrap}
+.phase-badge{font-family:'DM Mono',monospace;font-size:9px;color:var(--gold);background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.2);padding:3px 10px;flex-shrink:0}
+.phase-name{font-family:'Playfair Display',serif;font-size:17px;font-weight:600;color:var(--white)}
+.phase-time{font-size:11px;color:var(--muted);margin-left:auto;font-family:'DM Mono',monospace}
+.phase-body{padding:16px 20px}
+.phase-stats{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);margin-bottom:16px}
+.pstat{background:var(--dark2);padding:10px 12px;text-align:center}
+.pstat-v{font-family:'Playfair Display',serif;font-size:16px;color:var(--gold);display:block;line-height:1}
+.pstat-l{font-size:8px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;display:block;margin-top:3px}
+.phase-desc{font-size:12.5px;color:var(--muted);line-height:1.65}
 .phase-desc strong{color:var(--text)}
 
-.fin-table{width:100%;border-collapse:collapse;margin-top:8px}
-.fin-table thead tr{background:rgba(201,168,76,0.08);border-bottom:1px solid var(--border);}
-.fin-table th{padding:10px 14px;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dim);font-weight:600;text-align:left;}
-.fin-table th:not(:first-child){text-align:right}
-.fin-table td{padding:9px 14px;font-size:12.5px;border-bottom:1px solid var(--border2);}
-.fin-table td:not(:first-child){text-align:right;font-family:'DM Mono',monospace;font-size:12px;}
-.fin-table tr.subtotal td{background:rgba(255,255,255,0.02);color:var(--text);font-weight:600;}
-.fin-table tr.total td{background:rgba(201,168,76,0.08);border-top:1px solid var(--border);border-bottom:none;font-weight:700;font-size:13.5px;color:var(--gold);}
-.fin-table .neg{color:var(--red)}.fin-table .pos{color:var(--green)}.fin-table .neutral{color:var(--muted)}
-.fin-table td.plain{color:var(--text);font-family:'DM Sans',sans-serif;font-size:12.5px;font-weight:400}
+/* SCENARIO TABLE */
+.sc-table{width:100%;border-collapse:collapse}
+.sc-table th{padding:10px 14px;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dim);font-weight:600;text-align:left;background:rgba(201,168,76,0.08);border-bottom:1px solid var(--border)}
+.sc-table th:not(:first-child){text-align:center}
+.sc-table td{padding:10px 14px;font-size:13px;border-bottom:1px solid var(--border2);vertical-align:middle}
+.sc-table td:not(:first-child){text-align:center;font-family:'DM Mono',monospace;font-size:12px}
+.sc-table tr.best td{background:rgba(201,168,76,0.05)}
+.sc-table .badge{display:inline-block;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;padding:2px 7px;border:1px solid;font-weight:600}
+.badge-green{color:var(--green);border-color:rgba(76,175,122,0.3)}
+.badge-gold{color:var(--gold);border-color:rgba(201,168,76,0.3)}
+.badge-blue{color:var(--blue);border-color:rgba(91,155,213,0.3)}
+.badge-red{color:var(--red);border-color:rgba(224,80,80,0.3)}
 
-.scenario-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);}
-.scenario{background:var(--panel);padding:24px;}
-.scenario.primary{background:linear-gradient(160deg,rgba(201,168,76,0.07) 0%,var(--panel) 100%);}
-.scenario-tag{font-size:8px;letter-spacing:2.5px;text-transform:uppercase;font-weight:600;margin-bottom:12px;}
-.scenario-tag.gold{color:var(--gold)}.scenario-tag.blue{color:var(--blue)}.scenario-tag.green{color:var(--green)}
-.scenario-name{font-family:'Playfair Display',serif;font-size:19px;color:var(--white);margin-bottom:4px;}
-.scenario-irr{font-family:'Playfair Display',serif;font-size:36px;font-weight:600;margin:16px 0 4px;}
-.scenario-irr.gold{color:var(--gold)}.scenario-irr.blue{color:var(--blue)}.scenario-irr.green{color:var(--green)}
-.scenario-irr-label{font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase}
-.scenario-pros{margin-top:16px}
-.scenario-pro{font-size:12px;color:var(--muted);padding:4px 0;border-bottom:1px solid var(--border2);display:flex;gap:8px;}
-.scenario-pro:last-child{border-bottom:none}
-.pro-icon{color:var(--green);flex-shrink:0}.con-icon{color:var(--red);flex-shrink:0}
+/* RISK */
+.risk-row{background:var(--panel);border:1px solid var(--border2);border-left:3px solid;padding:14px 18px;margin-bottom:10px;display:grid;grid-template-columns:200px 1fr 1fr;gap:16px;align-items:start}
+.risk-row.high{border-left-color:var(--red)}.risk-row.med{border-left-color:var(--orange)}.risk-row.low{border-left-color:var(--green)}
+.risk-badge{font-size:8px;letter-spacing:2px;text-transform:uppercase;font-weight:600;display:block;margin-bottom:5px}
+.risk-row.high .risk-badge{color:var(--red)}.risk-row.med .risk-badge{color:var(--orange)}.risk-row.low .risk-badge{color:var(--green)}
+.risk-name{font-size:13px;font-weight:600;color:var(--white)}
+.risk-col-h{font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.risk-col-t{font-size:12px;color:var(--muted);line-height:1.55}
+.risk-col-t strong{color:var(--text)}
 
-.sensitivity{overflow-x:auto}
-.sens-table{width:100%;border-collapse:collapse;min-width:500px}
-.sens-table th,.sens-table td{padding:8px 12px;font-size:12px;border:1px solid var(--border2);text-align:center;}
-.sens-table th{background:rgba(201,168,76,0.08);color:var(--muted);font-size:10px;letter-spacing:1px;text-transform:uppercase;}
-.sens-table td.base{background:rgba(201,168,76,0.1);color:var(--gold);font-weight:600}
-.sens-table td.neg1{background:rgba(224,80,80,0.1);color:var(--red)}
-.sens-table td.neg2{background:rgba(224,80,80,0.2);color:#FF7070}
-.sens-table td.pos1{background:rgba(76,175,122,0.1);color:var(--green)}
-.sens-table td.pos2{background:rgba(76,175,122,0.2);color:#7AFFA8}
-.sens-table td.label{text-align:left;color:var(--muted);background:var(--panel);font-size:11px}
+/* CASHFLOW VIZ */
+.cf-bar-wrap{display:flex;gap:4px;align-items:flex-end;height:80px;margin-top:12px}
+.cf-bar{flex:1;min-height:4px;border-radius:2px 2px 0 0;position:relative;transition:opacity .2s}
+.cf-bar.neg{background:var(--red);opacity:.7}
+.cf-bar.pos{background:var(--green);opacity:.8}
+.cf-bar.neu{background:var(--gold);opacity:.6}
+.cf-labels{display:flex;gap:4px;margin-top:4px}
+.cf-label{flex:1;text-align:center;font-size:9px;color:var(--muted);font-family:'DM Mono',monospace}
 
-.eu-box{background:linear-gradient(135deg,rgba(91,155,213,0.1) 0%,rgba(91,155,213,0.04) 100%);border:1px solid rgba(91,155,213,0.25);border-left:3px solid var(--blue);padding:24px;margin-bottom:20px;}
-.eu-title{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--blue);font-weight:600;margin-bottom:10px;}
+/* DIVIDER */
+.dv{height:1px;background:var(--border2);margin:20px 0}
 
-.risk-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.risk-item{background:var(--panel);border:1px solid var(--border2);border-top:2px solid;padding:14px 16px;}
-.risk-item.high{border-top-color:var(--red)}.risk-item.med{border-top-color:var(--gold)}.risk-item.low{border-top-color:var(--green)}
-.risk-label{font-size:8px;letter-spacing:2px;text-transform:uppercase;font-weight:600;margin-bottom:6px;}
-.risk-item.high .risk-label{color:var(--red)}.risk-item.med .risk-label{color:var(--gold)}.risk-item.low .risk-label{color:var(--green)}
-.risk-name{font-size:13px;font-weight:600;color:var(--white);margin-bottom:6px;}
-.risk-desc{font-size:11.5px;color:var(--muted);line-height:1.55}
+/* EU */
+.eu-box{background:linear-gradient(135deg,rgba(91,155,213,0.08) 0%,transparent 100%);border:1px solid rgba(91,155,213,0.2);border-left:3px solid var(--blue);padding:20px;display:flex;gap:16px;align-items:flex-start}
+.eu-icon{font-size:24px;flex-shrink:0}
+.eu-title{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--blue);font-weight:600;margin-bottom:6px}
+.eu-text{font-size:12.5px;color:var(--text);line-height:1.6}
+.eu-text strong{color:rgba(168,196,240,1)}
 
-.im-list{counter-reset:im}
-.im-item{counter-increment:im;display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--border2);}
-.im-item:last-child{border-bottom:none}
-.im-num{font-family:'DM Mono',monospace;font-size:11px;color:var(--gold-dim);flex-shrink:0;width:28px;padding-top:1px;}
-.im-title{font-size:14px;font-weight:600;color:var(--white);margin-bottom:4px;}
-.im-desc{font-size:12px;color:var(--muted);line-height:1.6}
+/* CTA */
+.cta-box{background:linear-gradient(135deg,rgba(201,168,76,0.1) 0%,rgba(201,168,76,0.03) 100%);border:1px solid rgba(201,168,76,0.3);padding:36px 40px;text-align:center}
+.cta-title{font-family:'Playfair Display',serif;font-size:28px;color:var(--white);margin-bottom:8px}
+.cta-sub{font-size:13px;color:var(--muted);margin-bottom:28px}
+.cta-steps{display:flex;justify-content:center;gap:32px;margin-bottom:32px;flex-wrap:wrap}
+.cta-step{text-align:center}
+.cta-step-n{width:32px;height:32px;border:1px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:12px;color:var(--gold);margin:0 auto 8px}
+.cta-step-t{font-size:12px;color:var(--muted)}
+.cta-contact{font-family:'Playfair Display',serif;font-size:18px;color:var(--gold);margin-bottom:4px}
+.cta-email{font-size:13px;color:var(--muted)}
 
-.divider{height:1px;background:var(--border2);margin:24px 0;}
+/* FOOTER */
+.footer{padding:24px 60px;background:var(--dark2);border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-left{font-size:11px;color:var(--muted)}
+.footer-left strong{color:var(--text)}
+.conf{font-size:8px;letter-spacing:3px;text-transform:uppercase;color:rgba(201,168,76,0.4);border:1px solid rgba(201,168,76,0.2);padding:5px 12px}
 
-.vypocet-box{background:rgba(201,168,76,0.04);border:1px solid var(--border);padding:20px;margin:16px 0;font-family:'DM Mono',monospace;font-size:12px;line-height:2;}
-.vypocet-box .riadok{display:flex;justify-content:space-between;border-bottom:1px solid var(--border2);padding:4px 0;}
-.vypocet-box .riadok:last-child{border-bottom:none;color:var(--gold);font-weight:700;font-size:14px;padding-top:8px;}
-.vypocet-box .riadok .popis{color:var(--muted)}
-.vypocet-box .riadok .cislo{color:var(--text)}
-.vypocet-box .riadok.vysledok .cislo{color:var(--gold)}
-.vypocet-box .riadok.medzisuct .cislo{color:var(--white);font-weight:600}
-
-.doc-footer{padding:30px 60px;background:var(--dark2);border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
-.doc-footer-left{font-size:12px;color:var(--muted)}.doc-footer-left strong{color:var(--text)}
-.confidential-badge{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(201,168,76,0.4);border:1px solid rgba(201,168,76,0.2);padding:6px 14px;}
-
-/* ── HAMBURGER BUTTON ── */
-.hamburger{display:none;position:fixed;top:16px;left:16px;z-index:200;background:var(--dark2);border:1px solid var(--border);padding:10px 12px;cursor:pointer;flex-direction:column;gap:5px;}
-.hamburger span{display:block;width:22px;height:2px;background:var(--gold);}
-.nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:150;}
-
-/* ── RESPONSIVE ── */
+/* RESPONSIVE */
 @media(max-width:900px){
-  .hamburger{display:flex;}
-  .nav-overlay.open{display:block;}
-
-  .sidenav{
-    transform:translateX(-100%);
-    transition:transform .3s ease;
-    z-index:160;
-    width:260px;
-  }
-  .sidenav.open{transform:translateX(0);}
-
-  .main{margin-left:0;}
-
-  .hero{padding:60px 20px 40px;}
-  .hero-title{font-size:36px;}
-  .hero-sub{font-size:12px;letter-spacing:0;}
-  .hero-stats{grid-template-columns:repeat(2,1fr);}
-  .hero-stat:last-child{grid-column:1/-1;}
-  .hero::after{display:none;}
-
-  section{padding:32px 20px;}
-
-  .section-title{font-size:22px;}
-  .section-title-line{display:none;}
-
-  .grid-2,.grid-3,.grid-4{grid-template-columns:1fr;}
-
-  .phase-grid{grid-template-columns:1fr 1fr;}
-
-  .scenario-grid{grid-template-columns:1fr;}
-
-  .risk-grid{grid-template-columns:1fr;}
-
-  .sensitivity{overflow-x:auto;}
-
-  .vypocet-box{font-size:11px;}
-  .vypocet-box .riadok{flex-direction:column;gap:2px;}
-
-  .doc-footer{flex-direction:column;gap:16px;text-align:center;padding:24px 20px;}
-
-  .fin-table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;}
-
-  .fact-table td:first-child{width:50%;}
-  .fact-table td{font-size:12px;}
-
-  .alert{padding:14px 16px;}
-  .card{padding:16px;}
-
-  .timeline{padding-left:24px;}
-  .phase-header{flex-wrap:wrap;}
-  .phase-years{width:100%;margin-left:0;margin-top:4px;}
+  .hamburger{display:flex}
+  .sidenav{transform:translateX(-100%)}
+  .sidenav.open{transform:translateX(0)}
+  .nav-overlay.open{display:block}
+  .main{margin-left:0}
+  .hero{padding:56px 20px 36px}
+  .hero-title{font-size:32px}
+  .hero-kpi{grid-template-columns:repeat(3,1fr)}
+  section{padding:36px 20px}
+  .st{font-size:21px}
+  .sl{display:none}
+  .g2,.g3,.g4{grid-template-columns:1fr}
+  .exec-grid{grid-template-columns:1fr}
+  .hi-grid{grid-template-columns:1fr}
+  .phase-stats{grid-template-columns:repeat(3,1fr)}
+  .risk-row{grid-template-columns:1fr;gap:8px}
+  .cta-steps{gap:20px}
+  .footer{padding:20px}
 }
-
 @media(max-width:480px){
-  .hero{padding:50px 16px 32px;}
-  .hero-title{font-size:28px;}
-  .hero-stats{grid-template-columns:1fr 1fr;}
-  .hero-stat:last-child{grid-column:auto;}
-  .hero-stat-num{font-size:17px;}
-
-  section{padding:24px 16px;}
-  .section-title{font-size:19px;}
-
-  .metric-val{font-size:24px;}
-  .phase-grid{grid-template-columns:1fr 1fr;}
-  .scenario-irr{font-size:28px;}
-
-  .doc-footer{padding:20px 16px;}
-  .card-title{font-size:8px;}
+  .hero{padding:48px 16px 28px}
+  .hero-title{font-size:26px}
+  .hero-kpi{grid-template-columns:repeat(2,1fr)}
+  section{padding:28px 16px}
+  .phase-stats{grid-template-columns:repeat(2,1fr)}
+  .fin{display:block;overflow-x:auto}
 }
 </style>
 </head>
@@ -254,903 +234,863 @@ section:last-child{border-bottom:none}
 <nav class="sidenav" id="sidenav">
   <div class="nav-logo">
     <div class="nav-logo-title">Areál David</div>
-    <div class="nav-logo-sub">Rozvojová štúdia 2026</div>
+    <div class="nav-logo-sub">Investment Opportunity</div>
   </div>
-  <div class="nav-section">Prehľad</div>
-  <a href="#zhrnutie" class="nav-link">Výkonnostné zhrnutie</a>
-  <a href="#regulacia" class="nav-link">Regulačný rámec</a>
-  <div class="nav-section">Výpočty</div>
-  <a href="#plochy" class="nav-link">Výpočet plôch a GFA</a>
-  <a href="#program" class="nav-link">Programová skladba</a>
-  <div class="nav-section">Scenáre</div>
-  <a href="#scenare" class="nav-link">Scenáre A / B / C</a>
-  <a href="#fazy" class="nav-link">Fazová stratégia</a>
+  <div class="nav-section">Deal Overview</div>
+  <a href="#exec" class="nav-link">Executive Summary</a>
+  <a href="#highlights" class="nav-link">Investment Highlights</a>
+  <a href="#location" class="nav-link">Lokalita & Dopyt</a>
+  <div class="nav-section">Development</div>
+  <a href="#concept" class="nav-link">Development Concept</a>
+  <a href="#phasing" class="nav-link">Fazová stratégia</a>
   <div class="nav-section">Financie</div>
-  <a href="#financny" class="nav-link">Finančný model</a>
-  <a href="#senzitivita" class="nav-link">Senzitivitná analýza</a>
+  <a href="#financial" class="nav-link">Financial Overview</a>
+  <a href="#scenarios" class="nav-link">Porovnanie scenárov</a>
+  <div class="nav-section">Due Diligence</div>
+  <a href="#risk" class="nav-link">Riziká & Mitigácia</a>
+  <a href="#exit" class="nav-link">Exit stratégia</a>
   <a href="#eu" class="nav-link">Fondy EÚ</a>
-  <div class="nav-section">Investor</div>
-  <a href="#investor" class="nav-link">Investičná logika</a>
-  <a href="#rizika" class="nav-link">Analýza rizík</a>
-  <a href="#im" class="nav-link">Štruktúra IM</a>
+  <a href="#cta" class="nav-link">Kontakt</a>
 </nav>
 
 <div class="main">
 
+<!-- HERO -->
 <div class="hero">
-  <div class="hero-tag">Dôverný dokument · Investičná štúdia · Máj 2026</div>
+  <div class="hero-tag">Prísne dôverné · Košice, Slovensko · Máj 2026</div>
   <div class="hero-title">Areál <em>David</em></div>
-  <div class="hero-sub">Košice – Nad Jazerom · Zmiešaný development · 98 400 m² · Máj 2026</div>
-  <div class="hero-stats">
-    <div class="hero-stat"><span class="hero-stat-num">98 400</span><span class="hero-stat-label">Plocha pozemku m²</span></div>
-    <div class="hero-stat"><span class="hero-stat-num">40 %</span><span class="hero-stat-label">Max. zastavanosť</span></div>
-    <div class="hero-stat"><span class="hero-stat-num">8 NP</span><span class="hero-stat-label">Max. výška</span></div>
-    <div class="hero-stat"><span class="hero-stat-num">405–447 M€</span><span class="hero-stat-label">Potenciál GDV</span></div>
-    <div class="hero-stat"><span class="hero-stat-num">32,25 M€</span><span class="hero-stat-label">Požadovaná cena</span></div>
+  <div class="hero-sub">98 400 m² brownfield · Zmiešaný rezidenčný development · Schválený územný plán</div>
+  <div class="hero-kpi">
+    <div class="kpi"><span class="kpi-val">98 400</span><span class="kpi-label">Plocha m²</span></div>
+    <div class="kpi"><span class="kpi-val">405–447M€</span><span class="kpi-label">GDV</span></div>
+    <div class="kpi"><span class="kpi-val">~362M€</span><span class="kpi-label">CAPEX</span></div>
+    <div class="kpi"><span class="kpi-val">80–175M€</span><span class="kpi-label">Zisk developera</span></div>
+    <div class="kpi"><span class="kpi-val">18–28%</span><span class="kpi-label">Target IRR</span></div>
+    <div class="kpi"><span class="kpi-val">32,25M€</span><span class="kpi-label">Cena pozemku</span></div>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════ -->
-<!-- 01 – VÝKONNOSTNÉ ZHRNUTIE -->
-<!-- ══════════════════════════════════════ -->
-<section id="zhrnutie">
-  <div class="section-header">
-    <span class="section-num">01</span>
-    <h2 class="section-title">Výkonnostné zhrnutie</h2>
-    <div class="section-title-line"></div>
-  </div>
+<!-- 01 EXECUTIVE SUMMARY -->
+<section id="exec">
+  <div class="sh"><span class="sn">01</span><h2 class="st">Executive Summary</h2><div class="sl"></div></div>
 
-  <div class="alert alert-gold">
-    <div class="alert-title">Investičná príležitosť</div>
-    <p>Areál David je <strong>brownfieldový pozemok 98 400 m²</strong> v Košiciach – Nad Jazerom s čerstvo schváleným územným plánom (zmiešané územie, zastavanosť 40 %, 8 NP). Lokalita leží <strong>8,2 km od závodu Volvo (investícia 1 mld. €+, 20 000 pracovných miest)</strong> a pri letisku Košice. Požadovaná cena <strong>32,25 M€</strong> predstavuje iba 7–8 % odhadovanej GDV — výrazne pod štandardom CEE developera 15–20 %.</p>
-  </div>
-
-  <div class="grid-4" style="margin-bottom:24px">
-    <div class="metric"><span class="metric-val">~236 160</span><div class="metric-label">Max. GFA m²</div><div class="metric-note">Pri 40 % zastavanosti, 8 podlaží priemer</div></div>
-    <div class="metric"><span class="metric-val">~95 000</span><div class="metric-label">Predajná plocha bytov m²</div><div class="metric-note">Rezidenčná časť, 75 % z bytovej GFA</div></div>
-    <div class="metric green"><span class="metric-val">22–26 %</span><div class="metric-label">Projektové IRR (odhad)</div><div class="metric-note">Scenár A s fondmi EÚ</div></div>
-    <div class="metric blue"><span class="metric-val">66–99 M€</span><div class="metric-label">Potenciál fondov EÚ</div><div class="metric-note">20–30 % CAPEX cez registr. lobistú</div></div>
-  </div>
-
-  <div class="grid-3">
-    <div class="card">
-      <div class="card-title">Kľúčové parametre lokality</div>
-      <table class="fact-table">
-        <tr><td>Lokalita</td><td>Košice – MČ Nad Jazerom</td></tr>
-        <tr><td>Celková plocha</td><td class="val-gold">98 400 m²</td></tr>
-        <tr><td>Funkčná plocha ÚP</td><td>23/44/16 – Plochy zmiešaného územia</td></tr>
-        <tr><td>Stav ÚP</td><td class="val-green">T – Transformačné, schválené</td></tr>
-        <tr><td>Max. zastavanosť objektom</td><td class="val-gold">40 %</td></tr>
-        <tr><td>Max. počet NP</td><td class="val-gold">8 nadzemných podlaží</td></tr>
-        <tr><td>Max. výška zástavby</td><td>30 m</td></tr>
-        <tr><td>Min. vegetačné plochy</td><td>30 % z plochy</td></tr>
-      </table>
+  <div class="exec-grid">
+    <div class="exec-item">
+      <span class="exec-num">01</span>
+      <div>
+        <div class="exec-label">Lokalita & Rozsah</div>
+        <div class="exec-val">98 400 m²</div>
+        <div class="exec-sub">Brownfield, Košice – Nad Jazerom. Schválený územný plán, 40 % zastavanosť, 8 NP, plná infraštruktúra na mieste.</div>
+      </div>
     </div>
-    <div class="card">
-      <div class="card-title">Dopytové faktory</div>
-      <table class="fact-table">
-        <tr><td>Košice – počet obyvateľov</td><td>~240 000 (2. najväčšie mesto SR)</td></tr>
-        <tr><td>Závod Volvo (Valaliky)</td><td>8,2 km · 1 mld. € · 20 000 pracov. miest</td></tr>
-        <tr><td>Spustenie výroby Volvo</td><td>2026 – aktívny dopyt po bývaní</td></tr>
-        <tr><td>Letisko Košice</td><td>Susediace · 13 min jazdy</td></tr>
-        <tr><td>U.S. Steel Košice</td><td>Najväčší zamestnávateľ v regióne</td></tr>
-        <tr><td>Prístup</td><td>Priame napojenie na obchvat R4</td></tr>
-        <tr><td>Politika mesta</td><td>Aktívna transformácia brownfieldov</td></tr>
-      </table>
+    <div class="exec-item">
+      <span class="exec-num">02</span>
+      <div>
+        <div class="exec-label">Typ developmentu</div>
+        <div class="exec-val">Zmiešaný, rezidenčný-led</div>
+        <div class="exec-sub">~1 600 bytov + kancelárie, retail, logistika. Fázovaný development 8–10 rokov, 4 fázy.</div>
+      </div>
     </div>
-    <div class="card">
-      <div class="card-title">Regulačné obmedzenia (ÚP)</div>
-      <table class="fact-table">
-        <tr><td>OP železnice (vých. časť)</td><td class="val-red">Bytová zástavba NEPRÍPUSTNÁ</td></tr>
-        <tr><td>Odhadovaná plocha OP</td><td class="val-red">~15 000–20 000 m²</td></tr>
-        <tr><td>Záplavová čiara Q100</td><td class="val-gold">Schválenie správcu vodného toku</td></tr>
-        <tr><td>Biokoridor BK-M65</td><td class="val-gold">Sev. a záp. časť – obmedzenia</td></tr>
-        <tr><td>VVN 110 kV vedenie</td><td class="val-gold">Vedenia NN pod povrch</td></tr>
-        <tr><td>Povinná urbanistická štúdia</td><td class="val-red">Pred vydaním povolení</td></tr>
-      </table>
+    <div class="exec-item">
+      <span class="exec-num">03</span>
+      <div>
+        <div class="exec-label">Gross Development Value</div>
+        <div class="exec-val">405 – 447 M€</div>
+        <div class="exec-sub">Konzervatívne avg 3 430 €/m² | Realisticky 3 830 €/m². Benchmark: WatsoNova centrum Košíc 5 350 €/m².</div>
+      </div>
+    </div>
+    <div class="exec-item">
+      <span class="exec-num">04</span>
+      <div>
+        <div class="exec-label">Celkový CAPEX</div>
+        <div class="exec-val">~362 M€</div>
+        <div class="exec-sub">Stavba 238M€ + infra 19M€ + soft costs 28M€ + financovanie 19M€ + mkt 7M€ + rezerva 19M€ + pozemok 32M€.</div>
+      </div>
+    </div>
+    <div class="exec-item">
+      <span class="exec-num">05</span>
+      <div>
+        <div class="exec-label">Zisk developera</div>
+        <div class="exec-val">80 – 175 M€</div>
+        <div class="exec-sub">Konzerv. bez EÚ fondov: +43M€ | S EÚ fondmi (25% CAPEX): +134M€ | Realisticky + EÚ: +175M€.</div>
+      </div>
+    </div>
+    <div class="exec-item">
+      <span class="exec-num">06</span>
+      <div>
+        <div class="exec-label">Target IRR</div>
+        <div class="exec-val">18 – 28 %</div>
+        <div class="exec-sub">Equity IRR vyššie pri pákovom efekte. Pozemok = 7–8% GDV vs benchmark 15–20% → vstup s okamžitou hodnotovou maržou.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert a-gold">
+    <div class="at">Prečo práve teraz</div>
+    <p>Závod Volvo (1 mld. €+, 20 000 pracovných miest) spúšťa výrobu v roku 2026 — <strong>garantovaný rezidenčný dopyt pre nasledujúcich 5–7 rokov</strong>. Košice zaznamenali v roku 2025 rast cien bytov +21,5 %. Územný plán je práve schválený — <strong>regulačné riziko je na historickom minime</strong>. Neexistuje porovnateľný brownfield project v Košiciach s týmto rozsahom.</p>
+  </div>
+</section>
+
+<!-- 02 INVESTMENT HIGHLIGHTS -->
+<section id="highlights">
+  <div class="sh"><span class="sn">02</span><h2 class="st">Investment Highlights</h2><div class="sl"></div></div>
+
+  <div class="hi-grid">
+    <div class="hi-item">
+      <div class="hi-icon">🏭</div>
+      <div>
+        <div class="hi-title">20 000 nových pracovných miest → garantovaná absorpcia</div>
+        <div class="hi-text">Závod Volvo Valaliky (8,2 km) spúšťa výrobu 2026. <strong>Odhadovaný dopyt: 1 500–2 000 nových košických domácností ročne</strong> — priamy rezidenčný buffer pre tento projekt.</div>
+      </div>
+    </div>
+    <div class="hi-item">
+      <div class="hi-icon">📋</div>
+      <div>
+        <div class="hi-title">Schválený ÚP → minimálne regulačné riziko</div>
+        <div class="hi-text">Prioritná transformačná zóna s potvrdenou zastavanosťou 40 % a 8 NP. <strong>Developer neplatí za neistotu povolenia</strong> — pozemok je "shovel ready" po urbanistickej štúdii.</div>
+      </div>
+    </div>
+    <div class="hi-item">
+      <div class="hi-icon">⚡</div>
+      <div>
+        <div class="hi-title">Plná infraštruktúra na mieste → nulové infra CAPEX riziko</div>
+        <div class="hi-text">Voda, kanalizácia, elektrika, plyn, komunikácie — všetko existuje. <strong>Úspora 15–25 M€ vs greenfield</strong>. Okamžité napojenie na stavebnú sieť.</div>
+      </div>
+    </div>
+    <div class="hi-item">
+      <div class="hi-icon">💰</div>
+      <div>
+        <div class="hi-title">Pozemok za 7–8% GDV → vstup s okamžitou hodnotovou maržou</div>
+        <div class="hi-text">CEE benchmark: developer platí 15–20% GDV za pozemok. Tu platí 7–8%. <strong>Implicitná hodnotová marža 20–40 M€ už pri akvizícii</strong> — pred prvou tehličkou.</div>
+      </div>
+    </div>
+    <div class="hi-item">
+      <div class="hi-icon">🏗️</div>
+      <div>
+        <div class="hi-title">Existujúce prenájmy → cashflow počas plánovacej fázy</div>
+        <div class="hi-text">Všetky priemyselné budovy sú v prenájme. <strong>~1,2 M€ ročný NOI</strong> počas 12–18 mesiacov prípravy — pokrýva financing costs bez výstavby.</div>
+      </div>
+    </div>
+    <div class="hi-item">
+      <div class="hi-icon">🇪🇺</div>
+      <div>
+        <div class="hi-title">EÚ fondy → zníženie CAPEX o 20–30%</div>
+        <div class="hi-text">Registrovaný EU lobista s priamym prístupom ku Komisii. <strong>Odhadovaný prínos 55–85 M€</strong> cez IROP, EŠIF a EIB — transformuje marže projektu.</div>
+      </div>
+    </div>
+    <div class="hi-item">
+      <div class="hi-icon">📈</div>
+      <div>
+        <div class="hi-title">Trh Košice — catch-up potenciál voči Bratislave</div>
+        <div class="hi-text">Ceny bytov Košice (3 200–4 000 €/m²) sú <strong>40–50% pod Bratislavou</strong>. Rast 2025: +21,5%. Štrukturálny nedostatok: nová ponuka pokrýva len 60% dopytu.</div>
+      </div>
+    </div>
+    <div class="hi-item">
+      <div class="hi-icon">🚫</div>
+      <div>
+        <div class="hi-title">Žiadna porovnateľná konkurencia v Košiciach</div>
+        <div class="hi-text">WatsoNova (30 000 m², centrum) je jediný porovnateľný projekt — predal 75% bytov v prvých 2 etapách. <strong>Areál David je 3× väčší, mimo centra, iná cenová kategória</strong>.</div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════ -->
-<!-- 02 – REGULAČNÝ RÁMEC -->
-<!-- ══════════════════════════════════════ -->
-<section id="regulacia">
-  <div class="section-header">
-    <span class="section-num">02</span>
-    <h2 class="section-title">Regulačný rámec ÚPN-M Košice</h2>
-    <div class="section-title-line"></div>
-  </div>
+<!-- 03 LOCATION & DEMAND -->
+<section id="location">
+  <div class="sh"><span class="sn">03</span><h2 class="st">Lokalita & Dopytové faktory</h2><div class="sl"></div></div>
 
-  <div class="grid-2" style="margin-bottom:20px">
-    <div class="card">
-      <div class="card-title">Regulačný list 23/44/16 – Záväzné parametre</div>
-      <table class="fact-table">
-        <tr><td>Číslo funkčnej plochy</td><td>23/44/16</td></tr>
-        <tr><td>Výmera funkčnej plochy</td><td>99 125 m²</td></tr>
-        <tr><td>Funkčné využívanie</td><td>Plochy zmiešaného územia</td></tr>
-        <tr><td>Stav územia</td><td>T (Transformačné)</td></tr>
-        <tr><td>Max. podiel zastavanej plochy objektom</td><td class="val-gold">40 %</td></tr>
-        <tr><td>Max. počet NP</td><td class="val-gold">8 nadzemných podlaží</td></tr>
-        <tr><td>Max. výška zástavby</td><td class="val-gold">30 m</td></tr>
-        <tr><td>Min. podiel vegetačných plôch</td><td>30 %</td></tr>
-        <tr><td>Špeciálna podmienka</td><td class="val-red">Urbanistická štúdia — celé územie</td></tr>
-        <tr><td>OP železnice</td><td class="val-red">Bývanie NEPRÍPUSTNÉ</td></tr>
-      </table>
+  <div class="g2">
+    <div>
+      <div class="card" style="margin-bottom:16px">
+        <div class="ct">Makro — Košice</div>
+        <table class="ft">
+          <tr><td>Populácia</td><td>~240 000 (2. mesto SR)</td></tr>
+          <tr><td>HDP rast 2025</td><td>+3,2 % (nad priemerom SR)</td></tr>
+          <tr><td>Rast cien bytov 2025</td><td class="vg">+21,5 % medziročne</td></tr>
+          <tr><td>Priem. cena novostavby</td><td class="vg">3 200–4 500 €/m²</td></tr>
+          <tr><td>Benchmark (WatsoNova centrum)</td><td>od 5 350 €/m²</td></tr>
+          <tr><td>Ročná absorpcia trhu</td><td>600–800 bytov/rok</td></tr>
+          <tr><td>Štrukturálny deficit</td><td class="vr">Ponuka < 60 % dopytu</td></tr>
+        </table>
+      </div>
+      <div class="card">
+        <div class="ct">Dopravné napojenie</div>
+        <table class="ft">
+          <tr><td>Závod Volvo (Valaliky)</td><td>8,2 km · 13 min</td></tr>
+          <tr><td>Letisko Košice</td><td>susediace · 10 min</td></tr>
+          <tr><td>U.S. Steel Košice</td><td>4 km · 8 min</td></tr>
+          <tr><td>Centrum mesta</td><td>5 km · 12 min</td></tr>
+          <tr><td>Obchvat R4</td><td>priame napojenie</td></tr>
+          <tr><td>MHD</td><td>existujúce linky Nad Jazerom</td></tr>
+        </table>
+      </div>
     </div>
-    <div class="card">
-      <div class="card-title">Prípustné funkčné využívanie (C.2)</div>
-      <table class="fact-table">
-        <tr><td>Bývanie (bytové domy)</td><td class="val-green">Prípustné (mimo OP železnice)</td></tr>
-        <tr><td>Občianska vybavenosť</td><td class="val-green">Prípustné</td></tr>
-        <tr><td>Kancelárie / administratíva</td><td class="val-green">Prípustné</td></tr>
-        <tr><td>Obchod a služby (prízemie)</td><td class="val-green">Prípustné</td></tr>
-        <tr><td>Eko. nezávadná výroba a sklady</td><td class="val-green">Prípustné (OP zóna)</td></tr>
-        <tr><td>Logistika / skladovanie</td><td class="val-green">Prípustné (OP zóna)</td></tr>
-        <tr><td>Šport a rekreácia</td><td class="val-green">Prípustné</td></tr>
-        <tr><td>Ubytovanie / hotel</td><td class="val-green">Prípustné</td></tr>
-        <tr><td>Bývanie v OP železnice</td><td class="val-red">NEPRÍPUSTNÉ</td></tr>
-      </table>
+    <div>
+      <div class="card" style="margin-bottom:16px">
+        <div class="ct">Volvo efekt — kľúčový demand driver</div>
+        <table class="ft">
+          <tr><td>Investícia Volvo</td><td class="vg">1 mld. € +</td></tr>
+          <tr><td>Priame pracovné miesta</td><td class="vg">20 000</td></tr>
+          <tr><td>Spustenie výroby</td><td>2026 (potvrderé)</td></tr>
+          <tr><td>Odh. nové domácnosti/rok</td><td class="vg">1 500–2 000</td></tr>
+          <tr><td>Priem. plat Volvo pracovník</td><td>~1 800 €/mesiac</td></tr>
+          <tr><td>Hypotek. kapacita pri 5 % / 30r.</td><td>~250 000–300 000 €</td></tr>
+          <tr><td>Dosah na absorpciu projektu</td><td class="vg">Garantovaný floor dopytu</td></tr>
+        </table>
+      </div>
+      <div class="alert a-green">
+        <div class="at">Prečo Nad Jazerom funguje</div>
+        <p>Jazero Seligovo (rekreácia, príroda), blízkosť letisku, výborné napojenie na Volvo a U.S. Steel, MHD dostupnosť — kombinácia, ktorú cenovo dostupné centrum nevie poskytnúť. <strong>Cielená demografická skupina: Volvo pracovníci, young professionals, rodiny hľadajúce prírodu blízko práce.</strong></p>
+      </div>
     </div>
-  </div>
-
-  <div class="alert alert-gold">
-    <div class="alert-title">Povinná urbanistická štúdia — Prvý krok po akvizícii</div>
-    <p>Pred vydaním akéhokoľvek stavebného povolenia je potrebné spracovať <strong>urbanistickú štúdiu pre celé územie 23/44/16</strong> v súlade so zásadami ÚPN-M Košice. Ide o štandardný postup pre transformačné zóny. Časový rámec: <strong>12–18 mesiacov</strong> od objednania po schválenie. Náklady: <strong>150 000–300 000 €</strong> podľa rozsahu. Pre investora to prezentujte ako <strong>plánovaný krok s jasným harmonogramom</strong>, nie ako prekvapenie.</p>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════ -->
-<!-- 03 – VÝPOČET PLÔCH A GFA -->
-<!-- ══════════════════════════════════════ -->
-<section id="plochy">
-  <div class="section-header">
-    <span class="section-num">03</span>
-    <h2 class="section-title">Výpočet plôch a hrubej podlažnej plochy (GFA)</h2>
-    <div class="section-title-line"></div>
-  </div>
+<!-- 04 DEVELOPMENT CONCEPT -->
+<section id="concept">
+  <div class="sh"><span class="sn">04</span><h2 class="st">Development Concept</h2><div class="sl"></div></div>
 
-  <div class="grid-2" style="margin-bottom:24px">
+  <div class="g2" style="margin-bottom:20px">
     <div>
-      <div class="card">
-        <div class="card-title">Krok 1 — Redukcia pozemku o obmedzenia</div>
-        <div class="vypocet-box">
-          <div class="riadok"><span class="popis">Celková plocha pozemku</span><span class="cislo">98 400 m²</span></div>
-          <div class="riadok"><span class="popis">– OP železnice (odh. ~17 %)</span><span class="cislo">– 16 728 m²</span></div>
-          <div class="riadok"><span class="popis">– Biokoridor BK-M65 (odh. ~8 %)</span><span class="cislo">– 7 872 m²</span></div>
-          <div class="riadok"><span class="popis">– Záplavová čiara Q100 (odh. ~5 %)</span><span class="cislo">– 4 920 m²</span></div>
-          <div class="riadok medzisuct"><span class="popis">= Efektívna zastavateľná plocha</span><span class="cislo">68 880 m²</span></div>
-        </div>
-        <div style="font-size:11px;color:var(--muted);margin-top:8px">Pozn.: OP železnice je prípustné pre logistiku/kancelárie (nie bývanie). Biokoridor a Q100 môžu byť čiastočne zastavateľné po hydrolog. posúdení.</div>
+      <div class="card hl" style="margin-bottom:16px">
+        <div class="ct">Výpočet zastavateľnej plochy</div>
+        <table class="ft">
+          <tr><td>Celková plocha pozemku</td><td><strong>98 400 m²</strong></td></tr>
+          <tr><td>– OP železnice (nevhodné pre bývanie)</td><td class="vr">–16 700 m²</td></tr>
+          <tr><td>– Biokoridor BK-M65</td><td class="vr">–7 900 m²</td></tr>
+          <tr><td>– Záplavové pásmo Q100</td><td class="vr">–4 900 m²</td></tr>
+          <tr><td>= Efektívna zastavateľná plocha</td><td class="vg">68 900 m²</td></tr>
+          <tr><td>Max. footprint (40 % z 98 400)</td><td>39 360 m²</td></tr>
+          <tr><td>Zelené plochy (min. 30 %)</td><td>≥ 29 520 m²</td></tr>
+        </table>
       </div>
-
-      <div class="card" style="margin-top:16px">
-        <div class="card-title">Krok 2 — Maximálny zastavateľný footprint</div>
-        <div class="vypocet-box">
-          <div class="riadok"><span class="popis">Efektívna plocha</span><span class="cislo">68 880 m²</span></div>
-          <div class="riadok"><span class="popis">× Max. zastavanosť objektom</span><span class="cislo">40 %</span></div>
-          <div class="riadok vysledok"><span class="popis">= Max. footprint budov</span><span class="cislo">27 552 m²</span></div>
-        </div>
-        <div class="divider"></div>
-        <div class="card-title">Krok 3 — Hrubá podlažná plocha (GFA)</div>
-        <div class="vypocet-box">
-          <div class="riadok"><span class="popis">Footprint rezidenčná zóna</span><span class="cislo">20 000 m²</span></div>
-          <div class="riadok"><span class="popis">× Priemer 7 podlaží</span><span class="cislo">× 7</span></div>
-          <div class="riadok medzisuct"><span class="popis">= Rezidenčná GFA</span><span class="cislo">140 000 m²</span></div>
-          <div class="riadok"><span class="popis">Footprint komerčná / OP zóna</span><span class="cislo">7 552 m²</span></div>
-          <div class="riadok"><span class="popis">× Priemer 3 podlaží</span><span class="cislo">× 3</span></div>
-          <div class="riadok medzisuct"><span class="popis">= Komerčná / logist. GFA</span><span class="cislo">22 656 m²</span></div>
-          <div class="riadok vysledok"><span class="popis">= Celková GFA projektu</span><span class="cislo">~162 656 m²</span></div>
-        </div>
+      <div class="card">
+        <div class="ct">Funkčná skladba GFA</div>
+        <table class="fin">
+          <thead><tr><th>Funkcia</th><th>%</th><th>GFA m²</th><th>NLA m²</th></tr></thead>
+          <tbody>
+            <tr><td>Rezidencia</td><td class="neu">80 %</td><td class="neu">140 000</td><td class="pos">105 000</td></tr>
+            <tr><td>Kancelárie A/B</td><td class="neu">6 %</td><td class="neu">10 000</td><td class="pos">8 500</td></tr>
+            <tr><td>Retail / F&B</td><td class="neu">3 %</td><td class="neu">6 000</td><td class="pos">5 400</td></tr>
+            <tr><td>Kliniky / služby</td><td class="neu">2 %</td><td class="neu">4 000</td><td class="pos">3 400</td></tr>
+            <tr><td>Logistika (OP zóna)</td><td class="neu">8 %</td><td class="neu">14 000</td><td class="pos">12 600</td></tr>
+            <tr><td>Amenity / šport</td><td class="neu">1 %</td><td class="neu">1 770</td><td class="neu">—</td></tr>
+            <tr class="tot"><td>SPOLU</td><td>100 %</td><td>175 770</td><td>134 900</td></tr>
+          </tbody>
+        </table>
       </div>
     </div>
-
     <div>
-      <div class="card">
-        <div class="card-title">Krok 4 — Predajná / prenajímateľná plocha (NLA)</div>
-        <div class="vypocet-box">
-          <div class="riadok"><span class="popis">Rezidenčná GFA</span><span class="cislo">140 000 m²</span></div>
-          <div class="riadok"><span class="popis">× Koeficient predajnosti (75 %)</span><span class="cislo">× 0,75</span></div>
-          <div class="riadok vysledok"><span class="popis">= Predajná rezidenčná plocha</span><span class="cislo">105 000 m²</span></div>
-          <div class="riadok" style="margin-top:8px"><span class="popis">Kancelárska GFA</span><span class="cislo">10 000 m²</span></div>
-          <div class="riadok"><span class="popis">× Koeficient NLA (85 %)</span><span class="cislo">× 0,85</span></div>
-          <div class="riadok medzisuct"><span class="popis">= Prenajímateľná kancel. plocha</span><span class="cislo">8 500 m²</span></div>
-          <div class="riadok" style="margin-top:8px"><span class="popis">Obchodná / retail GFA</span><span class="cislo">6 000 m²</span></div>
-          <div class="riadok"><span class="popis">× Koeficient NLA (90 %)</span><span class="cislo">× 0,90</span></div>
-          <div class="riadok medzisuct"><span class="popis">= Prenajímateľná retail plocha</span><span class="cislo">5 400 m²</span></div>
-          <div class="riadok" style="margin-top:8px"><span class="popis">Logistika / sklad GFA</span><span class="cislo">14 000 m²</span></div>
-          <div class="riadok"><span class="popis">× Koeficient NLA (90 %)</span><span class="cislo">× 0,90</span></div>
-          <div class="riadok medzisuct"><span class="popis">= Prenajímateľná log. plocha</span><span class="cislo">12 600 m²</span></div>
-        </div>
+      <div class="card" style="margin-bottom:16px">
+        <div class="ct">Skladba bytov & Ceny (máj 2026)</div>
+        <table class="fin">
+          <thead><tr><th>Typ</th><th>%</th><th>Počet</th><th>Avg m²</th><th>Cena €/m²</th></tr></thead>
+          <tbody>
+            <tr><td>1kk</td><td class="neu">25 %</td><td class="neu">~404</td><td class="neu">42</td><td class="pos">3 000–3 400</td></tr>
+            <tr><td>2kk</td><td class="neu">45 %</td><td class="neu">~727</td><td class="neu">62</td><td class="pos">3 200–3 600</td></tr>
+            <tr><td>3kk</td><td class="neu">25 %</td><td class="neu">~404</td><td class="neu">88</td><td class="pos">3 400–3 800</td></tr>
+            <tr><td>4kk+</td><td class="neu">5 %</td><td class="neu">~81</td><td class="neu">115</td><td class="pos">3 800–4 400</td></tr>
+            <tr class="tot"><td>SPOLU</td><td>100 %</td><td>~1 616</td><td>65 avg</td><td>3 430 avg</td></tr>
+          </tbody>
+        </table>
       </div>
-
-      <div class="card" style="margin-top:16px">
-        <div class="card-title">Krok 5 — Počet bytových jednotiek</div>
-        <div class="vypocet-box">
-          <div class="riadok"><span class="popis">Predajná rezidenčná plocha</span><span class="cislo">105 000 m²</span></div>
-          <div class="riadok"><span class="popis">÷ Priemerná veľkosť bytu</span><span class="cislo">÷ 65 m²</span></div>
-          <div class="riadok vysledok"><span class="popis">= Počet bytov (odhad)</span><span class="cislo">~1 615 bytov</span></div>
-        </div>
-        <table class="fact-table" style="margin-top:12px">
-          <tr><td>1-izbové byty (25 % · avg 42 m²)</td><td>~404 jednotiek</td></tr>
-          <tr><td>2-izbové byty (45 % · avg 62 m²)</td><td>~727 jednotiek</td></tr>
-          <tr><td>3-izbové byty (25 % · avg 88 m²)</td><td>~404 jednotiek</td></tr>
-          <tr><td>4+-izbové byty (5 % · avg 115 m²)</td><td>~81 jednotiek</td></tr>
+      <div class="card">
+        <div class="ct">Parkovanie & Mobilita</div>
+        <table class="ft">
+          <tr><td>Ratio parkovania (rezidencia)</td><td>1,2 miesta / byt</td></tr>
+          <tr><td>Celkový počet miest</td><td>~1 940</td></tr>
+          <tr><td>Podzemné garážové státia</td><td>~1 200 (fáza 2+)</td></tr>
+          <tr><td>Povrchové státia (fáza 1)</td><td>~740 dočasne</td></tr>
+          <tr><td>Cena podzemného státia</td><td>22 000–26 000 €</td></tr>
+          <tr><td>Cyklistická infraštruktúra</td><td>Povinná per C.4.4 ÚPN-M</td></tr>
+          <tr><td>Logistický vstup</td><td>Separovaný, východná strana</td></tr>
         </table>
       </div>
     </div>
   </div>
 
+  <div class="alert a-gold">
+    <div class="at">Prečo zmiešaná funkcia, nie čisto rezidenčná</div>
+    <p>Maximalizácia bytovej zástavby znižuje IRR. Komerčné prízemné priestory <strong>de-rizikujú rezidenčné poschodia</strong>, logistická OP zóna generuje <strong>cashflow od fázy 1</strong>, zmiešaná funkcia sprístupňuje <strong>väčší objem EÚ grantov</strong> a zodpovedá politike mesta. Odporúčaný mix: 80 % rezidencia + 20 % komerčná funkcia.</p>
+  </div>
+</section>
+
+<!-- 05 PHASING -->
+<section id="phasing">
+  <div class="sh"><span class="sn">05</span><h2 class="st">Fazová rozvojová stratégia</h2><div class="sl"></div></div>
+
+  <div class="alert a-blue" style="margin-bottom:24px">
+    <div class="at">Logika fázovania</div>
+    <p>Každá fáza je navrhnutá tak, aby <strong>financovala nasledujúcu</strong>. Fáza 0 generuje príjem bez výstavby. Fáza 1 komerčná čistí OP zónu a vytvára cashflow. Fázy 2 a 3 sú hlavné rezidenčné vlny. Investor môže vstúpiť v ktorejkoľvek fáze alebo kúpiť celý projekt.</p>
+  </div>
+
+  <div class="phase-row">
+    <div class="phase-head">
+      <span class="phase-badge">FÁZA 0</span>
+      <span class="phase-name">Pre-development & Stabilizácia príjmov</span>
+      <span class="phase-time">Rok 0–2</span>
+    </div>
+    <div class="phase-body">
+      <div class="phase-stats">
+        <div class="pstat"><span class="pstat-v">0 €</span><span class="pstat-l">Stavebný CAPEX</span></div>
+        <div class="pstat"><span class="pstat-v">~1,2 M€</span><span class="pstat-l">Ročný NOI (prenájmy)</span></div>
+        <div class="pstat"><span class="pstat-v">250–300 k€</span><span class="pstat-l">Urbanist. štúdia</span></div>
+        <div class="pstat"><span class="pstat-v">12–18 mes.</span><span class="pstat-l">Trvanie</span></div>
+        <div class="pstat"><span class="pstat-v">+8–15 M€</span><span class="pstat-l">Rast hodnoty pozemku</span></div>
+      </div>
+      <div class="phase-desc">
+        <strong>Cieľ: Premeniť akvizíciu na povolený, príjmovo generujúci areál pred výstavbou.</strong><br>
+        Kľúčové kroky: (1) Objednanie urbanistickej štúdie — povinná pre celé územie 23/44/16, schválenie 12–18 mes. (2) Zachovanie všetkých existujúcich priemyselných prenájmov — ~1,2 M€/rok kryje carrying costs. (3) Hydrologické posúdenie Q100 zóny. (4) Predvalidácia EÚ fondov cez lobistú. (5) Architektonická súťaž masterplanu.<br><br>
+        <strong>Exit Fáza 0:</strong> Po schválení urbanistickej štúdie a čistom title sa hodnota pozemku zvýšila o 8–15 M€. Možný predaj logistickej parcely (OP zóna) za 8–12 M€ — recyklácia časti vstupného kapitálu.
+      </div>
+    </div>
+  </div>
+
+  <div class="phase-row">
+    <div class="phase-head">
+      <span class="phase-badge">FÁZA 1</span>
+      <span class="phase-name">Komerčná & Logistická aktivácia (OP zóna)</span>
+      <span class="phase-time">Rok 2–4</span>
+    </div>
+    <div class="phase-body">
+      <div class="phase-stats">
+        <div class="pstat"><span class="pstat-v">~20 000 m²</span><span class="pstat-l">GFA (komerčná)</span></div>
+        <div class="pstat"><span class="pstat-v">~24 M€</span><span class="pstat-l">CAPEX</span></div>
+        <div class="pstat"><span class="pstat-v">~2,4 M€</span><span class="pstat-l">Ročný NOI</span></div>
+        <div class="pstat"><span class="pstat-v">~5,5 %</span><span class="pstat-l">Výnosnosť z nákladov</span></div>
+        <div class="pstat"><span class="pstat-v">~43 M€</span><span class="pstat-l">Exit hodnota pri 5,5 %</span></div>
+      </div>
+      <div class="phase-desc">
+        <strong>OP železnica = prvá priorita. Logistika 14 000 m² GFA + kancelárie B 6 000 m² GFA, 2–4 NP.</strong><br>
+        Cieľoví nájomníci: subdodávatelia Volvo, logistické firmy, profesionálne služby. Stavebné náklady: 900 €/m² log., 1 400 €/m² kancelárie. Nájom: 60–70 €/m²/rok log., 110–130 €/m²/rok kancelárie. Fáza je financovaná cez stavebnú linku (LTV 65 %) + EÚ granty IROP/priemyselná regenerácia.<br><br>
+        <strong>Dôvod:</strong> Začínať komerčnou zónou generuje cashflow pred hlavnou rezidenčnou výstavbou, čistí komplikovanú OP zónu a vytvára "amenity" buffer pre budúce byty.<br>
+        <strong>Exit Fáza 1:</strong> Predaj dokončeného komerčného parku pri ~5,5% cap rate → ~43 M€. Recyklácia equity do fázy 2.
+      </div>
+    </div>
+  </div>
+
+  <div class="phase-row">
+    <div class="phase-head">
+      <span class="phase-badge">FÁZA 2</span>
+      <span class="phase-name">Prvé rezidenčné bloky — Core Launch</span>
+      <span class="phase-time">Rok 3–6</span>
+    </div>
+    <div class="phase-body">
+      <div class="phase-stats">
+        <div class="pstat"><span class="pstat-v">~52 500 m²</span><span class="pstat-l">Predajná GFA</span></div>
+        <div class="pstat"><span class="pstat-v">~808 bytov</span><span class="pstat-l">Jednotiek (avg 65 m²)</span></div>
+        <div class="pstat"><span class="pstat-v">~88 M€</span><span class="pstat-l">CAPEX</span></div>
+        <div class="pstat"><span class="pstat-v">~178 M€</span><span class="pstat-l">Odh. tržby</span></div>
+        <div class="pstat"><span class="pstat-v">40 %</span><span class="pstat-l">Predpredaj cieľ</span></div>
+      </div>
+      <div class="phase-desc">
+        <strong>2–3 rezidenčné bloky (5–6 NP), severná/centrálna zóna, predpredaj min. 40 % pred začatím výstavby.</strong><br>
+        Ceny: 1kk 3 000–3 400 €/m², 2kk 3 200–3 600 €/m², 3kk 3 400–3 800 €/m². Prízemné priestory: retail + kliniky + služby. Financovanie: bankový konštrukčný úver (LTV 60 %) + predpredaje. Volvo náborová vlna 2025–2026 poháňa dopyt — 1 500–2 000 nových košických domácností ročne.<br><br>
+        <strong>Dôvod:</strong> Fáza 2 spúšťa rezidenčnú hodnotu projektu, etabluje brand štvrte a generuje cashflow pre fázy 3 a 4.<br>
+        <strong>Exit Fáza 2:</strong> JV s rezidenčným developerom — vklad pozemku za ~8–10 M€, developer prináša stavebné equity.
+      </div>
+    </div>
+  </div>
+
+  <div class="phase-row">
+    <div class="phase-head">
+      <span class="phase-badge">FÁZA 3</span>
+      <span class="phase-name">Rezidenčné veže + Prémiové amenity</span>
+      <span class="phase-time">Rok 5–9</span>
+    </div>
+    <div class="phase-body">
+      <div class="phase-stats">
+        <div class="pstat"><span class="pstat-v">~52 500 m²</span><span class="pstat-l">Predajná GFA</span></div>
+        <div class="pstat"><span class="pstat-v">~808 bytov</span><span class="pstat-l">Jednotiek</span></div>
+        <div class="pstat"><span class="pstat-v">~100 M€</span><span class="pstat-l">CAPEX</span></div>
+        <div class="pstat"><span class="pstat-v">~189 M€</span><span class="pstat-l">Odh. tržby</span></div>
+        <div class="pstat"><span class="pstat-v">3 800–4 400 €</span><span class="pstat-l">Cena veže /m²</span></div>
+      </div>
+      <div class="phase-desc">
+        <strong>3 dominantné veže (8 NP) + 2–3 ďalšie bloky + škôlka, šport, zelené plochy (min. 30 % ÚP).</strong><br>
+        Prémiové ceny veží vďaka hodnotovému nárastu po etablovanej fáze 2. Podzemné parkovanie plne nasadené. Komunitný retail plne prenajatý z cashflow fázy 2. EÚ granty na udržateľnosť (energetická efektívnosť, zelená mobilita).<br><br>
+        <strong>Dôvod:</strong> Štvrť je etablovaná → vyššie ceny, nižšie predajné náklady, kratší čas absorpcie.<br>
+        <strong>Exit Fáza 3:</strong> Predaj dokončeného portfólia inštitucionálnemu fondu pri 4–4,5 % cap rate.
+      </div>
+    </div>
+  </div>
+
+  <div class="phase-row">
+    <div class="phase-head">
+      <span class="phase-badge">FÁZA 4</span>
+      <span class="phase-name">Dokončenie & Stabilizácia aktív</span>
+      <span class="phase-time">Rok 8–12</span>
+    </div>
+    <div class="phase-body">
+      <div class="phase-stats">
+        <div class="pstat"><span class="pstat-v">Zvyšok GFA</span><span class="pstat-l">Programme</span></div>
+        <div class="pstat"><span class="pstat-v">~70 M€</span><span class="pstat-l">Odh. tržby</span></div>
+        <div class="pstat"><span class="pstat-v">480 M€+</span><span class="pstat-l">Kumulatívna GDV</span></div>
+        <div class="pstat"><span class="pstat-v">Stabilizovaná</span><span class="pstat-l">Košická štvrť</span></div>
+        <div class="pstat"><span class="pstat-v">4,0–4,5 %</span><span class="pstat-l">Exit cap rate</span></div>
+      </div>
+      <div class="phase-desc">
+        <strong>Dokončenie ostatkových budov, hotel (40–60 izieb), senior living alebo B2R (build-to-rent) komponent.</strong><br>
+        V tejto fáze je Areál David etablovanou košickou štvrťou s overenou predajnou rýchlosťou a nájomným príjmom. Opcioner môže zvoliť full exit alebo hold pre stabilný ročný výnos.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 FINANCIAL OVERVIEW -->
+<section id="financial">
+  <div class="sh"><span class="sn">06</span><h2 class="st">Financial Overview</h2><div class="sl"></div></div>
+
+  <div class="g2" style="margin-bottom:20px">
+    <div>
+      <div class="card">
+        <div class="ct">Výnosy — Rezidenčná časť</div>
+        <table class="fin">
+          <thead><tr><th>Typ bytu</th><th>NLA m²</th><th>Cena €/m²</th><th>Výnos</th></tr></thead>
+          <tbody>
+            <tr><td>1kk (25 %)</td><td class="neu">26 250</td><td class="neu">3 200</td><td class="pos">84,0 M€</td></tr>
+            <tr><td>2kk (45 %)</td><td class="neu">47 250</td><td class="neu">3 400</td><td class="pos">160,7 M€</td></tr>
+            <tr><td>3kk (25 %)</td><td class="neu">26 250</td><td class="neu">3 600</td><td class="pos">94,5 M€</td></tr>
+            <tr><td>4kk+ (5 %)</td><td class="neu">5 250</td><td class="neu">4 000</td><td class="pos">21,0 M€</td></tr>
+            <tr class="sub"><td>Rezidencia spolu</td><td></td><td>avg 3 430</td><td>360,1 M€</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card" style="margin-top:16px">
+        <div class="ct">Výnosy — Komerčná časť (kapitalizované)</div>
+        <table class="fin">
+          <thead><tr><th>Funkcia</th><th>NLA m²</th><th>Nájom €/m²/r</th><th>Cap rate</th><th>Hodnota</th></tr></thead>
+          <tbody>
+            <tr><td>Kancelárie A/B</td><td class="neu">8 500</td><td class="neu">110</td><td class="neu">7 %</td><td class="pos">13,4 M€</td></tr>
+            <tr><td>Retail / F&B</td><td class="neu">5 400</td><td class="neu">180</td><td class="neu">7 %</td><td class="pos">13,9 M€</td></tr>
+            <tr><td>Logistika</td><td class="neu">12 600</td><td class="neu">62</td><td class="neu">6,5 %</td><td class="pos">12,0 M€</td></tr>
+            <tr><td>Kliniky / služby</td><td class="neu">3 400</td><td class="neu">120</td><td class="neu">7 %</td><td class="pos">5,8 M€</td></tr>
+            <tr class="sub"><td>Komerčná spolu</td><td></td><td></td><td></td><td>45,1 M€</td></tr>
+            <tr class="tot"><td>GDV SPOLU</td><td colspan="3"></td><td>405,2 M€</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div>
+      <div class="card">
+        <div class="ct">Náklady (CAPEX)</div>
+        <table class="fin">
+          <thead><tr><th>Položka</th><th>Základ</th><th>Celkom</th></tr></thead>
+          <tbody>
+            <tr><td>Akvizícia pozemku</td><td class="pl neu">fixné</td><td class="neg">32,3 M€</td></tr>
+            <tr><td>Rezidencia (140 000 m² GFA)</td><td class="pl neu">1 450 €/m²</td><td class="neg">203,0 M€</td></tr>
+            <tr><td>Kancelárie (10 000 m² GFA)</td><td class="pl neu">1 500 €/m²</td><td class="neg">15,0 M€</td></tr>
+            <tr><td>Retail/služby (6 000 m² GFA)</td><td class="pl neu">1 200 €/m²</td><td class="neg">7,2 M€</td></tr>
+            <tr><td>Logistika (14 000 m² GFA)</td><td class="pl neu">900 €/m²</td><td class="neg">12,6 M€</td></tr>
+            <tr class="sub"><td>Stavebný CAPEX</td><td></td><td>237,8 M€</td></tr>
+            <tr><td>Infraštruktúra (cesty, siete)</td><td class="pl neu">8 % stavby</td><td class="neg">19,0 M€</td></tr>
+            <tr><td>Soft costs (projektovanie, PM, právnici)</td><td class="pl neu">12 % stavby</td><td class="neg">28,5 M€</td></tr>
+            <tr><td>Náklady na financovanie</td><td class="pl neu">avg 5 %, 10 r.</td><td class="neg">19,0 M€</td></tr>
+            <tr><td>Marketing & predaj</td><td class="pl neu">2,5 % rez. tržieb</td><td class="neg">6,8 M€</td></tr>
+            <tr><td>Rezerva (contingency)</td><td class="pl neu">8 % stavby</td><td class="neg">19,0 M€</td></tr>
+            <tr class="tot"><td>CELKOVÝ CAPEX</td><td></td><td class="neg">362,4 M€</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card" style="margin-top:16px">
+        <div class="ct">Kľúčové výstupy</div>
+        <table class="ft">
+          <tr><td>GDV (konzervatívne)</td><td class="vg">405,2 M€</td></tr>
+          <tr><td>GDV (realistické, avg 3 830 €/m²)</td><td class="vg">447,2 M€</td></tr>
+          <tr><td>Celkový CAPEX</td><td class="vr">362,4 M€</td></tr>
+          <tr><td>Zisk BEZ EÚ fondov (konzerv.)</td><td class="vgr">+42,9 M€</td></tr>
+          <tr><td>Fondy EÚ (25 % CAPEX)</td><td class="vg">+90,6 M€</td></tr>
+          <tr><td>Zisk S fondmi EÚ (konzerv.)</td><td class="vg">+133,5 M€</td></tr>
+          <tr><td>Zisk S fondmi EÚ (realistický)</td><td class="vg">+175,5 M€</td></tr>
+          <tr><td>Potrebné vlastné imanie</td><td>65–85 M€</td></tr>
+          <tr><td>Pozemok ako % GDV</td><td class="vg">7,8 % (benchmark 15–20 %)</td></tr>
+          <tr><td>Projektové IRR (realist. + EÚ)</td><td class="vg">24–28 %</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cashflow visualization -->
   <div class="card">
-    <div class="card-title">Súhrnná tabuľka plôch</div>
-    <table class="fin-table">
-      <thead><tr><th>Funkcia</th><th>Footprint m²</th><th>Priem. podl.</th><th>GFA m²</th><th>Koef. NLA</th><th>NLA / Predajná m²</th></tr></thead>
+    <div class="ct">Cashflow timeline — Orientačný priebeh</div>
+    <div class="cf-bar-wrap">
+      <div class="cf-bar neg" style="height:90%"></div>
+      <div class="cf-bar neg" style="height:60%"></div>
+      <div class="cf-bar neu" style="height:30%"></div>
+      <div class="cf-bar pos" style="height:40%"></div>
+      <div class="cf-bar pos" style="height:65%"></div>
+      <div class="cf-bar pos" style="height:80%"></div>
+      <div class="cf-bar pos" style="height:95%"></div>
+      <div class="cf-bar pos" style="height:70%"></div>
+      <div class="cf-bar pos" style="height:55%"></div>
+      <div class="cf-bar pos" style="height:45%"></div>
+    </div>
+    <div class="cf-labels">
+      <div class="cf-label">R0</div><div class="cf-label">R1</div><div class="cf-label">R2</div>
+      <div class="cf-label">R3</div><div class="cf-label">R4</div><div class="cf-label">R5</div>
+      <div class="cf-label">R6</div><div class="cf-label">R7</div><div class="cf-label">R8</div>
+      <div class="cf-label">R9+</div>
+    </div>
+    <div style="font-size:11px;color:var(--muted);margin-top:12px;display:flex;gap:16px;flex-wrap:wrap">
+      <span><span style="color:var(--red)">■</span> Záporný cashflow (CAPEX)</span>
+      <span><span style="color:var(--gold)">■</span> Break-even fáza</span>
+      <span><span style="color:var(--green)">■</span> Kladný cashflow (predaje)</span>
+    </div>
+  </div>
+</section>
+
+<!-- 07 SCENARIO COMPARISON -->
+<section id="scenarios">
+  <div class="sh"><span class="sn">07</span><h2 class="st">Porovnanie scenárov</h2><div class="sl"></div></div>
+
+  <div style="overflow-x:auto;margin-bottom:20px">
+    <table class="sc-table" style="width:100%">
+      <thead>
+        <tr>
+          <th>Scenár</th>
+          <th>GDV</th>
+          <th>CAPEX</th>
+          <th>Zisk (bez EÚ)</th>
+          <th>IRR</th>
+          <th>Equity</th>
+          <th>Horizon</th>
+          <th>Riziko</th>
+          <th>Odporúčanie</th>
+        </tr>
+      </thead>
       <tbody>
-        <tr><td>Rezidencia (mimo OP)</td><td class="neutral">20 000</td><td class="neutral">7</td><td class="neutral">140 000</td><td class="neutral">75 %</td><td class="pos">105 000</td></tr>
-        <tr><td>Kancelárie A/B</td><td class="neutral">3 334</td><td class="neutral">3</td><td class="neutral">10 000</td><td class="neutral">85 %</td><td class="pos">8 500</td></tr>
-        <tr><td>Retail / F&B (prízemie)</td><td class="neutral">2 000</td><td class="neutral">3</td><td class="neutral">6 000</td><td class="neutral">90 %</td><td class="pos">5 400</td></tr>
-        <tr><td>Kliniky / služby</td><td class="neutral">1 333</td><td class="neutral">3</td><td class="neutral">4 000</td><td class="neutral">85 %</td><td class="pos">3 400</td></tr>
-        <tr><td>Logistika / sklad (OP zóna)</td><td class="neutral">5 000</td><td class="neutral">2–3</td><td class="neutral">14 000</td><td class="neutral">90 %</td><td class="pos">12 600</td></tr>
-        <tr><td>Amenity / šport / komunita</td><td class="neutral">885</td><td class="neutral">2</td><td class="neutral">1 770</td><td class="neutral">—</td><td class="neutral">—</td></tr>
-        <tr class="subtotal"><td><strong>SPOLU</strong></td><td><strong>32 552 m²</strong></td><td><strong>~5</strong></td><td><strong>175 770 m²</strong></td><td></td><td><strong>134 900 m²</strong></td></tr>
+        <tr class="best">
+          <td><strong style="color:var(--white)">A — Zmiešaný rezidenčný</strong></td>
+          <td class="pos">405–447 M€</td>
+          <td class="neg">~362 M€</td>
+          <td class="pos">43–85 M€</td>
+          <td class="pos">22–28 %</td>
+          <td class="neu">65–85 M€</td>
+          <td class="neu">8–10 rokov</td>
+          <td><span class="badge badge-gold">STREDNÉ</span></td>
+          <td><span class="badge badge-green">★ ODPORÚČANÝ</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--white)">B — Logistický park</strong></td>
+          <td class="neu">80–120 M€</td>
+          <td class="neg">~30 M€</td>
+          <td class="pos">50–90 M€</td>
+          <td class="neu">14–18 %</td>
+          <td class="neu">25–35 M€</td>
+          <td class="neu">2–3 roky</td>
+          <td><span class="badge badge-blue">NÍZKE</span></td>
+          <td><span class="badge badge-blue">RÝCHLY EXIT</span></td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--white)">C — Hybrid (log. → rezid.)</strong></td>
+          <td class="pos">360–420 M€</td>
+          <td class="neg">~320 M€</td>
+          <td class="pos">40–100 M€</td>
+          <td class="pos">18–22 %</td>
+          <td class="neu">50–70 M€</td>
+          <td class="neu">10–12 rokov</td>
+          <td><span class="badge badge-gold">STREDNÉ</span></td>
+          <td><span class="badge badge-gold">VALUE-ADD</span></td>
+        </tr>
       </tbody>
     </table>
-    <div style="font-size:11px;color:var(--muted);margin-top:8px">Pozn.: Footprint 32 552 m² = 47 % z efektívnej plochy 68 880 m² — v limite ÚP (max. 40 % z celého pozemku 98 400 m² = 39 360 m²). Výpočet je konzervat., variabilita podľa urbanistickej štúdie.</div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════ -->
-<!-- 04 – PROGRAMOVÁ SKLADBA -->
-<!-- ══════════════════════════════════════ -->
-<section id="program">
-  <div class="section-header">
-    <span class="section-num">04</span>
-    <h2 class="section-title">Programová skladba a typológia budov</h2>
-    <div class="section-title-line"></div>
   </div>
 
-  <div class="alert alert-gold" style="margin-bottom:24px">
-    <div class="alert-title">Odporúčanie: Zmiešaná funkcia pred čisto rezidenčnou</div>
-    <p>Maximalizácia bytovej zástavby <strong>nie je optimálna</strong>. Zmiešaná funkcia prináša vyššie IRR pretože: (1) obchodné prízemné priestory znižujú riziko rezidenčných poschodí, (2) kancelárie a služby vytvárajú absorpčný buffer, (3) fondy EÚ sú dostupnejšie pri zmiešanej funkcii, (4) mestská politika uprednostňuje polyfunkcionálnu transformáciu. Odporúčané rozdelenie GFA: <strong>80 % rezidenčná + 20 % komerčná</strong>.</p>
-  </div>
-
-  <div class="grid-3">
-    <div class="card">
-      <div class="card-title">Rezidenčné veže (3 objekty)</div>
-      <table class="fact-table">
-        <tr><td>Počet podlaží</td><td>8 NP</td></tr>
-        <tr><td>GFA / objekt</td><td>~12 000 m²</td></tr>
-        <tr><td>Byty / objekt</td><td>~138 bytov</td></tr>
-        <tr><td>Umiestnenie</td><td>Sev. okraj — mimo OP žel.</td></tr>
-        <tr><td>Štandard</td><td>Prémiový — panoramatický výhľad</td></tr>
-        <tr><td>Parkovanie</td><td>Podzemné, 1 : 1</td></tr>
-        <tr><td>Cenová kategória</td><td>3 800–4 400 €/m²</td></tr>
-      </table>
+  <div class="g3">
+    <div class="card hl">
+      <div class="ct">Scenár A — Zmiešaný rezidenčný</div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.65">Najvyššia dlhodobá GDV. Volvo pracovníci = garantovaný dopyt. EÚ fondy dostupné. Zosúladené s politikou mesta. <strong style="color:var(--text)">Ideálny pre developer alebo long-term fond.</strong></div>
     </div>
     <div class="card">
-      <div class="card-title">Rezidenčné bloky (6 objektov)</div>
-      <table class="fact-table">
-        <tr><td>Počet podlaží</td><td>5–6 NP</td></tr>
-        <tr><td>GFA / objekt</td><td>~10 000–14 000 m²</td></tr>
-        <tr><td>Byty / objekt</td><td>~120–160 bytov</td></tr>
-        <tr><td>Typológia</td><td>Bloková zástavba s dvorom</td></tr>
-        <tr><td>Prízemie</td><td>Retail / služby / kliniky</td></tr>
-        <tr><td>Parkovanie</td><td>Kombinované nadzemin. + podzemin.</td></tr>
-        <tr><td>Cenová kategória</td><td>3 200–3 700 €/m²</td></tr>
-      </table>
+      <div class="ct">Scenár B — Logistický park</div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.65">Rýchle ROI za 2–3 roky. Nižšia equity. Atraktívne pre Prologis, CTP, P3. Železnica = výhoda. <strong style="color:var(--text)">Nechá rezidenčnú hodnotu na stole navždy.</strong></div>
     </div>
     <div class="card">
-      <div class="card-title">Komerčný / logistický pás (OP zóna)</div>
-      <table class="fact-table">
-        <tr><td>Počet podlaží</td><td>2–4 NP</td></tr>
-        <tr><td>GFA spolu</td><td>~20 000 m²</td></tr>
-        <tr><td>Funkcia</td><td>Logistika, ľahká výroba, kancelárie B</td></tr>
-        <tr><td>Umiestnenie</td><td>Východná OP zóna (pri železnici)</td></tr>
-        <tr><td>Stavebné náklady</td><td>900–1 200 €/m² GFA</td></tr>
-        <tr><td>Cieľoví nájomníci</td><td>Subdodávatelia Volvo, logistické firmy</td></tr>
-        <tr><td>Nájom</td><td>55–70 €/m²/rok</td></tr>
-      </table>
-    </div>
-  </div>
-
-  <div class="divider"></div>
-
-  <div class="grid-2">
-    <div class="card">
-      <div class="card-title">Skladba bytov — Mix</div>
-      <table class="fin-table">
-        <thead><tr><th>Typ bytu</th><th>Podiel</th><th>Počet</th><th>Avg m²</th><th>Celková plocha</th></tr></thead>
-        <tbody>
-          <tr><td>1-izbový (1kk)</td><td class="neutral">25 %</td><td class="neutral">404</td><td class="neutral">42 m²</td><td class="pos">16 968 m²</td></tr>
-          <tr><td>2-izbový (2kk)</td><td class="neutral">45 %</td><td class="neutral">727</td><td class="neutral">62 m²</td><td class="pos">45 074 m²</td></tr>
-          <tr><td>3-izbový (3kk)</td><td class="neutral">25 %</td><td class="neutral">404</td><td class="neutral">88 m²</td><td class="pos">35 552 m²</td></tr>
-          <tr><td>4+-izbový</td><td class="neutral">5 %</td><td class="neutral">81</td><td class="neutral">115 m²</td><td class="pos">9 315 m²</td></tr>
-          <tr class="total"><td>SPOLU</td><td>100 %</td><td>~1 616</td><td>65 m² avg</td><td>106 909 m²</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="card">
-      <div class="card-title">Stratégia parkovania a mobility</div>
-      <table class="fact-table">
-        <tr><td>Fáza 1 (plánov. obdobie)</td><td>Povrchové parkovanie na existuj. plochách</td></tr>
-        <tr><td>Fáza 2+ (rezidencia)</td><td>Podzemné garáže pod bloky — 1 miesto / 1,2 bytu</td></tr>
-        <tr><td>Komerčná zóna</td><td>Povrch + parkovací dom (ak dopyt)</td></tr>
-        <tr><td>Cyklistická infraštr.</td><td>Povinná per C.4.4 ÚPN-M</td></tr>
-        <tr><td>Pešia os</td><td>Centrálna promenáda cez areál</td></tr>
-        <tr><td>Zásobovanie</td><td>Separované na východnom vjazde</td></tr>
-        <tr><td>MHD napojenie</td><td>Existujúce linky Nad Jazerom</td></tr>
-      </table>
+      <div class="ct">Scenár C — Hybridný</div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.65">Logistika generuje cashflow počas prípravy rezidencii. Znižuje absorpčné riziko. <strong style="color:var(--text)">Ideálny pre value-add fond (Revetas, RSJ, Wood & Co).</strong></div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════ -->
-<!-- 05 – SCENÁRE A / B / C -->
-<!-- ══════════════════════════════════════ -->
-<section id="scenare">
-  <div class="section-header">
-    <span class="section-num">05</span>
-    <h2 class="section-title">Alternatívne rozvojové scenáre</h2>
-    <div class="section-title-line"></div>
-  </div>
+<!-- 08 RISK & MITIGATION -->
+<section id="risk">
+  <div class="sh"><span class="sn">08</span><h2 class="st">Riziká & Mitigácia</h2><div class="sl"></div></div>
 
-  <div class="scenario-grid">
-    <div class="scenario primary">
-      <div class="scenario-tag gold">★ Odporúčaný · Scenár A</div>
-      <div class="scenario-name">Polyfunkčný zmiešaný rozvoj</div>
-      <div style="font-size:12px;color:var(--muted);margin-bottom:8px">Rezidenčný development so zmiešanou komerčnou funkciou, fázovaný 8–10 rokov</div>
-      <div class="scenario-irr gold">22–26 %</div>
-      <div class="scenario-irr-label">Odhadované projektové IRR (s fondmi EÚ)</div>
-      <div class="scenario-pros">
-        <div class="scenario-pro"><span class="pro-icon">✓</span><span>Najvyššia dlhodobá GDV (350–420 M€ čisté výnosy)</span></div>
-        <div class="scenario-pro"><span class="pro-icon">✓</span><span>Pracovníci Volvo = garantovaný rezidenčný dopyt</span></div>
-        <div class="scenario-pro"><span class="pro-icon">✓</span><span>Fondy EÚ dostupné (IROP, EŠIF)</span></div>
-        <div class="scenario-pro"><span class="pro-icon">✓</span><span>Zosúladené s politikou mesta Košice</span></div>
-        <div class="scenario-pro"><span class="con-icon">✗</span><span>Najdlhší časový horizont (10+ rokov)</span></div>
-        <div class="scenario-pro"><span class="con-icon">✗</span><span>Najvyššia potreba vlastného imania (~60–80 M€)</span></div>
-        <div class="scenario-pro"><span class="con-icon">✗</span><span>Urbanistická štúdia povinná ako prvý krok</span></div>
-      </div>
-    </div>
-
-    <div class="scenario">
-      <div class="scenario-tag blue">Rýchle ROI · Scenár B</div>
-      <div class="scenario-name">Logistický park</div>
-      <div style="font-size:12px;color:var(--muted);margin-bottom:8px">Plný logistický rozvoj s využitím blízkosti Volvo</div>
-      <div class="scenario-irr blue">14–18 %</div>
-      <div class="scenario-irr-label">Odhadované projektové IRR</div>
-      <div class="scenario-pros">
-        <div class="scenario-pro"><span class="pro-icon">✓</span><span>Rýchly rozvoj (2–3 roky do plnej prevádzky)</span></div>
-        <div class="scenario-pro"><span class="pro-icon">✓</span><span>Silný inštitucionálny záujem (Prologis, CTP, P3)</span></div>
-        <div class="scenario-pro"><span class="pro-icon">✓</span><span>Nižšia potreba vlastného imania (~25–35 M€)</span></div>
-        <div class="scenario-pro"><span class="pro-icon">✓</span><span>Prístup k železnici je výhoda, nie obmedzenie</span></div>
-        <div class="scenario-pro"><span class="con-icon">✗</span><span>Nižšia GDV vs. rezidencia (~80–120 M€)</span></div>
-        <div class="scenario-pro"><span class="con-icon">✗</span><span>Rezid. hodnota zostáva nevyužitá natrvalo</span></div>
-        <div class="scenario-pro"><span class="con-icon">✗</span><span>Riziko kompresie logistických výnosov</span></div>
-      </div>
-    </div>
-
-    <div class="scenario">
-      <div class="scenario-tag green">Fázovaný · Scenár C</div>
-      <div class="scenario-name">Hybridná transformácia</div>
-      <div style="font-size:12px;color:var(--muted);margin-bottom:8px">Logistika najprv (cashflow), potom postupná rezidenčná konverzia</div>
-      <div class="scenario-irr green">18–22 %</div>
-      <div class="scenario-irr-label">Odhadované kombinované IRR</div>
-      <div class="scenario-pros">
-        <div class="scenario-pro"><span class="pro-icon">✓</span><span>Skorý cashflow z logistiky znižuje čerpanie vlastného imania</span></div>
-        <div class="scenario-pro"><span class="pro-icon">✓</span><span>Znižuje riziko absorpcie rezidenčného trhu</span></div>
-        <div class="scenario-pro"><span class="pro-icon">✓</span><span>Existujúce prenájmy generujú výnosy počas plánovania</span></div>
-        <div class="scenario-pro"><span class="pro-icon">✓</span><span>Atraktívne pre oportunistické fondy</span></div>
-        <div class="scenario-pro"><span class="con-icon">✗</span><span>Komplexné riadenie fázovania</span></div>
-        <div class="scenario-pro"><span class="con-icon">✗</span><span>Logistická fáza môže krátkodobo znižovať hodnotu rezidenčného pozemku</span></div>
-      </div>
-    </div>
-  </div>
-  <div style="margin-top:12px;font-size:12px;color:var(--muted)">* IRR odhady sú pred zdanením, na úrovni projektu, podľa košických trhových benchmarkov. IRR na vlastné imanie bude vyššie pri pákovom efekte. Všetky scenáre predpokladajú akvizíciu pozemku za 32,25 M€.</div>
-</section>
-
-<!-- ══════════════════════════════════════ -->
-<!-- 06 – FAZOVÁ STRATÉGIA -->
-<!-- ══════════════════════════════════════ -->
-<section id="fazy">
-  <div class="section-header">
-    <span class="section-num">06</span>
-    <h2 class="section-title">Fazová rozvojová stratégia</h2>
-    <div class="section-title-line"></div>
-  </div>
-
-  <div class="timeline">
-
-    <div class="phase">
-      <div class="phase-header">
-        <span class="phase-num">FÁZA 0</span>
-        <span class="phase-name">Príprava a stabilizácia príjmov</span>
-        <span class="phase-years">Rok 0–2</span>
-      </div>
-      <div class="phase-body">
-        <div class="phase-grid">
-          <div><span class="phase-stat-val">0 €</span><span class="phase-stat-lbl">Stavebný CAPEX</span></div>
-          <div><span class="phase-stat-val">~1,2 M€</span><span class="phase-stat-lbl">Odh. ročný náj. príjem</span></div>
-          <div><span class="phase-stat-val">12–18 mes.</span><span class="phase-stat-lbl">Urbanistická štúdia</span></div>
-          <div><span class="phase-stat-val">~300 000 €</span><span class="phase-stat-lbl">Náklady na plánovanie</span></div>
-        </div>
-        <div class="phase-desc">
-          <strong>Cieľ: Premeniť akvizíciu pozemku na povolený, príjmovo generujúci areál pred začatím výstavby.</strong><br>
-          Kľúčové kroky: (1) Objednanie urbanistickej štúdie — povinná pre 23/44/16, trvá 12–18 mes. (2) Zachovanie všetkých existujúcich prenájmov priemyselných budov — ~1,2 M€ ročne kryje prevádzkové náklady počas plánovania. (3) Objednanie hydrologického posúdenia pre Q100 zónu. (4) Lobista EÚ — predbežná validácia oprávnenosti IROP 2021–2027. (5) Architektonická súťaž masterplanu.<br><br>
-          <strong>Možnosť exitu:</strong> So schválenou urbanistickou štúdiou a čistým titulom hodnota pozemku stúpa o 8–15 M€. Čiastočný predaj logistickej parcely (OP zóna) možný na spätné získanie 8–12 M€.
-        </div>
-      </div>
-    </div>
-
-    <div class="phase">
-      <div class="phase-header">
-        <span class="phase-num">FÁZA 1</span>
-        <span class="phase-name">Aktivácia komerčnej a logistickej zóny</span>
-        <span class="phase-years">Rok 2–4</span>
-      </div>
-      <div class="phase-body">
-        <div class="phase-grid">
-          <div><span class="phase-stat-val">~20 000 m²</span><span class="phase-stat-lbl">GFA (komerčná)</span></div>
-          <div><span class="phase-stat-val">~24 M€</span><span class="phase-stat-lbl">Odh. CAPEX</span></div>
-          <div><span class="phase-stat-val">~2,4 M€</span><span class="phase-stat-lbl">Odh. ročný NOI</span></div>
-          <div><span class="phase-stat-val">~5,5 %</span><span class="phase-stat-lbl">Výnosnosť z nákladov</span></div>
-        </div>
-        <div class="phase-desc">
-          <strong>Východná OP zóna (pri železnici) sa rozvíja ako prvá — tu bytová zástavba nie je obmedzená inak ako v iných častiach.</strong><br>
-          Nové logistické / ľahko-priemyselné budovy (14 000 m² GFA, 2–3 NP). Kancelárie stupňa B (6 000 m² GFA). Cieľoví nájomníci: dodávatelia Volvo, logistické firmy, profesionálne služby. Stavebné náklady: ~900 €/m² GFA pre logistiku, ~1 400 €/m² pre kancelárie. Pri nájme 60 €/m²/rok log. a 120 €/m²/rok kancelárie stabilizovaný NOI ~2,4 M€/rok. Fáza je samofinancujúca cez stavebnú bankovú linku (LTV 65 %) a granty EÚ.<br><br>
-          <strong>Možnosť exitu:</strong> Predaj hotového komerčného parku pri ~5,5 % výnosovom kurze → predajná hodnota ~43 M€. Recyklácia vlastného imania do rezidenčných fáz.
-        </div>
-      </div>
-    </div>
-
-    <div class="phase">
-      <div class="phase-header">
-        <span class="phase-num">FÁZA 2</span>
-        <span class="phase-name">Prvý rezidenčný launch</span>
-        <span class="phase-years">Rok 3–6</span>
-      </div>
-      <div class="phase-body">
-        <div class="phase-grid">
-          <div><span class="phase-stat-val">~52 500 m²</span><span class="phase-stat-lbl">Predajná rezidenčná GFA</span></div>
-          <div><span class="phase-stat-val">~808 bytov</span><span class="phase-stat-lbl">Bytové jednotky (avg 65 m²)</span></div>
-          <div><span class="phase-stat-val">~178 M€</span><span class="phase-stat-lbl">Odh. tržby</span></div>
-          <div><span class="phase-stat-val">~88 M€</span><span class="phase-stat-lbl">Odh. celkový CAPEX</span></div>
-        </div>
-        <div class="phase-desc">
-          <strong>2–3 rezidenčné bloky, 5–6 NP. Severná / centrálna zastavateľná zóna. Cieľ predpredaja: 40 % predaných pred začatím výstavby.</strong><br>
-          Skladba bytov: 25 % 1kk (avg 42 m²), 45 % 2kk (avg 62 m²), 25 % 3kk (avg 88 m²), 5 % 4kk+ (avg 115 m²). Predajná cena: 1kk 3 000–3 400 €/m², 2kk 3 200–3 600 €/m², 3kk 3 400–3 800 €/m². Prízemie: retail + služby + kliniky. Stavebné náklady: 1 450 €/m² GFA. Nástup pracovníkov Volvo (2025–2026) generuje organický dopyt — očakávaných 1 500–2 000 nových obyvateľov Košíc ročne zo závodu Volvo.<br><br>
-          <strong>Možnosť exitu:</strong> JV s rezidenčným developerom pre realizáciu fázy 2. Vklad pozemku hodnotou 8–10 M€ do JV.
-        </div>
-      </div>
-    </div>
-
-    <div class="phase">
-      <div class="phase-header">
-        <span class="phase-num">FÁZA 3</span>
-        <span class="phase-name">Rezidenčné veže + amenity</span>
-        <span class="phase-years">Rok 5–9</span>
-      </div>
-      <div class="phase-body">
-        <div class="phase-grid">
-          <div><span class="phase-stat-val">~52 500 m²</span><span class="phase-stat-lbl">Ďalšia predajná GFA</span></div>
-          <div><span class="phase-stat-val">~808 bytov</span><span class="phase-stat-lbl">Bytové jednotky</span></div>
-          <div><span class="phase-stat-val">~189 M€</span><span class="phase-stat-lbl">Odh. tržby</span></div>
-          <div><span class="phase-stat-val">~100 M€</span><span class="phase-stat-lbl">Odh. celkový CAPEX</span></div>
-        </div>
-        <div class="phase-desc">
-          <strong>3 dominantné veže (8 NP) + 2–3 ďalšie bloky + komunitné amenity, športová zóna, škôlka.</strong><br>
-          Prémiové ceny veží: 2 600–2 900 €/m² (hodnotový nárast po dokončenej fáze 2 a etablovaní štvrte). Amenity: športová zóna, ihrisko, škôlka (požiadavka mesta per C.3), zelené plochy (min. 30 % per ÚP). Podzemné parkovanie fázované. Komunitný retail plne prenajatý z cashflow fázy 2. Granty EÚ na udržateľnosť aplikovateľné (energetická efektívnosť, zelená mobilita).<br><br>
-          <strong>Možnosť exitu:</strong> Predaj dokončeného rezidenčného portfólia inštitucionálnemu fondu pri 4–4,5 % výnosovom kurze. Alebo pokračovanie predpredajov.
-        </div>
-      </div>
-    </div>
-
-    <div class="phase">
-      <div class="phase-header">
-        <span class="phase-num">FÁZA 4</span>
-        <span class="phase-name">Dokončenie a stabilizácia aktív</span>
-        <span class="phase-years">Rok 8–12</span>
-      </div>
-      <div class="phase-body">
-        <div class="phase-grid">
-          <div><span class="phase-stat-val">Zvyšok</span><span class="phase-stat-lbl">GFA programu</span></div>
-          <div><span class="phase-stat-val">~70 M€</span><span class="phase-stat-lbl">Odh. tržby</span></div>
-          <div><span class="phase-stat-val">Stabilizovaná</span><span class="phase-stat-lbl">Štvrtina Košíc</span></div>
-          <div><span class="phase-stat-val">480 M€+</span><span class="phase-stat-lbl">Kumulatívna GDV (všetky fázy)</span></div>
-        </div>
-        <div class="phase-desc">
-          <strong>Dokončenie zostatkových rezidenčných a komerčných aktív, prípadný hotelový komponent alebo senior bývanie.</strong><br>
-          V 4. fáze je Areál David etablovanou košickou štvrťou s overenou predajnou rýchlosťou a nájomným príjmom. Možnosti exitu: (1) Plný predaj portfólia pan-európskemu rezidenčnému REITu. (2) IPO holdingovej spoločnosti. (3) Držba pre stabilný výnos. Hotelový komponent (40–60 izieb) realizovateľný vzhľadom na blízkosť letiska a firemný cestovný ruch Volvo.
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════ -->
-<!-- 07 – FINANČNÝ MODEL -->
-<!-- ══════════════════════════════════════ -->
-<section id="financny">
-  <div class="section-header">
-    <span class="section-num">07</span>
-    <h2 class="section-title">Finančný model — Scenár A</h2>
-    <div class="section-title-line"></div>
-  </div>
-
-  <div class="grid-2" style="margin-bottom:24px">
+  <div class="risk-row high">
     <div>
-      <div class="card">
-        <div class="card-title">Výpočet výnosov</div>
-        <table class="fin-table">
-          <thead><tr><th>Zdroj výnosu</th><th>Plocha m²</th><th>Cena / Nájom</th><th>Výnos celkom</th></tr></thead>
-          <tbody>
-            <tr><td>Predaj bytov 1kk (25 %)</td><td class="neutral">26 250</td><td class="neutral">3 200 €/m²</td><td class="pos">84,0 M€</td></tr>
-            <tr><td>Predaj bytov 2kk (45 %)</td><td class="neutral">47 250</td><td class="neutral">3 400 €/m²</td><td class="pos">160,7 M€</td></tr>
-            <tr><td>Predaj bytov 3kk (25 %)</td><td class="neutral">26 250</td><td class="neutral">3 600 €/m²</td><td class="pos">94,5 M€</td></tr>
-            <tr><td>Predaj bytov 4kk+ (5 %)</td><td class="neutral">5 250</td><td class="neutral">4 000 €/m²</td><td class="pos">21,0 M€</td></tr>
-            <tr class="subtotal"><td>Rezidenčné predaje spolu (105 000 m²)</td><td></td><td></td><td>360,1 M€</td></tr>
-            <tr><td>Kancelárie — kapital. pri 7 %</td><td class="neutral">8 500 NLA</td><td class="neutral">110 €/m²/rok</td><td class="pos">13,4 M€</td></tr>
-            <tr><td>Retail / F&B — kapital. pri 7 %</td><td class="neutral">5 400 NLA</td><td class="neutral">180 €/m²/rok</td><td class="pos">13,9 M€</td></tr>
-            <tr><td>Logistika — kapital. pri 6,5 %</td><td class="neutral">12 600 NLA</td><td class="neutral">62 €/m²/rok</td><td class="pos">12,0 M€</td></tr>
-            <tr><td>Kliniky / služby — kapital. pri 7 %</td><td class="neutral">3 400 NLA</td><td class="neutral">120 €/m²/rok</td><td class="pos">5,8 M€</td></tr>
-            <tr class="subtotal"><td>Komerčná časť (kapitalizovaná) spolu</td><td></td><td></td><td>45,1 M€</td></tr>
-            <tr class="total"><td>HRUBÁ ROZVOJOVÁ HODNOTA (GDV)</td><td colspan="2"></td><td>405,2 M€</td></tr>
-          </tbody>
-        </table>
-        <div style="font-size:11px;color:var(--muted);margin-top:8px">Ceny podľa aktuálneho košického trhu (máj 2026). <strong style="color:var(--gold-pale)">Benchmark: WatsoNova centrum Košíc od 5 350 €/m².</strong> Areál David – Nad Jazerom (brownfield, mimo centrum) opatrne oceňujeme na 3 200–4 000 €/m² podľa typu a podlažia. Medziročný rast cien Košice 2025: +21,5 %. Všetky čísla pred infláciou; horizont 10 rokov.</div>
-      </div>
+      <span class="risk-badge">VYSOKÉ RIZIKO</span>
+      <span class="risk-name">Urbanistická štúdia — oneskorenie</span>
     </div>
-
     <div>
-      <div class="card">
-        <div class="card-title">Výpočet nákladov (CAPEX)</div>
-        <table class="fin-table">
-          <thead><tr><th>Nákladová položka</th><th>Základ výpočtu</th><th>Celkom</th></tr></thead>
-          <tbody>
-            <tr><td>Akvizícia pozemku</td><td class="plain">32,25 M€ fixed</td><td class="neg">32,3 M€</td></tr>
-            <tr><td>Výstavba rezidencia (140 000 m² GFA)</td><td class="plain">1 450 €/m²</td><td class="neg">203,0 M€</td></tr>
-            <tr><td>Výstavba kancelárie (10 000 m² GFA)</td><td class="plain">1 500 €/m²</td><td class="neg">15,0 M€</td></tr>
-            <tr><td>Výstavba retail / služby (6 000 m² GFA)</td><td class="plain">1 200 €/m²</td><td class="neg">7,2 M€</td></tr>
-            <tr><td>Výstavba logistika (14 000 m² GFA)</td><td class="plain">900 €/m²</td><td class="neg">12,6 M€</td></tr>
-            <tr class="subtotal"><td>Stavebný CAPEX spolu</td><td></td><td>237,8 M€</td></tr>
-            <tr><td>Infraštruktúra (cesty, siete, zeleň)</td><td class="plain">8 % zo stavby</td><td class="neg">19,0 M€</td></tr>
-            <tr><td>Mäkké náklady (projektovanie, právnici, PM)</td><td class="plain">12 % zo stavby</td><td class="neg">28,5 M€</td></tr>
-            <tr><td>Náklady na financovanie (avg 5 %, 10 rokov)</td><td class="plain">odhad</td><td class="neg">19,0 M€</td></tr>
-            <tr><td>Marketing a predaj (rezidencia)</td><td class="plain">2,5 % z rez. tržieb</td><td class="neg">6,8 M€</td></tr>
-            <tr><td>Nepredvídané náklady (8 %)</td><td class="plain">zo stavby</td><td class="neg">19,0 M€</td></tr>
-            <tr class="total"><td>CELKOVÝ CAPEX</td><td></td><td class="neg">362,4 M€</td></tr>
-          </tbody>
-        </table>
-      </div>
+      <div class="risk-col-h">Riziko</div>
+      <div class="risk-col-t">Povinná pre celé územie 23/44/16 pred vydaním stavebných povolení. Proces 12–24 mesiacov, mesto môže požadovať úpravy. Oneskorenie zdražuje projekt o ~5–8 M€ na rok.</div>
+    </div>
+    <div>
+      <div class="risk-col-h">Mitigácia</div>
+      <div class="risk-col-t"><strong>Objednať ihneď po akvizícii.</strong> Rozpočet 250–300 k€. Paralelne spustenie Fázy 1 (komerčná OP zóna) — nevyžaduje urbanistickú štúdiu pre celý areál.</div>
+    </div>
+  </div>
 
-      <div class="card" style="margin-top:16px">
-        <div class="card-title">Kľúčové finančné výstupy</div>
-        <div class="vypocet-box">
-          <div class="riadok"><span class="popis">GDV (konzervatívne avg 3 430 €/m²)</span><span class="cislo">405,2 M€</span></div>
-          <div class="riadok"><span class="popis">Celkový CAPEX</span><span class="cislo">362,4 M€</span></div>
-          <div class="riadok medzisuct"><span class="popis">Zisk developera (konzerv. BEZ EÚ)</span><span class="cislo pos">+ 42,9 M€</span></div>
-          <div class="riadok"><span class="popis">Úspora z fondov EÚ (25 % CAPEX)</span><span class="cislo pos">+ 90,6 M€</span></div>
-          <div class="riadok medzisuct"><span class="popis">Zisk s fondmi EÚ (konzerv.)</span><span class="cislo">+ 133,5 M€</span></div>
-          <div class="riadok"><span class="popis">GDV (realistické avg 3 830 €/m²)</span><span class="cislo">447,2 M€</span></div>
-          <div class="riadok medzisuct"><span class="popis">Zisk (realist. + fondy EÚ)</span><span class="cislo">+ 175,5 M€</span></div>
-          <div class="riadok"><span class="popis">Potrebné vlastné imanie (odhad)</span><span class="cislo">65–85 M€</span></div>
-          <div class="riadok vysledok"><span class="popis">Projektové IRR (realist. + EÚ)</span><span class="cislo">24–28 %</span></div>
-        </div>
-        <div style="font-size:11px;color:var(--muted);margin-top:8px">Pozn.: Fondy EÚ a realistické ceny sú kľúčové pre ziskovosť projektu. Pri konzervatívnych cenách bez EÚ je marža záporná — potvrdzuje nevyhnutnosť oboch faktorov.</div>
-      </div>
+  <div class="risk-row high">
+    <div>
+      <span class="risk-badge">VYSOKÉ RIZIKO</span>
+      <span class="risk-name">OP Železnice — obmedzenie bytovej zástavby</span>
+    </div>
+    <div>
+      <div class="risk-col-h">Riziko</div>
+      <div class="risk-col-t">~15–20 % lokality (est. 15 000–17 000 m²) nie je použiteľné pre bývanie. Znižuje rezidenčnú GFA a celkovú GDV oproti maximálnemu scenáru.</div>
+    </div>
+    <div>
+      <div class="risk-col-h">Mitigácia</div>
+      <div class="risk-col-t"><strong>Premeniť na výhodu.</strong> Komerčný / logistický pás vytvára buffer, generuje income vo Fáze 1 a separuje rezidenciu od železnice. Cena OP zóny je zahrnutá v akvizičnej cene.</div>
+    </div>
+  </div>
+
+  <div class="risk-row high">
+    <div>
+      <span class="risk-badge">VYSOKÉ RIZIKO</span>
+      <span class="risk-name">Fondy EÚ — neobdržanie grantov</span>
+    </div>
+    <div>
+      <div class="risk-col-h">Riziko</div>
+      <div class="risk-col-t">EÚ granty sú kompetitívne. Bez fondov EÚ je zisk pri konzervatívnych cenách +43 M€ namiesto +134 M€ — projekt stále funguje, ale marže sú výrazne nižšie.</div>
+    </div>
+    <div>
+      <div class="risk-col-h">Mitigácia</div>
+      <div class="risk-col-t"><strong>Registrovaný lobista výrazne zvyšuje pravdepodobnosť.</strong> Pri realistických cenách (+3 830 €/m²) projekt generuje +85 M€ aj bez EÚ. EÚ fondy = bonus, nie podmienka ziskovosti.</div>
+    </div>
+  </div>
+
+  <div class="risk-row med">
+    <div>
+      <span class="risk-badge">STREDNÉ RIZIKO</span>
+      <span class="risk-name">Inflácia stavebných nákladov</span>
+    </div>
+    <div>
+      <div class="risk-col-h">Riziko</div>
+      <div class="risk-col-t">SR stavebné náklady +25–35 % v 2021–2023. Stabilizujú sa, ale 10-ročný horizon nesie ďalšie riziko. +20 % CAPEX = –48 M€ zisku.</div>
+    </div>
+    <div>
+      <div class="risk-col-h">Mitigácia</div>
+      <div class="risk-col-t"><strong>Fázovaný CAPEX obmedzuje expozíciu.</strong> Zmluvy s fixnou cenou per fáza. Rezerva 8 % (19 M€) v CAPEX. Ceny bytov historicky rastú rýchlejšie ako stavebné náklady v Košiciach.</div>
+    </div>
+  </div>
+
+  <div class="risk-row med">
+    <div>
+      <span class="risk-badge">STREDNÉ RIZIKO</span>
+      <span class="risk-name">Pomalšia absorpcia trhu</span>
+    </div>
+    <div>
+      <div class="risk-col-h">Riziko</div>
+      <div class="risk-col-t">Pri 90 bytov/rok (vs 200 baseline) sa projekt predlžuje o 5+ rokov a IRR klesá na 12–14 %. Trhový šok (úrokové sadzby, recesia) môže absorpciu znížiť.</div>
+    </div>
+    <div>
+      <div class="risk-col-h">Mitigácia</div>
+      <div class="risk-col-t"><strong>Volvo = štrukturálny floor dopytu.</strong> 200 bytov/rok = len 25 % košického trhu. Fázovanie dorovnáva dodávku dopytu. B2R (build-to-rent) možnosť pre časť bytov v prípade spomalenia predaja.</div>
+    </div>
+  </div>
+
+  <div class="risk-row med">
+    <div>
+      <span class="risk-badge">STREDNÉ RIZIKO</span>
+      <span class="risk-name">Záplavová čiara Q100</span>
+    </div>
+    <div>
+      <div class="risk-col-h">Riziko</div>
+      <div class="risk-col-t">Myslavský potok a Q100 zasahuje časť lokality. Investičné aktivity vyžadujú schválenie správcu vodného toku. Môže ďalej obmedziť zastavateľnú plochu.</div>
+    </div>
+    <div>
+      <div class="risk-col-h">Mitigácia</div>
+      <div class="risk-col-t"><strong>Hydrologická štúdia ihneď po akvizícii.</strong> Postihnuté parcely môžu vyžadovať vyššie základy (+3–5 % stavebných nákladov). Q100 zóna čiastočne zodpovedá biokoridoru — zelené plochy per ÚP.</div>
+    </div>
+  </div>
+
+  <div class="risk-row low">
+    <div>
+      <span class="risk-badge">NÍZKE RIZIKO</span>
+      <span class="risk-name">Regulačné / územné plánovanie</span>
+    </div>
+    <div>
+      <div class="risk-col-h">Riziko</div>
+      <div class="risk-col-t">Zmena ÚP alebo nové obmedzenia po akvizícii. Historicky zriedkavé pre práve schválené zóny.</div>
+    </div>
+    <div>
+      <div class="risk-col-h">Mitigácia</div>
+      <div class="risk-col-t"><strong>ÚP schválený a podpísaný.</strong> Zmiešaná zástavba potvrdená. OP železnica known constraint. Výška 8 NP v súlade s OP letiska. Najsilnejší predajný argument projektu.</div>
+    </div>
+  </div>
+
+  <div class="risk-row low">
+    <div>
+      <span class="risk-badge">NÍZKE RIZIKO</span>
+      <span class="risk-name">Oneskorenie Volvo</span>
+    </div>
+    <div>
+      <div class="risk-col-h">Riziko</div>
+      <div class="risk-col-t">Volvo odkladá výrobu alebo škrtí zamestnanosť pod 20 000. Znižuje rezidenčný dopyt v rokoch 2–4.</div>
+    </div>
+    <div>
+      <div class="risk-col-h">Mitigácia</div>
+      <div class="risk-col-t"><strong>Košice majú štrukturálny deficit bývania bez Volva.</strong> U.S. Steel, letisko, TU Košice = ďalší dopyt. Logistická Fáza 1 nie je závislá od Volva — priami subdodávatelia a logistické firmy.</div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════ -->
-<!-- 08 – SENZITIVITNÁ ANALÝZA -->
-<!-- ══════════════════════════════════════ -->
-<section id="senzitivita">
-  <div class="section-header">
-    <span class="section-num">08</span>
-    <h2 class="section-title">Senzitivitná analýza</h2>
-    <div class="section-title-line"></div>
+<!-- 09 EXIT STRATEGY -->
+<section id="exit">
+  <div class="sh"><span class="sn">09</span><h2 class="st">Exit stratégia</h2><div class="sl"></div></div>
+
+  <div class="g3" style="margin-bottom:20px">
+    <div class="card hl">
+      <div class="ct">Exit A — Predaj po fázach</div>
+      <table class="ft">
+        <tr><td>Fáza 0</td><td>Predaj OP logistickej parcely ~8–12 M€</td></tr>
+        <tr><td>Fáza 1</td><td>Predaj komerčného parku ~43 M€ pri 5,5 % cap rate</td></tr>
+        <tr><td>Fáza 2</td><td>JV so rezidenčným developerom — equity recyklácia</td></tr>
+        <tr><td>Fáza 3</td><td>Predaj prémiových veží inštit. fondu pri 4–4,5 %</td></tr>
+        <tr><td>Fáza 4</td><td>Full exit alebo hold pre stabilný výnos</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <div class="ct">Exit B — Celkový predaj projektu</div>
+      <table class="ft">
+        <tr><td>Kupujúci profil</td><td>Pan-európsky developer, REIT, sovereign wealth</td></tr>
+        <tr><td>Predajná hodnota (stabiliz.)</td><td class="vg">420–470 M€</td></tr>
+        <tr><td>Výnosový kurz (stabiliz.)</td><td>4,0–4,5 %</td></tr>
+        <tr><td>Porovnateľné transakcie</td><td>CEE brownfield exits 2022–2025</td></tr>
+        <tr><td>Podmienka</td><td>Po schválení urbanistickej štúdie</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <div class="ct">Exit C — JV & Refinancovanie</div>
+      <table class="ft">
+        <tr><td>JV partner — developer</td><td>Vklad pozemku ~8–10 M€ per fáza</td></tr>
+        <tr><td>JV partner — fond</td><td>Equity partnership pre fázy 2–4</td></tr>
+        <tr><td>Refinancovanie Fáza 1</td><td>Cash-out refi po stabilizácii komerčnej časti</td></tr>
+        <tr><td>B2R (build-to-rent)</td><td>Inštitucionálny buy po dokončení bytov</td></tr>
+        <tr><td>IPO opcia</td><td>Holding spoločnosť pri GDV 400M€+</td></tr>
+      </table>
+    </div>
   </div>
 
-  <div class="grid-2">
-    <div class="card">
-      <div class="card-title">Predajná cena / m² vs Stavebné náklady / m² → Zisk developera</div>
-      <div class="sensitivity">
-        <table class="sens-table">
-          <thead>
-            <tr>
-              <th>Cena / Nákl. výst.</th>
-              <th>1 200 €/m²</th>
-              <th>1 450 €/m²</th>
-              <th>1 700 €/m²</th>
-              <th>1 900 €/m²</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td class="label">2 800 €/m² predaj</td><td class="pos1">+30 M€</td><td class="neg1">–10 M€</td><td class="neg2">–42 M€</td><td class="neg2">–68 M€</td></tr>
-            <tr><td class="label">3 200 €/m² predaj</td><td class="pos2">+72 M€</td><td class="pos1">+43 M€</td><td class="pos1">+11 M€</td><td class="neg1">–15 M€</td></tr>
-            <tr><td class="label">3 430 €/m² predaj ★</td><td class="pos2">+96 M€</td><td class="base">+67 M€ ★</td><td class="pos1">+35 M€</td><td class="pos1">+9 M€</td></tr>
-            <tr><td class="label">3 830 €/m² predaj</td><td class="pos2">+134 M€</td><td class="pos2">+105 M€</td><td class="pos2">+73 M€</td><td class="pos1">+47 M€</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div style="font-size:11px;color:var(--muted);margin-top:8px">Zisk developera (čistý). ★ = základný scenár s fondmi EÚ. Bez fondov EÚ odpočítajte ~60 M€ od každého políčka.</div>
-    </div>
-
-    <div class="card">
-      <div class="card-title">Rýchlosť absorpcie vs Projektové IRR</div>
-      <table class="fact-table">
-        <tr><td>90 bytov/rok (pomalý trh)</td><td class="val-red">IRR ~12–14 %</td></tr>
-        <tr><td>150 bytov/rok (konzervatívny)</td><td class="val-gold">IRR ~16–18 %</td></tr>
-        <tr><td>200 bytov/rok (základný scenár)</td><td class="val-gold">IRR ~22–26 %</td></tr>
-        <tr><td>280 bytov/rok (silný Volvo dopyt)</td><td class="val-green">IRR ~26–30 %</td></tr>
-        <tr><td>350+ bytov/rok (špičkový dopyt)</td><td class="val-green">IRR ~30–35 %</td></tr>
-      </table>
-      <div class="divider"></div>
-      <div class="card-title">Kľúčové rizikové premenné</div>
-      <table class="fact-table">
-        <tr><td>Stavebné náklady +20 %</td><td class="val-red">Zisk –48 M€</td></tr>
-        <tr><td>Predajná cena –15 %</td><td class="val-red">Zisk –61 M€</td></tr>
-        <tr><td>Absorpcia 50 % pomalšia</td><td class="val-red">IRR –6–8 %</td></tr>
-        <tr><td>Fondy EÚ 0 % (žiadne granty)</td><td class="val-red">Zisk –60 M€</td></tr>
-        <tr><td>Úroková sadzba +2 %</td><td class="val-gold">Zisk –16 M€</td></tr>
-        <tr><td>Otvorenie Volvo oneskorené 2 roky</td><td class="val-gold">Absorpcia –25 %</td></tr>
-        <tr><td>Urbanist. štúdia oneskorená o 1 rok</td><td class="val-gold">IRR –2–3 %</td></tr>
-      </table>
-    </div>
+  <div class="alert a-green">
+    <div class="at">Kľúčová správa pre investora</div>
+    <p>Projekt ponúka <strong>viaceré exitové cesty v rôznych fázach</strong> — nie je to "all-or-nothing" investícia. Developer môže predávať fázy po častiach, vstúpiť do JV, refinancovať alebo predať celý projekt. <strong>Každá fáza je navrhnutá ako samostatne predajný aktív</strong> s jasnou hodnotou a cap ratom.</p>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════ -->
-<!-- 09 – FONDY EÚ -->
-<!-- ══════════════════════════════════════ -->
+<!-- 10 EU FUNDING (redukované) -->
 <section id="eu">
-  <div class="section-header">
-    <span class="section-num">09</span>
-    <h2 class="section-title">Stratégia fondov EÚ</h2>
-    <div class="section-title-line"></div>
-  </div>
+  <div class="sh"><span class="sn">10</span><h2 class="st">Fondy EÚ — Bonus faktor</h2><div class="sl"></div></div>
 
-  <div class="eu-box">
-    <div class="eu-title">Výlučná výhoda: Registrovaný lobista EÚ s priamym prístupom ku Komisii</div>
-    <p style="font-size:13px;color:var(--text);line-height:1.7">Projekt má prístup k <strong>registrovanému lobistovi EÚ s priamymi komunikačnými linkami na Európsku komisiu</strong>. Toto je vzácna a materiálna výhoda — umožňuje predbežnú validáciu oprávnenosti financovania, skoré informácie o otváraní výziev a priamu advokáciu pre zosúladenie programov. Pre sofistikovaného investora to znižuje riziko fondov EÚ z „teoretického" na „vysokú pravdepodobnosť."</p>
-  </div>
-
-  <div class="grid-3" style="margin-bottom:20px">
-    <div class="card">
-      <div class="card-title">IROP 2021–2027</div>
-      <table class="fact-table">
-        <tr><td>Program</td><td>Integrovaný regionálny OP</td></tr>
-        <tr><td>Aplikovateľný pre</td><td>Regenerácia brownfieldov, infraštruktúra, verej. priestory</td></tr>
-        <tr><td>Oprávnené náklady</td><td>Príprava plochy, cesty, siete, zelená infraštruktúra</td></tr>
-        <tr><td>Miera spolufinancovania</td><td class="val-gold">až 85 % opr. nákladov</td></tr>
-        <tr><td>Odhadovaný prínos</td><td class="val-green">15–25 M€</td></tr>
-        <tr><td>Časový rámec výzvy</td><td>2025–2026</td></tr>
-      </table>
-    </div>
-    <div class="card">
-      <div class="card-title">EŠIF – Udržateľný rozvoj</div>
-      <table class="fact-table">
-        <tr><td>Program</td><td>Európske štrukturálne a investičné fondy</td></tr>
-        <tr><td>Aplikovateľný pre</td><td>Energetická efektívnosť, zelená mobilita, digitálna infra</td></tr>
-        <tr><td>Oprávnené náklady</td><td>Energetické systémy budov, cykloinfraštruktúra, smart technológie</td></tr>
-        <tr><td>Miera spolufinancovania</td><td class="val-gold">až 70 % opr. nákladov</td></tr>
-        <tr><td>Odhadovaný prínos</td><td class="val-green">10–20 M€</td></tr>
-        <tr><td>Časový rámec</td><td>Priebežné výzvy 2025–2029</td></tr>
-      </table>
-    </div>
-    <div class="card">
-      <div class="card-title">EIB / EBRD Financovanie</div>
-      <table class="fact-table">
-        <tr><td>Nástroj</td><td>Úver Európskej investičnej banky</td></tr>
-        <tr><td>Aplikovateľný pre</td><td>Projekty 50 M€+ s verejnoprospešnou zložkou</td></tr>
-        <tr><td>Výhoda</td><td>Podtrhové úrokové sadzby (2–3 % vs 5–6 % komerčne)</td></tr>
-        <tr><td>Odhadovaná úspora</td><td class="val-green">15–20 M€ za 10 rokov</td></tr>
-        <tr><td>Podmienka</td><td>Udržateľnostné kritériá, lokálna zamestnanosť</td></tr>
-        <tr><td>Kontext Volvo</td><td class="val-gold">Národný strategický projekt — silná argumentácia</td></tr>
-      </table>
-    </div>
-  </div>
-
-  <div class="alert alert-green">
-    <div class="alert-title">Celkový potenciál fondov EÚ / EIB</div>
-    <p>Konzervatívny odhad: <strong>40–65 M€ v priamych grantoch + 15–20 M€ úspora na financovaní = 55–85 M€ celkový prínos</strong>. Toto transformuje finančný model z okrajového na vysoko atraktívny. Úlohou lobistú je vypracovať konkrétne <strong>Memorandum o fondoch EÚ</strong> (2–3 strany) s presnou špecifikáciou výziev, oprávnených súm a podmienok — tento dokument sám o sebe výrazne urýchli due diligence investora.</p>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════ -->
-<!-- 10 – INVESTIČNÁ LOGIKA -->
-<!-- ══════════════════════════════════════ -->
-<section id="investor">
-  <div class="section-header">
-    <span class="section-num">10</span>
-    <h2 class="section-title">Investičná logika</h2>
-    <div class="section-title-line"></div>
-  </div>
-
-  <div class="grid-2" style="margin-bottom:20px">
-    <div class="card">
-      <div class="card-title">Prečo projekt funguje finančne</div>
-      <table class="fact-table">
-        <tr><td>Cena pozemku ako % GDV</td><td class="val-gold">7–8 % (benchmark 15–20 %)</td></tr>
-        <tr><td>Implicitný potenciál rastu hodnoty</td><td class="val-green">20–40 M€ nevyužitej hodnoty pri akvizícii</td></tr>
-        <tr><td>Súčasný príjem (existujúce prenájmy)</td><td class="val-green">~1,2 M€/rok počas plánovacej fázy</td></tr>
-        <tr><td>Istota dopytu</td><td class="val-green">Závod Volvo potvrdený, spustenie 2026</td></tr>
-        <tr><td>Regulačné riziko</td><td class="val-green">Územný plán schválený — najnižšie možné</td></tr>
-        <tr><td>Pravdepodobnosť fondov EÚ</td><td class="val-green">Vysoká — registrovaný lobista + oprávnená lokalita</td></tr>
-        <tr><td>Trhový čas</td><td class="val-gold">Košice byty poddimenzované vs Praha/Bratislava</td></tr>
-        <tr><td>Konkurencia</td><td class="val-gold">Žiadna porovnateľná brownfield lokalita v Košiciach</td></tr>
-      </table>
-    </div>
-    <div class="card">
-      <div class="card-title">Cieľové profily investorov</div>
-      <table class="fact-table">
-        <tr><td><strong>Rezidenčný developer (YIT, Corwin, HB Reavis)</strong></td><td>Najlepší pre Scenár A. Prináša stavebnú kapacitu a sieť predaja. Hľadá JV alebo kúpu pozemku s odloženou platbou.</td></tr>
-        <tr><td><strong>Value-add fond (Revetas, Wood & Co, RSJ)</strong></td><td>Scenár C. Kúpa so zľavou, dodanie log. Fázy 1 pre cash, predaj rezidenčného pozemku so ziskom. CEE fondy ciele 20 %+ IRR.</td></tr>
-        <tr><td><strong>Logistický developer (Prologis, CTP, P3)</strong></td><td>Len Scenár B. Rýchle rozhodovanie. Zaplatí prémiu za blízkosť Volvo. Oslovia separátne pre predaj OP pásu vo Fáze 1.</td></tr>
-        <tr><td><strong>Sovereign wealth / dlhodobý fond</strong></td><td>Plná akvizícia lokality, trpezlivý kapitál (10–15 rokov), zameraný na výnos. Pritiahnutý prístupom k fondov EÚ a rastovým príbehom Košíc.</td></tr>
-      </table>
-    </div>
-  </div>
-
-  <div class="alert alert-gold">
-    <div class="alert-title">Prečo práve Košice — Makroekonomický prípad</div>
-    <p>Košice sú druhé najväčšie mesto Slovenska s <strong>~240 000 obyvateľmi</strong> a štrukturálnym deficitom bývania. <strong>Závod Volvo (1 mld. €+, 20 000 priamych a nepriamych pracovných miest, prevádzka 2026)</strong> je najväčšia súkromná investícia v histórii Slovenska a vytvorí bezprecedentný rezidenčný dopyt vo východnom Slovensku. Letisková konektivita (8 priamych trás EÚ) sa rozširuje. Priemerné ceny košických bytov (2 200–2 600 €/m²) sú <strong>40–60 % pod Bratislavou</strong> — predstavuje to významný potenciál doháňania. Pre pan-európskeho investora ide o high-growth sekundárne mesto s výrazným makro vetrom v chrbte a minimálnou konkurenciou inštitucionálneho kapitálu.</p>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════ -->
-<!-- 11 – ANALÝZA RIZÍK -->
-<!-- ══════════════════════════════════════ -->
-<section id="rizika">
-  <div class="section-header">
-    <span class="section-num">11</span>
-    <h2 class="section-title">Analýza rizík</h2>
-    <div class="section-title-line"></div>
-  </div>
-
-  <div class="risk-grid">
-    <div class="risk-item high">
-      <div class="risk-label">VYSOKÉ RIZIKO</div>
-      <div class="risk-name">OP Železnice — Obmedzenie bývania</div>
-      <div class="risk-desc">~15–20 % lokality nemožno použiť na bývanie. Znižuje predajnú GFA a GDV oproti pôvodným predpokladom. <strong>Mitigácia:</strong> Premeniť na výhodu — komerčný / logistický pás vytvára prirodzený buffer a generuje príjem vo fáze 1.</div>
-    </div>
-    <div class="risk-item high">
-      <div class="risk-label">VYSOKÉ RIZIKO</div>
-      <div class="risk-name">Oneskorenie Urbanistickej štúdie</div>
-      <div class="risk-desc">Povinná pre celé územie 23/44/16. Mesto môže požadovať úpravy. Proces 12–24 mesiacov. Oneskoruje všetky stavebné povolenia. <strong>Mitigácia:</strong> Objednať ihneď po akvizícii. Rozpočet 250–300 tis. €.</div>
-    </div>
-    <div class="risk-item high">
-      <div class="risk-label">VYSOKÉ RIZIKO</div>
-      <div class="risk-name">Fondy EÚ — Neobdržanie grantov</div>
-      <div class="risk-desc">EÚ granty sú kompetitívne. Bez fondov EÚ je finančný model pri konzervatívnych cenách záporný. <strong>Mitigácia:</strong> Registrovaný lobista výrazne zvyšuje pravdepodobnosť. Pri realistických cenách projekt funguje aj bez EÚ.</div>
-    </div>
-    <div class="risk-item med">
-      <div class="risk-label">STREDNÉ RIZIKO</div>
-      <div class="risk-name">Záplavová čiara Q100</div>
-      <div class="risk-desc">Myslavský potok a Q100 línia ovplyvňuje časti lokality. Všetky investície vyžadujú schválenie správcu vodného toku. Môže ďalej obmedziť zastavateľnú plochu. <strong>Mitigácia:</strong> Objednať hydrologickú štúdiu. Možné zakladanie na vyšších základoch.</div>
-    </div>
-    <div class="risk-item med">
-      <div class="risk-label">STREDNÉ RIZIKO</div>
-      <div class="risk-name">Inflácia stavebných nákladov</div>
-      <div class="risk-desc">Slovenské stavebné náklady vzrástli o 25–35 % v rokoch 2021–2023. Stabilizujú sa, ale riziko ďalšieho rastu počas 10-ročného horizontu pretrvávané. <strong>Mitigácia:</strong> Fázovaný CAPEX obmedzuje expozíciu. Zmlúvy s fixnou cenou per fáza.</div>
-    </div>
-    <div class="risk-item med">
-      <div class="risk-label">STREDNÉ RIZIKO</div>
-      <div class="risk-name">Oneskorenie / redukcia Volvo</div>
-      <div class="risk-desc">Spustenie výroby Volvo oneskorené alebo zamestnanosť nižšia ako 20 000. Spomaľuje rast rezidenčného dopytu. <strong>Mitigácia:</strong> Košice majú štrukturálny nedostatok bývania bez ohľadu na Volvo. Organický dopyt existuje.</div>
-    </div>
-    <div class="risk-item low">
-      <div class="risk-label">NÍZKE RIZIKO</div>
-      <div class="risk-name">Regulačné / Územné plánovanie</div>
-      <div class="risk-desc">Územný plán schválený a podpísaný. Zmiešaná zástavba potvrdená. OP železnice je bekend obmedzenie. Výška 8 NP v súlade s OP letiska. <strong>Status:</strong> Toto je najsilnejší predajný argument projektu.</div>
-    </div>
-    <div class="risk-item low">
-      <div class="risk-label">NÍZKE RIZIKO</div>
-      <div class="risk-name">Trhová absorpcia</div>
-      <div class="risk-desc">Košický rezidenčný trh je poddimenzovaný. 200 bytov/rok = ~28 % trhového podielu. Volvo pridáva štrukturálné dno dopytu. <strong>Mitigácia:</strong> Fázované dodanie zodpovedá dodávky absorpcii.</div>
-    </div>
-    <div class="risk-item low">
-      <div class="risk-label">NÍZKE RIZIKO</div>
-      <div class="risk-name">Konkurencia na trhu</div>
-      <div class="risk-desc">Žiadna porovnateľná brownfield lokalita v Košiciach s takýmto objemom a schváleným ÚP. Nové projectable lokality sú limitované. <strong>Status:</strong> Projekt má prirodzený monopol na veľký rezidenčný development v tejto polohe.</div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════ -->
-<!-- 12 – ŠTRUKTÚRA IM -->
-<!-- ══════════════════════════════════════ -->
-<section id="im">
-  <div class="section-header">
-    <span class="section-num">12</span>
-    <h2 class="section-title">Štruktúra Informačného Memoranda (IM)</h2>
-    <div class="section-title-line"></div>
-  </div>
-
-  <div class="alert alert-blue" style="margin-bottom:24px">
-    <div class="alert-title">Postup prípravy IM</div>
-    <p>Úplné IM sa pripravuje <strong>až po podpise NDA</strong>. Investment Teaser (už pripravený) generuje prvý kontakt. NDA je podpísaná. IM je odoslaný. Toto chráni dôverné finančné údaje a filtruje neserióznych záujemcov. Odhadovaná príprava IM: <strong>3–4 týždne</strong> s dostupnými všetkými podkladmi.</p>
-  </div>
-
-  <div class="grid-2">
+  <div class="eu-box" style="margin-bottom:20px">
+    <div class="eu-icon">🇪🇺</div>
     <div>
-      <div class="im-list">
-        <div class="im-item"><div class="im-num">01</div><div><div class="im-title">Výkonnostné zhrnutie (2 strany)</div><div class="im-desc">Investičná téza v 5 bodoch. GDV, požadovaná cena, IRR headline. Prečo teraz. Pre koho. Výzva na akciu. Kľúčový rozhodca číta iba toto.</div></div></div>
-        <div class="im-item"><div class="im-num">02</div><div><div class="im-title">Investičné zvýraznenia (1 strana)</div><div class="im-desc">6–8 bulletov. Schválený ÚP. Blízkosť Volvo. Fondy EÚ. Podhodnotený pozemok. Existujúci príjem. Registrovaný lobista. Vizuál: letecká fotografia s vyznačenými vzdialenosťami.</div></div></div>
-        <div class="im-item"><div class="im-num">03</div><div><div class="im-title">Lokalita a analýza trhu (4–6 strán)</div><div class="im-desc">Makrofundamentaly Košíc. Populácia, HDP, trendy zamestnanosti. Analýza dopadu Volvo. Letisková konektivita. Dáta ponuky/dopytu bytov. Cenový trend vs. Bratislava. Konkurenčná krajina. Vizuál: mapy, grafy, cenové trendy.</div></div></div>
-        <div class="im-item"><div class="im-num">04</div><div><div class="im-title">Lokalita a regulačná analýza (3–4 strany)</div><div class="im-desc">Regulačné parametre ÚP. Mapa obmedzení (OP železnica, Q100, biokoridor). Výpočet efektívnej zastavateľnej plochy. Záväzné podmienky ÚPN-M. Vizuál: anotovaná katastrálna mapa.</div></div></div>
-        <div class="im-item"><div class="im-num">05</div><div><div class="im-title">Rozvojový koncept (4–5 strán)</div><div class="im-desc">Vízia masterplanu. Rozdelenie programu. Typológie budov. Výšky a mix. Stratégia parkovania. Logika fázovania. Oba scenáre A a B. Vizuál: rendery zo štúdie + diagram masterplanu.</div></div></div>
-        <div class="im-item"><div class="im-num">06</div><div><div class="im-title">Finančný prehľad (4–5 strán)</div><div class="im-desc">Úplný model výnosov. Štruktúra nákladov. GDV waterfall graf. Cashflow fáza po fáze. IRR analýza. Tabuľky citlivosti. Porovnanie s/bez fondov EÚ. Vizuál: waterfall, cashflow diagram, heatmapa citlivosti.</div></div></div>
-      </div>
-    </div>
-    <div>
-      <div class="im-list">
-        <div class="im-item"><div class="im-num">07</div><div><div class="im-title">Fazová rozvojová stratégia (3–4 strany)</div><div class="im-desc">Detailný plán fáza po fáze. Ganttov diagram časovej osi. Fáza 0 (plánovanie) až Fáza 4 (dokončenie). Možnosti exitu per fáza. Dostupné JV štruktúry. Vizuál: diagram časovej osi, mapa fáz na masterplane.</div></div></div>
-        <div class="im-item"><div class="im-num">08</div><div><div class="im-title">Analýza rizík (2–3 strany)</div><div class="im-desc">Riziková matica (pravdepodobnosť × dopad). Top 9 rizík s mitigáciou. Analýza obmedzení (OP železnica, Q100). Citlivosť: cena, náklady, absorpcia, omeškanie. Vizuál: kvartálny graf rizikovej matice.</div></div></div>
-        <div class="im-item"><div class="im-num">09</div><div><div class="im-title">Príležitosť fondov EÚ (2–3 strany)</div><div class="im-desc">Memorandum o fondoch EÚ (vypracuje registrovaný lobista — samostatný dokument). Zhrnutie: aplikovateľné nástroje, oprávnené náklady, miery spolufinancovania, odhadovaný prínos, časový rámec. Vizuál: waterfall dopadu fondov EÚ na IRR.</div></div></div>
-        <div class="im-item"><div class="im-num">10</div><div><div class="im-title">Stratégia exitu (1–2 strany)</div><div class="im-desc">Možnosti exitu per fáza. Scenáre plného predaja. JV / čiastočný podiel. Predaj REIT / inštitucionálnemu fondu pri stabilizácii. Cesta k IPO. Porovnateľné CEE transakcie. Trendy kompresie výnosov.</div></div></div>
-        <div class="im-item"><div class="im-num">11</div><div><div class="im-title">Štruktúra transakcie (1–2 strany)</div><div class="im-desc">Mechanizmy akvizície. Predaj akcií vs. predaj aktív (daňové dôsledky). Harmonogram uzavretia. Proces due diligence. NDA → LoI → Exkluzivita → Uzavretie. Požadované záruky.</div></div></div>
-        <div class="im-item"><div class="im-num">12</div><div><div class="im-title">Výzva na akciu a kontakt (1 strana)</div><div class="im-desc">Procesný list. Termín indikatívnej ponuky. Požadovaná forma LoI. Kontakt: <strong>Martin Dominik Ing., MBA, EUR ING</strong>. Šablóna NDA ako príloha. Ďalšie kroky jasne uvedené.</div></div></div>
-      </div>
+      <div class="eu-title">Registrovaný EU lobista s priamym prístupom ku Komisii</div>
+      <div class="eu-text">Projekt má prístup k <strong>registrovanému lobistovi EÚ s priamymi komunikačnými linkami na Európsku komisiu</strong>. Toto znižuje riziko EÚ fondov z "teoretického" na "vysokú pravdepodobnosť". Lobista vypracuje <strong>EU Funding Memorandum</strong> po podpise NDA — konkrétne výzvy, sumy, podmienky.</div>
     </div>
   </div>
 
-  <div class="divider"></div>
-
-  <div class="card">
-    <div class="card-title">Odporúčania pre vizuálnu prezentáciu IM</div>
-    <div class="grid-3">
-      <div>
-        <div style="font-size:12px;font-weight:600;color:var(--white);margin-bottom:6px">Vizuály masterplanu</div>
-        <div style="font-size:12px;color:var(--muted)">Letecká dronová fotografia s prekrytím zón (rezidenčná / komerčná / zelená). Hranice fáz zvýraznené. OP železnica jasne vyznačená kontrastnou farbou. Existujúce rendery sú vysokokvalitné — použiť ako víziu Fázy A.</div>
-      </div>
-      <div>
-        <div style="font-size:12px;font-weight:600;color:var(--white);margin-bottom:6px">Finančné grafy</div>
-        <div style="font-size:12px;color:var(--muted)">GDV waterfall (pozemok + výstavba + mäkké náklady → hrubé výnosy → zisk). Fázová cashflow S-krivka. Heatmapa citlivosti (farebne kódovaná). Stĺpcový graf dopadu fondov EÚ (s / bez). Tmavý dizajn, zlatý akcent — zodpovedá identite projektu.</div>
-      </div>
-      <div>
-        <div style="font-size:12px;font-weight:600;color:var(--white);margin-bottom:6px">Lokalizačné diagramy</div>
-        <div style="font-size:12px;color:var(--muted)">Jedna mapa zobrazujúca: lokalita → Volvo (8,2 km) → letisko (susediace) → U.S. Steel → centrum mesta → jazero. Kruhy izochrony jazdy. Satelitná fotografia základ. Kontextová mapa Európy zobrazujúca polohu Košíc v CEE.</div>
-      </div>
+  <div class="g3">
+    <div class="card">
+      <div class="ct">IROP 2021–2027</div>
+      <table class="ft">
+        <tr><td>Aplikácia</td><td>Brownfield regenerácia, infra</td></tr>
+        <tr><td>Spolufinancovanie</td><td class="vg">až 85 % opr. nákladov</td></tr>
+        <tr><td>Odh. prínos</td><td class="vg">15–25 M€</td></tr>
+        <tr><td>Výzva</td><td>2025–2026</td></tr>
+      </table>
     </div>
+    <div class="card">
+      <div class="ct">EŠIF — Udržateľný rozvoj</div>
+      <table class="ft">
+        <tr><td>Aplikácia</td><td>Energia, zelená mobilita, smart infra</td></tr>
+        <tr><td>Spolufinancovanie</td><td class="vg">až 70 % opr. nákladov</td></tr>
+        <tr><td>Odh. prínos</td><td class="vg">10–20 M€</td></tr>
+        <tr><td>Výzva</td><td>Priebežne 2025–2029</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <div class="ct">EIB / EBRD</div>
+      <table class="ft">
+        <tr><td>Aplikácia</td><td>Projekty 50M€+, verejný benefit</td></tr>
+        <tr><td>Výhoda</td><td>2–3 % vs 5–6 % komerčne</td></tr>
+        <tr><td>Odh. úspora</td><td class="vg">15–20 M€ za 10 rokov</td></tr>
+        <tr><td>Podmienka</td><td>Udržateľnosť, lokálna zamestnanosť</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div style="margin-top:12px;font-size:12px;color:var(--muted);padding:0 2px">
+    Celkový odhadovaný prínos EÚ fondov: <strong style="color:var(--gold-pale)">55–85 M€</strong>. Projekt je ziskový aj bez EÚ fondov pri realistických cenách (+85 M€) — fondy EÚ sú hodnotový booster, nie podmienka životaschopnosti.
   </div>
 </section>
 
-<div class="doc-footer">
-  <div class="doc-footer-left">
-    <strong>Martin Dominik Ing., MBA, EUR ING</strong> · Poradca pre nehnuteľnosti a investície · Slovensko<br>
-    Vypracované: Máj 2026 · Areál David – Košice Nad Jazerom · Len na diskusné účely
+<!-- 11 CTA -->
+<section id="cta" style="border-bottom:none">
+  <div class="sh"><span class="sn">11</span><h2 class="st">Ďalší postup</h2><div class="sl"></div></div>
+
+  <div class="cta-box">
+    <div class="cta-title">Máte záujem o Areál David?</div>
+    <div class="cta-sub">Pripravíme kompletné Information Memorandum po podpise NDA. Prvý kontakt do 48 hodín.</div>
+
+    <div class="cta-steps">
+      <div class="cta-step">
+        <div class="cta-step-n">1</div>
+        <div class="cta-step-t">Kontaktujte nás</div>
+      </div>
+      <div class="cta-step">
+        <div class="cta-step-n">2</div>
+        <div class="cta-step-t">Podpis NDA</div>
+      </div>
+      <div class="cta-step">
+        <div class="cta-step-n">3</div>
+        <div class="cta-step-t">Information Memorandum</div>
+      </div>
+      <div class="cta-step">
+        <div class="cta-step-n">4</div>
+        <div class="cta-step-t">Due Diligence</div>
+      </div>
+      <div class="cta-step">
+        <div class="cta-step-n">5</div>
+        <div class="cta-step-t">Closing</div>
+      </div>
+    </div>
+
+    <div class="cta-contact">Martin Dominik Ing., MBA, EUR ING</div>
+    <div class="cta-email">Real Estate & Investment Advisor · Slovensko</div>
   </div>
-  <div class="confidential-badge">Prísne dôverné</div>
+</section>
+
+<div class="footer">
+  <div class="footer-left">
+    <strong>Areál David — Investment Opportunity</strong> · Košice, Slovensko · Máj 2026<br>
+    Vypracoval: Martin Dominik Ing., MBA, EUR ING · Len na diskusné účely · Nepoužiteľné na právne úkony
+  </div>
+  <div class="conf">Prísne dôverné</div>
 </div>
 
-</div>
+</div><!-- /main -->
 
 <script>
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-link');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      navLinks.forEach(link => {
-        link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
-      });
-    }
-  });
-}, { threshold: 0.2 });
-sections.forEach(s => observer.observe(s));
+const navLinks=document.querySelectorAll('.nav-link');
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)navLinks.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+e.target.id))});
+},{threshold:0.15});
+document.querySelectorAll('section[id]').forEach(s=>observer.observe(s));
 
-// Mobile nav
-const hamburger = document.getElementById('hamburger');
-const sidenav = document.getElementById('sidenav');
-const overlay = document.getElementById('navOverlay');
-
-function openNav(){sidenav.classList.add('open');overlay.classList.add('open');}
-function closeNav(){sidenav.classList.remove('open');overlay.classList.remove('open');}
-
-hamburger.addEventListener('click', openNav);
-overlay.addEventListener('click', closeNav);
-navLinks.forEach(l => l.addEventListener('click', closeNav));
+const hamburger=document.getElementById('hamburger');
+const sidenav=document.getElementById('sidenav');
+const overlay=document.getElementById('navOverlay');
+function openNav(){sidenav.classList.add('open');overlay.classList.add('open')}
+function closeNav(){sidenav.classList.remove('open');overlay.classList.remove('open')}
+hamburger.addEventListener('click',openNav);
+overlay.addEventListener('click',closeNav);
+navLinks.forEach(l=>l.addEventListener('click',closeNav));
 </script>
 </body>
 </html>
