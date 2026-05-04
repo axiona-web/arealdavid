@@ -164,11 +164,94 @@ section:last-child{border-bottom:none}
 .doc-footer{padding:30px 60px;background:var(--dark2);border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
 .doc-footer-left{font-size:12px;color:var(--muted)}.doc-footer-left strong{color:var(--text)}
 .confidential-badge{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(201,168,76,0.4);border:1px solid rgba(201,168,76,0.2);padding:6px 14px;}
+
+/* ── HAMBURGER BUTTON ── */
+.hamburger{display:none;position:fixed;top:16px;left:16px;z-index:200;background:var(--dark2);border:1px solid var(--border);padding:10px 12px;cursor:pointer;flex-direction:column;gap:5px;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--gold);}
+.nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:150;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .hamburger{display:flex;}
+  .nav-overlay.open{display:block;}
+
+  .sidenav{
+    transform:translateX(-100%);
+    transition:transform .3s ease;
+    z-index:160;
+    width:260px;
+  }
+  .sidenav.open{transform:translateX(0);}
+
+  .main{margin-left:0;}
+
+  .hero{padding:60px 20px 40px;}
+  .hero-title{font-size:36px;}
+  .hero-sub{font-size:12px;letter-spacing:0;}
+  .hero-stats{grid-template-columns:repeat(2,1fr);}
+  .hero-stat:last-child{grid-column:1/-1;}
+  .hero::after{display:none;}
+
+  section{padding:32px 20px;}
+
+  .section-title{font-size:22px;}
+  .section-title-line{display:none;}
+
+  .grid-2,.grid-3,.grid-4{grid-template-columns:1fr;}
+
+  .phase-grid{grid-template-columns:1fr 1fr;}
+
+  .scenario-grid{grid-template-columns:1fr;}
+
+  .risk-grid{grid-template-columns:1fr;}
+
+  .sensitivity{overflow-x:auto;}
+
+  .vypocet-box{font-size:11px;}
+  .vypocet-box .riadok{flex-direction:column;gap:2px;}
+
+  .doc-footer{flex-direction:column;gap:16px;text-align:center;padding:24px 20px;}
+
+  .fin-table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+
+  .fact-table td:first-child{width:50%;}
+  .fact-table td{font-size:12px;}
+
+  .alert{padding:14px 16px;}
+  .card{padding:16px;}
+
+  .timeline{padding-left:24px;}
+  .phase-header{flex-wrap:wrap;}
+  .phase-years{width:100%;margin-left:0;margin-top:4px;}
+}
+
+@media(max-width:480px){
+  .hero{padding:50px 16px 32px;}
+  .hero-title{font-size:28px;}
+  .hero-stats{grid-template-columns:1fr 1fr;}
+  .hero-stat:last-child{grid-column:auto;}
+  .hero-stat-num{font-size:17px;}
+
+  section{padding:24px 16px;}
+  .section-title{font-size:19px;}
+
+  .metric-val{font-size:24px;}
+  .phase-grid{grid-template-columns:1fr 1fr;}
+  .scenario-irr{font-size:28px;}
+
+  .doc-footer{padding:20px 16px;}
+  .card-title{font-size:8px;}
+}
 </style>
 </head>
 <body>
 
-<nav class="sidenav">
+<button class="hamburger" id="hamburger" aria-label="Menu">
+  <span></span><span></span><span></span>
+</button>
+<div class="nav-overlay" id="navOverlay"></div>
+
+<nav class="sidenav" id="sidenav">
   <div class="nav-logo">
     <div class="nav-logo-title">Areál David</div>
     <div class="nav-logo-sub">Rozvojová štúdia 2026</div>
@@ -1056,6 +1139,18 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.2 });
 sections.forEach(s => observer.observe(s));
+
+// Mobile nav
+const hamburger = document.getElementById('hamburger');
+const sidenav = document.getElementById('sidenav');
+const overlay = document.getElementById('navOverlay');
+
+function openNav(){sidenav.classList.add('open');overlay.classList.add('open');}
+function closeNav(){sidenav.classList.remove('open');overlay.classList.remove('open');}
+
+hamburger.addEventListener('click', openNav);
+overlay.addEventListener('click', closeNav);
+navLinks.forEach(l => l.addEventListener('click', closeNav));
 </script>
 </body>
 </html>
