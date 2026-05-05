@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Areál David — 3D Vizualizácia</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0a1208;font-family:'DM Sans',sans-serif;overflow:hidden;height:100vh}
+#canvas-container{width:100vw;height:100vh;position:relative}
+canvas{display:block}
+
+.overlay{position:absolute;top:0;left:0;right:0;bottom:0;pointer-events:none}
+
+/* HEADER */
+.header{position:absolute;top:24px;left:32px;z-index:10}
+.header-tag{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#C9A84C;opacity:.8;margin-bottom:6px}
+.header-title{font-size:28px;font-weight:300;color:#F2F5EF;letter-spacing:1px;line-height:1}
+.header-title em{font-style:italic;color:#C9A84C}
+.header-sub{font-size:11px;color:#8A9A88;margin-top:6px;letter-spacing:.5px}
+
+/* CONTROLS */
+.controls{position:absolute;top:24px;right:24px;z-index:10;display:flex;flex-direction:column;gap:6px;pointer-events:all}
+.ctrl-btn{background:rgba(14,22,14,0.88);border:1px solid rgba(201,168,76,0.25);color:#8A9A88;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;padding:7px 14px;cursor:pointer;transition:all .2s;text-align:left;display:flex;align-items:center;gap:8px;min-width:160px}
+.ctrl-btn:hover{border-color:#C9A84C;color:#E4E8E0}
+.ctrl-btn.active{border-color:#C9A84C;color:#C9A84C;background:rgba(201,168,76,0.1)}
+.ctrl-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+
+/* LEGEND */
+.legend{position:absolute;bottom:24px;left:32px;z-index:10;display:flex;flex-direction:column;gap:5px}
+.leg-item{display:flex;align-items:center;gap:8px;font-size:10px;color:#6A7A68;letter-spacing:.5px}
+.leg-sw{width:12px;height:12px;border-radius:2px;flex-shrink:0}
+
+/* TOOLTIP */
+.tooltip{position:absolute;background:rgba(10,18,10,0.95);border:1px solid #C9A84C;padding:12px 15px;pointer-events:none;display:none;z-index:20;min-width:180px;backdrop-filter:blur(8px)}
+.tt-phase{font-size:8px;letter-spacing:2px;text-transform:uppercase;margin-bottom:5px}
+.tt-name{font-size:14px;font-weight:500;color:#F2F5EF;margin-bottom:8px}
+.tt-row{display:flex;justify-content:space-between;gap:16px;font-size:11px;color:#8A9A88;padding:2px 0;border-bottom:1px solid rgba(201,168,76,0.1)}
+.tt-row:last-child{border-bottom:none}
+.tt-row span:last-child{color:#E4E8E0;font-weight:500}
+
+/* INFO BAR */
+.info-bar{position:absolute;bottom:24px;right:24px;z-index:10;background:rgba(10,18,10,0.88);border:1px solid rgba(201,168,76,0.2);border-left:2px solid #C9A84C;padding:10px 14px;font-size:11px;color:#6A7A68;max-width:240px;line-height:1.6}
+.info-bar strong{color:#E4E8E0;display:block;margin-bottom:3px;font-size:12px}
+
+/* HINT */
+.hint{position:absolute;bottom:80px;left:50%;transform:translateX(-50%);font-size:10px;color:rgba(138,154,136,0.5);letter-spacing:2px;text-transform:uppercase;text-align:center;z-index:10;pointer-events:none}
+
+/* COMPASS */
+.compass{position:absolute;bottom:80px;right:32px;z-index:10;width:36px;height:36px}
+.compass svg{width:100%;height:100%}
+
+/* STATS BAR */
+.stats-bar{position:absolute;top:24px;left:50%;transform:translateX(-50%);z-index:10;display:flex;gap:1px;background:rgba(201,168,76,0.15)}
+.stat-block{background:rgba(10,18,10,0.9);padding:8px 18px;text-align:center;min-width:100px;border:0.5px solid rgba(201,168,76,0.1)}
+.stat-v{font-size:15px;font-weight:500;color:#C9A84C;display:block;line-height:1}
+.stat-l{font-size:8px;color:#6A7A68;letter-spacing:1.5px;text-transform:uppercase;display:block;margin-top:3px}
+
+@media(max-width:600px){
+  .header-title{font-size:20px}
+  .stats-bar{display:none}
+  .controls{top:auto;bottom:80px;right:12px}
+  .legend{bottom:auto;top:80px;left:12px}
+  .ctrl-btn{min-width:120px;font-size:9px}
+}
+</style>
+</head>
+<body>
+<div id="canvas-container">
+
+  <div class="header">
+    <div class="header-tag">3D Vizualizácia · Košice Nad Jazerom</div>
+    <div class="header-title">Areál <em>David</em></div>
+    <div class="header-sub">98 400 m² · Zmiešaný rezidenčný development</div>
+  </div>
+
+  <div class="stats-bar">
+    <div class="stat-block"><span class="stat-v">~1 616</span><span class="stat-l">Bytových jednotiek</span></div>
+    <div class="stat-block"><span class="stat-v">8 NP</span><span class="stat-l">Max výška veží</span></div>
+    <div class="stat-block"><span class="stat-v">405–447 M€</span><span class="stat-l">GDV potenciál</span></div>
+    <div class="stat-block"><span class="stat-v">40 %</span><span class="stat-l">Max zastavanosť</span></div>
+  </div>
+
+  <div class="controls" id="controls">
+    <div style="font-size:8px;letter-spacing:2px;color:rgba(201,168,76,0.5);text-transform:uppercase;margin-bottom:2px">Zobrazenie</div>
+    <button class="ctrl-btn active" data-phase="all" onclick="setPhase('all',this)">
+      <div class="ctrl-dot" style="background:#888"></div>Celkový pohľad
+    </button>
+    <button class="ctrl-btn" data-phase="1" onclick="setPhase('1',this)">
+      <div class="ctrl-dot" style="background:#5B7FA6"></div>Fáza 1 — Logistika
+    </button>
+    <button class="ctrl-btn" data-phase="2" onclick="setPhase('2',this)">
+      <div class="ctrl-dot" style="background:#4a7c3f"></div>Fáza 2 — Rezidencia
+    </button>
+    <button class="ctrl-btn" data-phase="3" onclick="setPhase('3',this)">
+      <div class="ctrl-dot" style="background:#C9A84C"></div>Fáza 3 — Veže
+    </button>
+    <div style="height:8px"></div>
+    <div style="font-size:8px;letter-spacing:2px;color:rgba(201,168,76,0.5);text-transform:uppercase;margin-bottom:2px">Ovládanie</div>
+    <button class="ctrl-btn" onclick="resetCamera()">
+      <div class="ctrl-dot" style="background:#666;border:1px solid #888"></div>Reset pohľadu
+    </button>
+    <button class="ctrl-btn" id="autoRotBtn" onclick="toggleAutoRot()">
+      <div class="ctrl-dot" style="background:#666;border:1px solid #888"></div>Auto rotácia
+    </button>
+  </div>
+
+  <div class="legend">
+    <div style="font-size:8px;letter-spacing:2px;color:rgba(201,168,76,0.5);text-transform:uppercase;margin-bottom:4px">Legenda</div>
+    <div class="leg-item"><div class="leg-sw" style="background:#C9A84C"></div>Rezidenčné veže (8 NP)</div>
+    <div class="leg-item"><div class="leg-sw" style="background:#3a6035"></div>Rezidenčné bloky (5–6 NP)</div>
+    <div class="leg-item"><div class="leg-sw" style="background:#5B7FA6"></div>Logistika / Kancelárie</div>
+    <div class="leg-item"><div class="leg-sw" style="background:#5a4a80"></div>Retail / Kliniky</div>
+    <div class="leg-item"><div class="leg-sw" style="background:#2a5c2a"></div>Zeleň & Amenity</div>
+    <div class="leg-item"><div class="leg-sw" style="background:#1a4a6e"></div>Seligovo jazero</div>
+  </div>
+
+  <div class="tooltip" id="tooltip">
+    <div class="tt-phase" id="tt-phase"></div>
+    <div class="tt-name" id="tt-name"></div>
+    <div id="tt-body"></div>
+  </div>
+
+  <div class="info-bar" id="info-bar">
+    <strong>Najetie na budovu zobrazí detaily</strong>
+    Ťahajte na otáčanie · Koliesko na zoom · Kliknite fázu pre izoláciu
+  </div>
+
+  <div class="hint">← ťahať → otáčať &nbsp;|&nbsp; koliesko = zoom</div>
+
+  <div class="compass">
+    <svg viewBox="0 0 36 36" fill="none">
+      <circle cx="18" cy="18" r="16" stroke="rgba(201,168,76,0.3)" stroke-width="0.5"/>
+      <polygon points="18,4 21,18 18,16 15,18" fill="#C9A84C" opacity="0.9"/>
+      <polygon points="18,32 21,18 18,20 15,18" fill="rgba(201,168,76,0.3)"/>
+      <text x="18" y="2.5" text-anchor="middle" font-size="5" fill="#C9A84C" font-family="sans-serif" font-weight="500">N</text>
+    </svg>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+const container = document.getElementById('canvas-container');
+const W = container.clientWidth, H = container.clientHeight;
+
+// SCENE
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x060e06);
+scene.fog = new THREE.FogExp2(0x060e06, 0.006);
+
+// CAMERA
+const camera = new THREE.PerspectiveCamera(42, W/H, 0.5, 800);
+const defaultCam = {x:120, y:140, z:160};
+camera.position.set(defaultCam.x, defaultCam.y, defaultCam.z);
+camera.lookAt(0, 0, 0);
+
+// RENDERER
+const renderer = new THREE.WebGLRenderer({antialias:true, alpha:false});
+renderer.setSize(W, H);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.1;
+container.appendChild(renderer.domElement);
+
+// LIGHTS
+const ambient = new THREE.AmbientLight(0x223322, 0.8);
+scene.add(ambient);
+
+const sun = new THREE.DirectionalLight(0xFFF5D0, 2.2);
+sun.position.set(-80, 150, -60);
+sun.castShadow = true;
+sun.shadow.mapSize.width = 2048;
+sun.shadow.mapSize.height = 2048;
+sun.shadow.camera.near = 1;
+sun.shadow.camera.far = 500;
+sun.shadow.camera.left = -180;
+sun.shadow.camera.right = 180;
+sun.shadow.camera.top = 180;
+sun.shadow.camera.bottom = -180;
+sun.shadow.bias = -0.001;
+scene.add(sun);
+
+const fill = new THREE.DirectionalLight(0x4488AA, 0.4);
+fill.position.set(80, 60, 80);
+scene.add(fill);
+
+const rim = new THREE.DirectionalLight(0xC9A84C, 0.3);
+rim.position.set(0, 40, -100);
+scene.add(rim);
+
+// GROUND
+const groundGeo = new THREE.PlaneGeometry(400, 400);
+const groundMat = new THREE.MeshLambertMaterial({color: 0x0f1e0f});
+const ground = new THREE.Mesh(groundGeo, groundMat);
+ground.rotation.x = -Math.PI/2;
+ground.receiveShadow = true;
+scene.add(ground);
+
+// SITE BOUNDARY (outline)
+const boundaryGeo = new THREE.EdgesGeometry(new THREE.BoxGeometry(140, 0.1, 168));
+const boundaryMat = new THREE.LineBasicMaterial({color: 0xC9A84C, opacity: 0.35, transparent: true});
+const boundary = new THREE.LineSegments(boundaryGeo, boundaryMat);
+boundary.position.set(-5, 0.1, 0);
+scene.add(boundary);
+
+// GRID
+const grid = new THREE.GridHelper(280, 28, 0x1a2e1a, 0x1a2e1a);
+grid.material.opacity = 0.5;
+grid.material.transparent = true;
+scene.add(grid);
+
+// LAKE
+const lakeGeo = new THREE.PlaneGeometry(55, 48);
+const lakeMat = new THREE.MeshLambertMaterial({color: 0x0d2a45, emissive: 0x051520, emissiveIntensity: 0.5});
+const lake = new THREE.Mesh(lakeGeo, lakeMat);
+lake.rotation.x = -Math.PI/2;
+lake.position.set(-73, 0.05, -68);
+scene.add(lake);
+
+// Lake glow point
+const lakePt = new THREE.PointLight(0x1a4a8a, 0.8, 80);
+lakePt.position.set(-73, 5, -68);
+scene.add(lakePt);
+
+// RAILWAY STRIP
+const railGeo = new THREE.PlaneGeometry(20, 170);
+const railMat = new THREE.MeshLambertMaterial({color: 0x111811});
+const rail = new THREE.Mesh(railGeo, railMat);
+rail.rotation.x = -Math.PI/2;
+rail.position.set(62, 0.05, 0);
+scene.add(rail);
+
+// Rail lines
+for(let i=-80; i<=80; i+=8){
+  const seg = new THREE.Mesh(
+    new THREE.PlaneGeometry(0.5, 3),
+    new THREE.MeshLambertMaterial({color: 0x444444})
+  );
+  seg.rotation.x = -Math.PI/2;
+  seg.position.set(62, 0.06, i);
+  scene.add(seg);
+}
+
+// GREEN AREAS
+function addGreen(x, z, w, d){
+  const g = new THREE.Mesh(
+    new THREE.PlaneGeometry(w, d),
+    new THREE.MeshLambertMaterial({color: 0x1a3d1a, emissive: 0x0a1a0a, emissiveIntensity: 0.2})
+  );
+  g.rotation.x = -Math.PI/2;
+  g.position.set(x, 0.06, z);
+  g.receiveShadow = true;
+  scene.add(g);
+}
+addGreen(-63, -55, 30, 40);
+addGreen(5, -12, 32, 32);
+addGreen(-30, 60, 45, 18);
+addGreen(-20, -80, 60, 12);
+
+// ROAD
+const roadGeo = new THREE.PlaneGeometry(12, 160);
+const roadMat = new THREE.MeshLambertMaterial({color: 0x1c2a1c});
+const road = new THREE.Mesh(roadGeo, roadMat);
+road.rotation.x = -Math.PI/2;
+road.position.set(-6, 0.07, 0);
+road.receiveShadow = true;
+scene.add(road);
+
+// BUILDING DATA
+const buildings = [];
+
+function makeBldg(opts){
+  const {id, name, x, z, w, d, h, color, emissive, phase, info, floors} = opts;
+  const geo = new THREE.BoxGeometry(w, h, d);
+  const mat = new THREE.MeshPhongMaterial({
+    color: new THREE.Color(color),
+    emissive: new THREE.Color(emissive || 0x000000),
+    emissiveIntensity: 0.15,
+    shininess: 30,
+    specular: new THREE.Color(0x222222)
+  });
+  const mesh = new THREE.Mesh(geo, mat);
+  mesh.position.set(x, h/2, z);
+  mesh.castShadow = true;
+  mesh.receiveShadow = true;
+  mesh.userData = {id, name, phase, info, color, originalColor: color, floors};
+  scene.add(mesh);
+
+  // Floor lines
+  const numFloors = floors || Math.round(h/3.5);
+  const floorH = h / numFloors;
+  for(let f=1; f<numFloors; f++){
+    const fl = new THREE.Mesh(
+      new THREE.BoxGeometry(w+0.05, 0.08, d+0.05),
+      new THREE.MeshBasicMaterial({color: 0x000000, opacity: 0.35, transparent: true})
+    );
+    fl.position.set(x, f*floorH - h/2 + h/2, z);
+    scene.add(fl);
+  }
+
+  // Edges
+  const edges = new THREE.LineSegments(
+    new THREE.EdgesGeometry(geo),
+    new THREE.LineBasicMaterial({color: new THREE.Color(color).multiplyScalar(1.4), opacity: 0.5, transparent: true})
+  );
+  edges.position.set(x, h/2, z);
+  scene.add(edges);
+
+  // Roof detail (thin slab on top)
+  const roof = new THREE.Mesh(
+    new THREE.BoxGeometry(w+0.5, 0.4, d+0.5),
+    new THREE.MeshPhongMaterial({color: new THREE.Color(color).multiplyScalar(0.7)})
+  );
+  roof.position.set(x, h+0.2, z);
+  scene.add(roof);
+
+  buildings.push(mesh);
+  return mesh;
+}
+
+// LOGISTICS / OFFICES — Phase 1
+makeBldg({id:'log1', name:'Logistický park A', x:38, z:20, w:48, d:80, h:10, color:0x2a3d52, emissive:0x0a1520, phase:1,
+  floors:3, info:[['GFA','~14 000 m²'],['Nájom','60–70 €/m²/rok'],['Cap rate exit','5,5% → ~43 M€'],['Cieľoví nájomníci','Subdodávatelia Volvo']]});
+makeBldg({id:'log2', name:'Kancelársky objekt', x:38, z:-55, w:28, d:36, h:14, color:0x3a4d62, emissive:0x0a1a2a, phase:1,
+  floors:4, info:[['GFA','~6 000 m²'],['Nájom','110–130 €/m²/rok'],['Štandard','Grade B'],['Obsadenosť target','85%+']]});
+
+// RETAIL / CLINICS — Phase 2
+makeBldg({id:'ret', name:'Retail & Kliniky (prízemie)', x:-45, z:30, w:30, d:26, h:11, color:0x3a3060, emissive:0x100a20, phase:2,
+  floors:3, info:[['GFA','~6 000 m² retail'],['Nájom retail','180 €/m²/rok'],['Nájom kliniky','120 €/m²/rok'],['Umiestnenie','Prízemie blokov']]});
+
+// RESIDENTIAL BLOCKS — Phase 2
+makeBldg({id:'res2a', name:'Rezidenčné bloky A (Fáza 2)', x:-40, z:-15, w:32, d:48, h:19, color:0x2a4a28, emissive:0x081508, phase:2,
+  floors:6, info:[['NP','5–6 nadzemných podlaží'],['GFA','~35 000 m²'],['Byty','~430 jednotiek'],['Cena','3 200–3 600 €/m²']]});
+makeBldg({id:'res2b', name:'Rezidenčné bloky B (Fáza 2)', x:-40, z:62, w:32, d:30, h:19, color:0x2a4a28, emissive:0x081508, phase:2,
+  floors:6, info:[['NP','5–6 podlaží'],['GFA','~17 500 m²'],['Byty','~269 jednotiek'],['Predpredaj','min. 40% podmienka']]});
+
+// RESIDENTIAL BLOCKS — Phase 3
+makeBldg({id:'res3a', name:'Rezidenčné bloky C (Fáza 3)', x:10, z:-20, w:34, d:50, h:21, color:0x1e3c1c, emissive:0x061006, phase:3,
+  floors:6, info:[['NP','5–6 podlaží'],['GFA','~22 000 m²'],['Byty','~340 jednotiek'],['Cena Fáza 3','3 400–3 800 €/m²']]});
+
+// TOWERS — Phase 3 (flagship)
+makeBldg({id:'twr1', name:'Rezidenčná veža A (8 NP)', x:-28, z:75, w:20, d:18, h:28, color:0x7a6020, emissive:0x2a1a00, phase:3,
+  floors:8, info:[['NP','8 nadzemných podlaží'],['GFA','~9 600 m²'],['Byty','~120 jednotiek'],['Cena','3 800–4 400 €/m²'],['Parking','Plne podzemné 1:1']]});
+makeBldg({id:'twr2', name:'Rezidenčná veža B (8 NP)', x:-6, z:75, w:20, d:18, h:28, color:0x8a6a20, emissive:0x2a1a00, phase:3,
+  floors:8, info:[['NP','8 nadzemných podlaží'],['GFA','~9 600 m²'],['Byty','~120 jednotiek'],['Cena','3 800–4 400 €/m²']]});
+makeBldg({id:'twr3', name:'Rezidenčná veža C — Sev. dominanta', x:-52, z:-68, w:22, d:20, h:28, color:0x9a7a2a, emissive:0x2a1a00, phase:3,
+  floors:8, info:[['NP','8 nadzemných podlaží'],['GFA','~9 600 m²'],['Byty','~120 jednotiek'],['Výhoda','Panoráma jazero + západ'],['Cena','4 000–4 400 €/m²']]});
+
+// Tower glow lights
+[[-28,75],[-6,75],[-52,-68]].forEach(([x,z])=>{
+  const pt = new THREE.PointLight(0xC9A84C, 1.5, 60);
+  pt.position.set(x, 35, z);
+  scene.add(pt);
+});
+
+// ORBIT CONTROLS (manual)
+let theta = -0.6, phi = 0.88, radius = 230;
+let autoRot = false;
+let isDragging = false;
+let lastMouse = {x:0, y:0};
+let currentPhase = 'all';
+let hoveredMesh = null;
+
+const sphericalToCart = () => {
+  camera.position.x = radius * Math.sin(phi) * Math.sin(theta);
+  camera.position.y = radius * Math.cos(phi);
+  camera.position.z = radius * Math.sin(phi) * Math.cos(theta);
+  camera.lookAt(0, 8, 0);
+};
+sphericalToCart();
+
+renderer.domElement.addEventListener('mousedown', e => {isDragging=true; lastMouse={x:e.clientX,y:e.clientY};});
+window.addEventListener('mouseup', () => isDragging=false);
+window.addEventListener('mousemove', e => {
+  if(isDragging){
+    theta -= (e.clientX-lastMouse.x)*0.006;
+    phi = Math.max(0.15, Math.min(1.45, phi-(e.clientY-lastMouse.y)*0.006));
+    lastMouse={x:e.clientX,y:e.clientY};
+    sphericalToCart();
+  }
+  updateHover(e);
+});
+renderer.domElement.addEventListener('wheel', e => {
+  radius = Math.max(60, Math.min(380, radius+e.deltaY*0.18));
+  sphericalToCart();
+  e.preventDefault();
+}, {passive:false});
+
+// Touch
+let lastTouch = null;
+renderer.domElement.addEventListener('touchstart', e=>{if(e.touches.length===1)lastTouch={x:e.touches[0].clientX,y:e.touches[0].clientY};});
+renderer.domElement.addEventListener('touchmove', e=>{
+  if(e.touches.length===1&&lastTouch){
+    theta-=(e.touches[0].clientX-lastTouch.x)*0.006;
+    phi=Math.max(0.15,Math.min(1.45,phi-(e.touches[0].clientY-lastTouch.y)*0.006));
+    lastTouch={x:e.touches[0].clientX,y:e.touches[0].clientY};
+    sphericalToCart();
+  }
+  e.preventDefault();
+},{passive:false});
+
+// RAYCASTER
+const raycaster = new THREE.Raycaster();
+const mouse2D = new THREE.Vector2();
+const tt = document.getElementById('tooltip');
+
+function updateHover(e){
+  const rect = renderer.domElement.getBoundingClientRect();
+  mouse2D.x = ((e.clientX-rect.left)/rect.width)*2-1;
+  mouse2D.y = -((e.clientY-rect.top)/rect.height)*2+1;
+  raycaster.setFromCamera(mouse2D, camera);
+  const hits = raycaster.intersectObjects(buildings);
+  if(hits.length>0){
+    const obj = hits[0].object;
+    const ud = obj.userData;
+    const isHidden = currentPhase!=='all' && String(ud.phase)!==currentPhase;
+    if(!isHidden){
+      if(hoveredMesh!==obj){
+        if(hoveredMesh) hoveredMesh.material.emissiveIntensity=0.15;
+        hoveredMesh=obj;
+        obj.material.emissiveIntensity=0.45;
+      }
+      const phColors={'1':'#5B7FA6','2':'#4a7c3f','3':'#C9A84C'};
+      const phNames={'1':'Fáza 1 — Logistika','2':'Fáza 2 — Rezidencia','3':'Fáza 3 — Veže'};
+      document.getElementById('tt-phase').style.color=phColors[ud.phase]||'#888';
+      document.getElementById('tt-phase').textContent=phNames[ud.phase]||'';
+      document.getElementById('tt-name').textContent=ud.name;
+      document.getElementById('tt-body').innerHTML=(ud.info||[]).map(r=>`<div class="tt-row"><span>${r[0]}</span><span>${r[1]}</span></div>`).join('');
+      tt.style.display='block';
+      tt.style.left=(e.clientX+14)+'px';
+      tt.style.top=(e.clientY-20)+'px';
+      renderer.domElement.style.cursor='pointer';
+      return;
+    }
+  }
+  if(hoveredMesh){hoveredMesh.material.emissiveIntensity=0.15; hoveredMesh=null;}
+  tt.style.display='none';
+  renderer.domElement.style.cursor='grab';
+}
+
+// PHASE FILTER
+const phaseAlpha = {'all':1, '1':0.06, '2':0.06, '3':0.06};
+window.setPhase = (p, btn) => {
+  currentPhase = p;
+  document.querySelectorAll('.ctrl-btn[data-phase]').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  buildings.forEach(b=>{
+    const bp = String(b.userData.phase);
+    if(p==='all'){
+      b.material.opacity=1; b.material.transparent=false;
+    } else if(bp===p){
+      b.material.opacity=1; b.material.transparent=false;
+    } else {
+      b.material.opacity=0.08; b.material.transparent=true;
+    }
+  });
+  const msgs={
+    all:'Celkový pohľad — všetky fázy viditeľné. Najetie na budovu zobrazí detaily.',
+    '1':'Fáza 1 — Logistická aktivácia (Rok 2–4). Komerčná OP zóna (východ). Vstupný cashflow projektu.',
+    '2':'Fáza 2 — Core rezidenčná výstavba (Rok 3–6). Bloky 5–6 NP, predpredaj 40% podmienka.',
+    '3':'Fáza 3 — Prémiové rezidenčné veže 8 NP (Rok 5–9). Etablovaná štvrť = vyššie ceny 3 800–4 400 €/m².'
+  };
+  document.getElementById('info-bar').innerHTML=`<strong>${btn.textContent.trim()}</strong>${msgs[p]}`;
+};
+
+window.resetCamera = () => {
+  theta=-0.6; phi=0.88; radius=230;
+  sphericalToCart();
+};
+
+window.toggleAutoRot = () => {
+  autoRot=!autoRot;
+  document.getElementById('autoRotBtn').classList.toggle('active', autoRot);
+};
+
+// RESIZE
+window.addEventListener('resize', ()=>{
+  const nw=container.clientWidth, nh=container.clientHeight;
+  camera.aspect=nw/nh;
+  camera.updateProjectionMatrix();
+  renderer.setSize(nw, nh);
+});
+
+// ANIMATE
+let t=0;
+function animate(){
+  requestAnimationFrame(animate);
+  t+=0.005;
+  if(autoRot&&!isDragging){theta+=0.003; sphericalToCart();}
+  // Subtle tower pulse
+  buildings.forEach(b=>{
+    if(b.userData.id&&b.userData.id.startsWith('twr')){
+      b.material.emissiveIntensity = hoveredMesh===b ? 0.45 : 0.12+Math.sin(t*1.5+b.position.x)*0.05;
+    }
+  });
+  renderer.render(scene, camera);
+}
+animate();
+</script>
+</body>
+</html>
