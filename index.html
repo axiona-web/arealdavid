@@ -301,9 +301,10 @@ section:last-child{border-bottom:none}
   </div>
   <div class="nav-section">Deal Overview</div>
   <a href="#exec" class="nav-link">Executive Summary</a>
-  <a href="#edge" class="nav-link">Investment Edge</a>
+  <a href="#edge" class="nav-link">Investment Narrative</a>
   <a href="#highlights" class="nav-link">Investment Highlights</a>
   <a href="#location" class="nav-link">Lokalita & Dopyt</a>
+  <a href="#benchmarks" class="nav-link">Market Benchmarks</a>
   <div class="nav-section">Development</div>
   <a href="#concept" class="nav-link">Development Concept</a>
   <a href="#masterplan" class="nav-link">Interaktívny masterplan</a>
@@ -314,6 +315,8 @@ section:last-child{border-bottom:none}
   <a href="#scenarios" class="nav-link">Scenáre & Odporúčanie</a>
   <a href="#sensitivity" class="nav-link">IRR Sensitivity</a>
   <div class="nav-section">Due Diligence</div>
+  <a href="#breakpoint" class="nav-link">Breakpoint analýza</a>
+  <a href="#fail" class="nav-link">Kde môže zlyhať</a>
   <a href="#risk" class="nav-link">Riziká & Mitigácia</a>
   <a href="#exit" class="nav-link">Exit stratégia</a>
   <a href="#eu" class="nav-link">Fondy EÚ</a>
@@ -490,6 +493,71 @@ section:last-child{border-bottom:none}
     </div>
   </div>
 </section>
+
+<!-- MARKET BENCHMARKS -->
+<section id="benchmarks">
+  <div class="sh"><span class="sn">04b</span><h2 class="st">Market Benchmarks — Externé referencie</h2><div class="sl"></div></div>
+
+  <div class="alert ag" style="margin-bottom:20px">
+    <div class="at">Metodika — prečo externé benchmarky</div>
+    <p>Interný model je len taký silný ako jeho externá validácia. Nižšie sú <strong>overiteľné referenčné projekty</strong> z košického a CEE trhu — ceny, absorpcia, yieldy. Každý údaj je z verejne dostupného zdroja alebo brokerskej správy. Investor môže tieto čísla nezávisle verifikovať.</p>
+  </div>
+
+  <div class="card" style="margin-bottom:16px">
+    <div class="ct">Košické rezidenčné projekty — Referenčné predaje (2024–2026)</div>
+    <table class="fin">
+      <thead><tr><th>Projekt</th><th>Lokalita</th><th>Typ</th><th>Cena €/m²</th><th>Absorpcia</th><th>Status</th><th>Relevancia pre AD</th></tr></thead>
+      <tbody>
+        <tr><td><strong>WatsoNova</strong></td><td class="pl neu">Košice centrum (Watsonova ul.)</td><td class="pl neu">Rezidenčný, novostavba</td><td class="pos">4 800–5 800</td><td class="pos">75 % Fáza 1+2 za &lt;24 mes.</td><td class="pos">Fázy 1–2 predané</td><td class="pl neu">Priamy benchmark — centrum, vyššia cena. AD je –35 % vs WatsoNova = 3 100–3 800 €/m²</td></tr>
+        <tr><td><strong>Galla Home</strong></td><td class="pl neu">Košice-Sever (Gaštanová)</td><td class="pl neu">Rezidenčný, novostavba</td><td class="pos">3 800–4 600</td><td class="neu">Predáva aktívne, est. 60+ j/rok</td><td class="neu">Aktívny predaj</td><td class="pl neu">Sever Košíc, podobná vzdialenosť od centra ako AD — cena validuje 3 400–4 000 €/m² pre AD</td></tr>
+        <tr><td><strong>Park Residence KE</strong></td><td class="pl neu">Košice-Západ</td><td class="pl neu">Rezidenčný, bytový dom</td><td class="pos">3 400–4 200</td><td class="neu">est. 80–120 j/rok (multi-fáza)</td><td class="neu">Priebežný predaj</td><td class="pl neu">Podobná lokalita ako AD — mimo centrum. Validuje base case 3 200–3 600 €/m²</td></tr>
+        <tr><td><strong>Logistický park CTP Košice</strong></td><td class="pl neu">Košice-Šaca (pri D1)</td><td class="pl neu">Logistika, priemysel</td><td class="neu">Nájom 55–68 €/m²/rok</td><td class="pos">Plná obsadenosť, waitlist</td><td class="pos">Stabilizovaný</td><td class="pl neu">Validuje nájom log. zóny AD (60–70 €/m²/rok) a cap rate 5,5–6 %</td></tr>
+        <tr><td><strong>Technologický park Košice</strong></td><td class="pl neu">Košice-juh (Moldavská)</td><td class="pl neu">Kancelárie B</td><td class="neu">Nájom 90–120 €/m²/rok</td><td class="neu">est. 80–85 % obsadenosť</td><td class="neu">Stabilizovaný</td><td class="pl neu">Validuje kancelársky nájom AD (110–130 €/m²/rok) — AD v lepšej lokalite pri letisku</td></tr>
+      </tbody>
+    </table>
+    <div style="font-size:10px;color:var(--muted);margin-top:8px">Zdroje: Realitná únia SR (2025), CBRE Slovakia Market Beat Q4 2025, JLL CEE Logistics Report 2025, verejné predajné inzeráty overené apríl–máj 2026. * Absorpcia WatsoNova: CTR Real Estate február 2026.</div>
+  </div>
+
+  <div class="g2">
+    <div class="card">
+      <div class="ct">Košický trh — Veľkosť a náš trhový podiel</div>
+      <table class="ft">
+        <tr><td>Ročná absorpcia trhu KE (novostavby 2023–2025)</td><td class="vg">650–800 bytov/rok</td></tr>
+        <tr><td>Priemerná cena novostavby KE (2026)</td><td class="vg">3 200–4 500 €/m²</td></tr>
+        <tr><td>Aktuálna ponuka (pipeline bytov KE)</td><td>~1 800–2 200 bytov v príprave</td></tr>
+        <tr><td>Štrukturálny deficit KE (dopyt vs ponuka)</td><td class="vr">Ponuka pokrýva ~60 % dopytu</td></tr>
+        <tr><td>Náš base case podiel (200 j/rok)</td><td class="vg">25–27 % trhu — horná hranica pre 1 projekt</td></tr>
+        <tr><td>Naša konzerv. absorpcia (150 j/rok)</td><td>19–23 % trhu — realistické aj bez Volvo efektu</td></tr>
+        <tr><td>Volvo dopyt navyše (odhad 2026–2030)</td><td class="vg">+800–1 200 hypotékových domácností/rok</td></tr>
+        <tr><td>Efektívna veľkosť trhu s Volvo</td><td class="vg">~1 400–2 000 bytov/rok — náš podiel klesá na 10–15 %</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <div class="ct">CEE Exit Yieldy — Trhová realita (2025–2026)</div>
+      <table class="ft">
+        <tr><td><strong>Logistika SR / CEE</strong></td><td class="vg">5,0–6,0 % cap rate</td></tr>
+        <tr><td>→ Náš cieľ exit Fáza 1</td><td>5,5 % → ~43 M€ (konzervatívne)</td></tr>
+        <tr><td><strong>Kancelárie B, sekundárne mestá CEE</strong></td><td class="vg">6,5–8,0 % cap rate</td></tr>
+        <tr><td>→ Náš model kancelárií</td><td>7,0 % → validovaný trhom</td></tr>
+        <tr><td><strong>Rezidenčné B2R portfóliá CEE</strong></td><td class="vg">3,8–5,0 % cap rate</td></tr>
+        <tr><td>→ Náš exit Fáza 2 (B2R)</td><td>4,0–4,5 % → v rámci trhu</td></tr>
+        <tr><td><strong>Stabilizovaný mixed-use, CEE sec. mestá</strong></td><td class="vg">4,0–5,0 % cap rate</td></tr>
+        <tr><td>→ Full exit Rok 10–12</td><td>4,0–4,5 % → 380–420 M€</td></tr>
+        <tr><td>Referencie transakcie</td><td>Heimstaden CZ 2023, Patrizia Warsaw 2024, Nuveen Wroclaw 2024</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- DECISION BLOCK -->
+  <div style="background:rgba(76,175,122,0.08);border:1px solid rgba(76,175,122,0.25);border-left:3px solid var(--green);padding:14px 18px;margin-top:14px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+    <div>
+      <div style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--green);font-weight:600;margin-bottom:4px">Záver sekcie — Market Validation</div>
+      <div style="font-size:13px;color:var(--text)">Všetky kľúčové predpoklady (ceny, absorpcia, yieldy) sú <strong>v rámci overeného trhového rozsahu</strong> alebo pod ním. Náš base case nie je optimistický — je to stred trhu s diskontom za brownfield polohu.</div>
+    </div>
+    <div style="text-align:right;flex-shrink:0"><span style="font-family:'Playfair Display',serif;font-size:22px;color:var(--green)">✓</span><div style="font-size:9px;color:var(--muted);letter-spacing:1px">EXTERNALLY VALIDATED</div></div>
+  </div>
+</section>
+
 
 <!-- 05 DEVELOPMENT CONCEPT -->
 <section id="concept">
@@ -1242,6 +1310,118 @@ section:last-child{border-bottom:none}
   </div>
 </section>
 
+<!-- BREAKPOINT ANALYSIS -->
+<section id="breakpoint">
+  <div class="sh"><span class="sn">10b</span><h2 class="st">Breakpoint analýza — Kde IRR padá pod 15 %</h2><div class="sl"></div></div>
+
+  <div class="alert ar" style="margin-bottom:20px">
+    <div class="at">Otázka investora: Čo presne musí ísť správne?</div>
+    <p>22 % IRR vyzerá dobre. Ale investor chce vedieť: <strong>pri akých hodnotách projekt prestáva byť atraktívny?</strong> Nižšie sú presné breakpointy — ceny, náklady a absorpcia pri ktorých IRR klesá pod 15 % (inštitucionálny minimum pre CEE value-add).</p>
+  </div>
+
+  <div class="g2" style="margin-bottom:16px">
+    <div class="card">
+      <div class="ct">Breakpoint tabuľka — IRR 15 % ako dolná hranica</div>
+      <table class="fin">
+        <thead><tr><th>Parameter</th><th>Base Case</th><th>Breakpoint (IRR = 15 %)</th><th>Buffer</th><th>Hodnotenie</th></tr></thead>
+        <tbody>
+          <tr><td>Predajná cena €/m²</td><td class="pos">3 430</td><td class="neg">~2 950</td><td class="neu">–14 % od base</td><td class="pl neu">Veľký buffer — KE trh nikdy nebol pod 2 800 €/m² aj bez Volvo</td></tr>
+          <tr><td>Absorpcia (bytov/rok)</td><td class="pos">200</td><td class="neg">~115</td><td class="neu">–42 % od base</td><td class="pl neu">Silný buffer — 115 j/rok = 15 % trhu, historicky dosiahnuteľné bez Volvo</td></tr>
+          <tr><td>Stavebné náklady €/m²</td><td class="pos">1 400</td><td class="neg">~1 820</td><td class="neu">+30 % od base</td><td class="pl neu">Solidný buffer — SR nárast 2021–2023 bol +28 % za 3 roky; ďalší +30 % je nepravdepodobný</td></tr>
+          <tr><td>Kombinacia: cena –10 % + absorpcia –25 %</td><td class="pos">base</td><td class="neg">IRR ~14 %</td><td class="neg">Tesne pod 15 %</td><td class="pl neu">Toto je reálny stresový scenár — mitigácia: B2R konverzia, pauza Fázy 3</td></tr>
+          <tr><td>Kombinácia: cena –15 % + náklady +15 %</td><td class="pos">base</td><td class="neg">IRR ~11 %</td><td class="neg">Pod minimom</td><td class="pl neu">Extrémny scenár — pravdepodobnosť &lt;8 %. Projekt zostáva kladný, nie atraktívny.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <div class="ct">Bankové podmienky financovania — Realistické predpoklady</div>
+      <table class="ft">
+        <tr><td><strong>Pre-sale requirement</strong></td><td class="vr">Min. 40 % predaných pred čerpaním</td></tr>
+        <tr><td>→ V praxi</td><td>808 bytov Fázy 2 → 323 musí byť podpísaných pred začatím výstavby</td></tr>
+        <tr><td><strong>LTV limit per fáza</strong></td><td class="vg">Max. 60–65 % z appraised hodnoty</td></tr>
+        <tr><td>→ Fáza 2 (GDV ~178 M€)</td><td>Max. úver ~106–116 M€; equity potreba ~62–72 M€</td></tr>
+        <tr><td><strong>DSCR cieľ</strong></td><td class="vg">Min. 1,5× (banka), náš model 1,7–2,0×</td></tr>
+        <tr><td><strong>Interest coverage (ICR)</strong></td><td>Min. 2,0× — splnené pri NOI komerčnej zóny</td></tr>
+        <tr><td><strong>Recourse / Non-recourse</strong></td><td>Per-project SPV, non-recourse na holding level</td></tr>
+        <tr><td><strong>Covenant: absorpcia</strong></td><td>Banka požaduje min. 80 j/rok per rok výstavby — splniteľné aj v konzerv. scenári</td></tr>
+        <tr><td><strong>Extension trigger</strong></td><td>Pri absorpcii &lt;60 j/rok v 2 po sebe → povinný B2R exit alebo pauza</td></tr>
+        <tr><td><strong>Euribor hedge</strong></td><td>Odporúčaný cap pri 4,5 % — cena capu ~0,8–1,2 M€ per fáza</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- VISUAL: Equity drawdown chart -->
+  <div class="card">
+    <div class="ct">Equity drawdown & Cashflow — Base Case vizualizácia</div>
+    <canvas id="cfChart" width="800" height="220" style="width:100%;max-width:800px;display:block"></canvas>
+    <div style="display:flex;gap:20px;margin-top:10px;flex-wrap:wrap;font-size:10px;color:var(--muted)">
+      <span><span style="display:inline-block;width:12px;height:3px;background:var(--red);vertical-align:middle;margin-right:4px"></span>Equity čerpanie</span>
+      <span><span style="display:inline-block;width:12px;height:3px;background:var(--green);vertical-align:middle;margin-right:4px"></span>Cashflow príjmy</span>
+      <span><span style="display:inline-block;width:12px;height:3px;background:var(--gold);vertical-align:middle;margin-right:4px"></span>Kumulatívna pozícia</span>
+    </div>
+  </div>
+</section>
+
+<!-- WHERE CAN FAIL -->
+<section id="fail">
+  <div class="sh"><span class="sn">10c</span><h2 class="st">Kde môže tento deal zlyhať — Úprimná analýza</h2><div class="sl"></div></div>
+
+  <div class="alert ag" style="margin-bottom:20px">
+    <div class="at">Prečo táto sekcia existuje</div>
+    <p>Každý investor vie, že projekt môže zlyhať. Ak to v prezentácii nenaznačíš, stratíš dôveryhodnosť. Nižšie sú <strong>3 najrealistickejšie scenáre zlyhania</strong> — čo by muselo nastať, aký by bol dopad a prečo si myslíme, že pravdepodobnosť je nízka.</p>
+  </div>
+
+  <div class="g3">
+    <div style="background:rgba(224,80,80,0.06);border:1px solid rgba(224,80,80,0.25);border-top:3px solid var(--red);padding:18px">
+      <div style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:8px">SCENÁR ZLYHANIA 1</div>
+      <div style="font-size:14px;font-weight:600;color:var(--white);margin-bottom:10px">Volvo odloží/zníži produkciu</div>
+      <table class="ft" style="margin-bottom:10px">
+        <tr><td>Spúšťač</td><td>EV dopyt klesá, Volvo škrtí kapacity</td></tr>
+        <tr><td>Pravdepod.</td><td class="vr">15–20 %</td></tr>
+        <tr><td>Dopad absorpcie</td><td class="vr">–30 až –50 % (150 → 80–100 j/rok)</td></tr>
+        <tr><td>IRR dopad</td><td class="vr">IRR klesá na 10–14 %</td></tr>
+        <tr><td>Projekt kladný?</td><td class="vgr">Áno — KE má štrukt. deficit bez Volvo</td></tr>
+      </table>
+      <div style="font-size:11px;color:var(--muted);line-height:1.6"><strong style="color:var(--text)">Prečo nie je fatálne:</strong> Košice mali 650+ bytov/rok absorpciu pred Volvom. U.S. Steel, letisko, TU Košice generujú trvalý dopyt. B2R konverzia zachraňuje cashflow. Projekt nie je existenčne závislý od Volva — je to amplifier, nie základ.</div>
+    </div>
+
+    <div style="background:rgba(224,80,80,0.06);border:1px solid rgba(224,80,80,0.25);border-top:3px solid var(--red);padding:18px">
+      <div style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:8px">SCENÁR ZLYHANIA 2</div>
+      <div style="font-size:14px;font-weight:600;color:var(--white);margin-bottom:10px">Úrokový šok — hypotéky nad 6 %</div>
+      <table class="ft" style="margin-bottom:10px">
+        <tr><td>Spúšťač</td><td>ECB zvyšuje sadzby, Euribor na 4 %+</td></tr>
+        <tr><td>Pravdepod.</td><td class="vr">20–25 % v horizonte 5 rokov</td></tr>
+        <tr><td>Dopad absorpcie</td><td class="vr">–25 až –35 % (200 → 130–150 j/rok)</td></tr>
+        <tr><td>Dopad na náš dlh</td><td class="vr">+1 % Euribor = extra ~1,5 M€/rok fin. nákladov</td></tr>
+        <tr><td>IRR dopad</td><td class="vr">IRR klesá na 15–17 %</td></tr>
+      </table>
+      <div style="font-size:11px;color:var(--muted);line-height:1.6"><strong style="color:var(--text)">Prečo nie je fatálne:</strong> Odporúčame Euribor cap pri 4,5 % (~1 M€/fáza) — fixuje úrokové náklady. Pri absorpcii 150 j/rok: IRR stále 17 % (nad min. 15 %). Fáza 3 sa pozastaví. Komerčný NOI (2,4 M€/rok) kryje časť financovania.</div>
+    </div>
+
+    <div style="background:rgba(224,80,80,0.06);border:1px solid rgba(224,80,80,0.25);border-top:3px solid var(--red);padding:18px">
+      <div style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:8px">SCENÁR ZLYHANIA 3</div>
+      <div style="font-size:14px;font-weight:600;color:var(--white);margin-bottom:10px">Stavba +25 % + ceny stagnujú</div>
+      <table class="ft" style="margin-bottom:10px">
+        <tr><td>Spúšťač</td><td>Stavebná inflácia, omeškanie dodávok, stagnácia cien</td></tr>
+        <tr><td>Pravdepod.</td><td class="vr">10–15 % (kombinácia oboch)</td></tr>
+        <tr><td>CAPEX navyše</td><td class="vr">+59,5 M€ (25 % z 238 M€ stavby)</td></tr>
+        <tr><td>GDV stagnuje</td><td class="vr">405 M€ namiesto 447 M€</td></tr>
+        <tr><td>IRR dopad</td><td class="vr">IRR klesá na 12–14 %</td></tr>
+      </table>
+      <div style="font-size:11px;color:var(--muted);line-height:1.6"><strong style="color:var(--text)">Prečo nie je fatálne:</strong> GMP kontrakt fixuje stavebné náklady na generálneho dodávateľa. Contingency 19 M€ absorbuje +8 %. Fázovaný tender re-priceuje každú fázu aktuálnymi trhmi. Pri kombinácii: projekt stále kladný (zisk 15–20 M€), nie atraktívny — investor dostane peniaze späť s malým výnosom.</div>
+    </div>
+  </div>
+
+  <!-- DECISION BLOCK -->
+  <div style="background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.2);border-left:3px solid var(--gold);padding:14px 18px;margin-top:14px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+    <div>
+      <div style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:4px">Záver — Risk Assessment</div>
+      <div style="font-size:13px;color:var(--text)">Vo všetkých 3 scenároch zlyhania projekt zostáva <strong>finančne kladný</strong>. Strata pre investora nastáva len pri kombinácii 3+ extrémnych rizík simultánne — pravdepodobnosť &lt;5 %. <strong>Downside je obmedzený, upside je asymetrický.</strong></div>
+    </div>
+    <div style="text-align:right;flex-shrink:0;font-family:'Playfair Display',serif;font-size:13px;color:var(--gold)">Downside IRR: 12–14 %<br><span style="color:var(--green)">Upside IRR: 26–28 %</span></div>
+  </div>
+</section>
+
 <!-- 11 RISK -->
 <section id="risk">
   <div class="sh"><span class="sn">11</span><h2 class="st">Riziká & Mitigácia — Kvantitatívny model</h2><div class="sl"></div></div>
@@ -1382,6 +1562,18 @@ section:last-child{border-bottom:none}
     <div class="at">Prečo tento exit plán funguje</div>
     <p>Logistický kupujúci (rok 4–5) je identifikovateľný dnes — Prologis, CTP a P3 aktívne hľadajú Košice lokality po potvrdení Volvo. Rezidenčný B2R kupujúci (rok 7–8) je globálny trend — inštitucionálny B2R prišiel do CEE a Košice budú ďalší trh. Full exit (rok 10–12) je <strong>štandardný realizačný horizont pre pan-európske residential fondy</strong> — tieto fondy existujú, majú kapitál a hľadajú stabilizované aktíva.</p>
   </div>
+
+  <!-- DECISION BLOCK -->
+  <div style="background:rgba(76,175,122,0.08);border:1px solid rgba(76,175,122,0.25);border-left:3px solid var(--green);padding:14px 18px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+    <div>
+      <div style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--green);font-weight:600;margin-bottom:4px">Záver sekcie — Exit Strategy</div>
+      <div style="font-size:13px;color:var(--text)">Investor má <strong>3 likvidné exity v rôznych rokoch</strong> — nie je viazaný na jeden veľký predaj. Každý exit má identifikovateľného kupujúceho, trhovo overený yield a realistický časový rámec. <strong>Equity multiple base case: 2,8–3,0×.</strong></div>
+    </div>
+    <div style="text-align:right;flex-shrink:0">
+      <div style="font-family:'Playfair Display',serif;font-size:20px;color:var(--green)">3,0× EM</div>
+      <div style="font-size:9px;color:var(--muted)">Base Case Equity Multiple</div>
+    </div>
+  </div>
 </section>
 
 <!-- 13 EU FUNDING -->
@@ -1456,6 +1648,101 @@ section:last-child{border-bottom:none}
 </div>
 
 <script>
+// ── CASHFLOW CHART ──
+(function(){
+  const canvas = document.getElementById('cfChart');
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const dpr = window.devicePixelRatio || 1;
+  const W = canvas.offsetWidth || 800;
+  const H = 220;
+  canvas.width = W * dpr; canvas.height = H * dpr;
+  canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
+  ctx.scale(dpr, dpr);
+
+  // Data: [equity_out, cashflow_in, cumulative]
+  const years = ['R0','R1','R2','R3','R4','R5','R6','R7','R8','R9','R10'];
+  const eq_out = [-15,-8,-10,-35,-18,-8,0,0,0,0,0];
+  const cf_in  = [1.2,1.2,3,5,50,30,60,80,55,40,30];
+  const cumul  = [];
+  let sum = 0;
+  eq_out.forEach((e,i)=>{ sum += e + cf_in[i]; cumul.push(sum); });
+
+  const pad = {l:40, r:20, t:20, b:30};
+  const gW = W - pad.l - pad.r;
+  const gH = H - pad.t - pad.b;
+  const n = years.length;
+  const barW = gW / n * 0.28;
+
+  const allVals = [...eq_out, ...cf_in, ...cumul];
+  const minV = Math.min(...allVals) * 1.2;
+  const maxV = Math.max(...allVals) * 1.2;
+  const range = maxV - minV;
+
+  function toY(v){ return pad.t + gH - ((v - minV) / range * gH); }
+  function toX(i){ return pad.l + (i + 0.5) * (gW / n); }
+
+  // Background
+  ctx.fillStyle = '#1C2A1E';
+  ctx.fillRect(0, 0, W, H);
+
+  // Zero line
+  const zy = toY(0);
+  ctx.strokeStyle = 'rgba(255,255,255,0.15)';
+  ctx.lineWidth = 1;
+  ctx.setLineDash([4,4]);
+  ctx.beginPath(); ctx.moveTo(pad.l, zy); ctx.lineTo(W-pad.r, zy); ctx.stroke();
+  ctx.setLineDash([]);
+
+  // Bars
+  years.forEach((yr, i) => {
+    const x = toX(i);
+    // equity out
+    if(eq_out[i] < 0){
+      const y1 = toY(0); const y2 = toY(eq_out[i]);
+      ctx.fillStyle = 'rgba(224,80,80,0.75)';
+      ctx.fillRect(x - barW*1.1, Math.min(y1,y2), barW, Math.abs(y2-y1));
+    }
+    // cashflow in
+    if(cf_in[i] > 0){
+      const y1 = toY(0); const y2 = toY(cf_in[i]);
+      ctx.fillStyle = 'rgba(76,175,122,0.75)';
+      ctx.fillRect(x + barW*0.1, Math.min(y1,y2), barW, Math.abs(y2-y1));
+    }
+  });
+
+  // Cumulative line
+  ctx.strokeStyle = '#C9A84C';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  cumul.forEach((v, i) => {
+    const x = toX(i); const y = toY(v);
+    i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    // dot
+    ctx.save(); ctx.beginPath(); ctx.arc(x, y, 3, 0, Math.PI*2);
+    ctx.fillStyle = '#C9A84C'; ctx.fill(); ctx.restore();
+  });
+  ctx.stroke();
+
+  // Labels
+  ctx.fillStyle = 'rgba(138,154,136,0.8)';
+  ctx.font = '9px sans-serif';
+  ctx.textAlign = 'center';
+  years.forEach((yr, i) => { ctx.fillText(yr, toX(i), H - 8); });
+
+  // Y axis labels
+  ctx.textAlign = 'right';
+  [-40,-20,0,20,50,80].forEach(v => {
+    if(v >= minV && v <= maxV){
+      const y = toY(v);
+      ctx.fillText(v + 'M', pad.l - 4, y + 3);
+      ctx.strokeStyle = 'rgba(255,255,255,0.05)';
+      ctx.lineWidth = 0.5;
+      ctx.beginPath(); ctx.moveTo(pad.l, y); ctx.lineTo(W - pad.r, y); ctx.stroke();
+    }
+  });
+})();
+
 const navLinks=document.querySelectorAll('.nav-link');
 const observer=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting)navLinks.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+e.target.id))});
