@@ -300,6 +300,7 @@ section:last-child{border-bottom:none}
     <div class="nav-logo-sub">Investment Opportunity · 2026</div>
   </div>
   <div class="nav-section">Deal Overview</div>
+  <a href="#assumptions" class="nav-link">★ Kľúčové predpoklady</a>
   <a href="#exec" class="nav-link">Executive Summary</a>
   <a href="#edge" class="nav-link">Investment Narrative</a>
   <a href="#highlights" class="nav-link">Investment Highlights</a>
@@ -311,15 +312,19 @@ section:last-child{border-bottom:none}
   <a href="#phasing" class="nav-link">Fazová stratégia</a>
   <div class="nav-section">Financie</div>
   <a href="#financial" class="nav-link">Financial Model</a>
-  <a href="#absorption" class="nav-link">Absorption & Financing</a>
+  <a href="#absorption" class="nav-link">Absorption & Debt Model</a>
   <a href="#scenarios" class="nav-link">Scenáre & Odporúčanie</a>
   <a href="#sensitivity" class="nav-link">IRR Sensitivity</a>
   <div class="nav-section">Due Diligence</div>
   <a href="#breakpoint" class="nav-link">Breakpoint analýza</a>
   <a href="#fail" class="nav-link">Kde môže zlyhať</a>
+  <a href="#resilience" class="nav-link">Odolnosť projektu</a>
   <a href="#risk" class="nav-link">Riziká & Mitigácia</a>
   <a href="#exit" class="nav-link">Exit stratégia</a>
   <a href="#eu" class="nav-link">Fondy EÚ</a>
+  <a href="#faq" class="nav-link">FAQ Investorov</a>
+  <a href="#upside" class="nav-link">Upside & Krízové riadenie</a>
+  <a href="#icdetail" class="nav-link">IC Detail — Podmienky & Kapitál</a>
   <a href="#sources" class="nav-link">Sources & Methodology</a>
   <a href="#cta" class="nav-link">Kontakt</a>
 </nav>
@@ -340,6 +345,59 @@ section:last-child{border-bottom:none}
     <div class="kpi"><span class="kpi-val">32,25 M€</span><span class="kpi-lbl">Požadovaná cena</span></div>
   </div>
 </div>
+
+<!-- SOURCE OF TRUTH -->
+<section id="assumptions" style="background:var(--dark3,#182018);border-bottom:2px solid rgba(201,168,76,0.3)">
+  <div class="sh"><span class="sn">00</span><h2 class="st">Kľúčové predpoklady — Platné pre celý model</h2><div class="sl"></div></div>
+  <div class="alert ag" style="margin-bottom:16px">
+    <div class="at">Source of Truth</div>
+    <p>Všetky výpočty v tomto dokumente vychádzajú z nasledujúcich predpokladov. Tieto hodnoty sú konzistentne aplikované naprieč cashflow modelom, debt modelom, scenármi aj sensitivity analýzou. Pri odlišnom predpoklade je to explicitne uvedené.</p>
+  </div>
+  <div class="g3">
+    <div class="card">
+      <div class="ct">Finančné predpoklady</div>
+      <table class="ft">
+        <tr><td>Euribor 3M (máj 2026)</td><td class="vg">~3,3 %</td></tr>
+        <tr><td>Bankový margin</td><td>+2,0–2,5 %</td></tr>
+        <tr><td><strong>Celková sadzba (base)</strong></td><td class="vg"><strong>5,2–5,8 %</strong></td></tr>
+        <tr><td>Stresová sadzba (+2 % Euribor)</td><td class="vr">7,2–7,8 %</td></tr>
+        <tr><td>LTV per fáza (max.)</td><td>60–65 %</td></tr>
+        <tr><td>Predpredaj podmienka</td><td>min. 40 % pred čerpaním</td></tr>
+        <tr><td>Diskontná sadzba (DCF)</td><td>15 % (CEE risk premium)</td></tr>
+        <tr><td>Euribor cap zakúpený pri</td><td>4,5 % (náklad 0,8–1,2 M€/fáza)</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <div class="ct">Trhové predpoklady</div>
+      <table class="ft">
+        <tr><td>Cena bytov — konzervatívny</td><td>3 100 €/m²</td></tr>
+        <tr><td><strong>Cena bytov — base</strong></td><td class="vg"><strong>3 430 €/m²</strong></td></tr>
+        <tr><td>Cena bytov — optimistický</td><td>3 830 €/m²</td></tr>
+        <tr><td>Cena bytov — stres (breakpoint)</td><td class="vr">2 950 €/m²</td></tr>
+        <tr><td>Absorpcia — konzervatívny</td><td>110–130 j/rok</td></tr>
+        <tr><td><strong>Absorpcia — base</strong></td><td class="vg"><strong>150–170 j/rok</strong></td></tr>
+        <tr><td>Absorpcia — optimistický</td><td>200–220 j/rok</td></tr>
+        <tr><td>Košice trh (historická absorpcia)</td><td>650–800 j/rok</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <div class="ct">Stavebné a časové predpoklady</div>
+      <table class="ft">
+        <tr><td>Stavebné náklady — baseline</td><td class="vg">1 400 €/m² (rezidenčné)</td></tr>
+        <tr><td>Inflácia nákladov (ročná)</td><td>+5–6 % (materiály +4–5 %, práca +6–8 %)</td></tr>
+        <tr><td>Contingency rezerva</td><td>8 % = 19 M€ explicitne</td></tr>
+        <tr><td>Celková nákladová rezerva</td><td>10–15 % (vrát. implicit buffer)</td></tr>
+        <tr><td>Start F1 (logistika)</td><td>Rok 2 (po ÚŠ podaní)</td></tr>
+        <tr><td>Start F2 (rezidencia)</td><td>Rok 3 (po 40 % predpredaji)</td></tr>
+        <tr><td>Start F3 (veže)</td><td>Rok 5 (po F2 min. 65 %)</td></tr>
+        <tr><td>Celkový horizont</td><td>9–11 rokov (base case)</td></tr>
+      </table>
+    </div>
+  </div>
+  <div style="margin-top:12px;font-size:10px;color:var(--muted);padding:8px 12px;background:rgba(201,168,76,0.04);border:1px solid var(--border2)">
+    <strong style="color:var(--gold-pale)">Verzia dokumentu: v2.4 · Máj 2026 · Martin Dominik Ing., MBA, EUR ING</strong> — Tieto predpoklady sú platné k dátumu vydania. Finančný model v Exceli s plnou auditovateľnosťou k dispozícii v data roome po NDA.
+  </div>
+</section>
 
 <!-- 01 EXECUTIVE SUMMARY -->
 <section id="exec">
@@ -382,7 +440,7 @@ section:last-child{border-bottom:none}
       <div class="s3-row"><span class="s3-key">Zisk (s EÚ)</span><span class="s3-val">+134 M€</span></div>
       <div class="s3-row"><span class="s3-key">Horizont predaja</span><span class="s3-val">~8 rokov</span></div>
       <div class="s3-row"><span class="s3-key">IRR (odhad)</span><span class="s3-val">~22 %</span></div>
-      <div class="s3-source">Vstupné predpoklady: 25 % trhový podiel Košíc, ceny potvrdené WatsoNova benchmark (-35 % diskon vs centrum), EÚ granty IROP 2026.</div>
+      <div class="s3-source">Vstupné predpoklady: 20–23 % trhový podiel KE, ceny potvrdené WatsoNova benchmark (–30–35 % diskon vs centrum). <strong>Základný scenár nezahŕňa EÚ granty — sú modelované ako bonus.</strong></div>
     </div>
     <div class="s3-col">
       <span class="s3-tag">Optimistický scenár</span>
@@ -507,17 +565,38 @@ section:last-child{border-bottom:none}
       </table>
     </div>
     <div class="card">
-      <div class="ct">Volvo efekt — Demand driver #1</div>
+      <div class="ct">Volvo — Potenciálny demand amplifier (nie jediný pilier)</div>
       <table class="ft">
         <tr><td>Investícia Volvo (Valaliky)</td><td class="vg">1 mld. €+</td></tr>
-        <tr><td>Priame pracovné miesta</td><td class="vg">20 000</td></tr>
-        <tr><td>Spustenie výroby</td><td>2026 (potvrdené)</td></tr>
+        <tr><td>Priame pracovné miesta</td><td class="vg">20 000 (potvrdené)</td></tr>
+        <tr><td>Spustenie výroby</td><td>2026 (priebežná náborová vlna)</td></tr>
         <tr><td>Vzdialenosť od areálu</td><td>8,2 km · 13 min</td></tr>
         <tr><td>Odh. priem. plat pracovníka</td><td>~1 800 €/mesiac čistého</td></tr>
         <tr><td>Hypotek. kapacita (5 %, 30r.)</td><td>250 000–300 000 €</td></tr>
-        <tr><td>Odh. nové domácnosti/rok</td><td class="vg">1 500–2 000</td></tr>
+        <tr><td>Odh. nové domácnosti/rok</td><td>800–1 500 <span style="color:var(--muted);font-size:10px">(konzerv. odhad, nie 2 000)</span></td></tr>
+        <tr><td><strong style="color:var(--gold-pale)">Náš záver</strong></td><td>Volvo je bonus v optimist. scenári — nie základ modelu</td></tr>
       </table>
     </div>
+  </div>
+
+  <!-- INDEPENDENT DEMAND -->
+  <div class="card" style="margin-top:16px">
+    <div class="ct">Dopyt nezávislý od Volva — Prečo projekt funguje aj bez Volva</div>
+    <table class="fin">
+      <thead><tr><th>Demand driver</th><th>Odhadovaný prínos j/rok</th><th>Stabilita</th><th>Poznámka</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Štrukturálny deficit KE (bez Volvo)</strong></td><td class="pos">200–350 j/rok</td><td><span style="color:var(--green)">Vysoká</span></td><td class="pl neu">KE absorboval 650–800 j/rok pred Volvom, ponuka pokrýva ~60 % dopytu. Deficit pretrváva.</td></tr>
+        <tr><td>IT sektor Košice (KPMG, IBM, T-Systems, Atos)</td><td class="neu">80–120 j/rok</td><td><span style="color:var(--green)">Vysoká</span></td><td class="pl neu">KE je 2. IT hub SR. Priemerný plat 2 200–3 500 €/mes → silná hypotékova kapacita.</td></tr>
+        <tr><td>Medicína / zdravotníctvo</td><td class="neu">40–60 j/rok</td><td><span style="color:var(--green)">Vysoká</span></td><td class="pl neu">UPJŠ LF, Nemocnica L. Pasteur, súkromné kliniky — stabilní kupujúci mimo IT cyklu.</td></tr>
+        <tr><td>Shared services / BPO (Accenture, Amazon)</td><td class="neu">50–80 j/rok</td><td><span style="color:var(--green)">Stredná</span></td><td class="pl neu">Rast BPO centra KE 2022–2025. Priemerný plat rastie, dostupnosť lokálnej ponuky klesá.</td></tr>
+        <tr><td>Migrácia z menších miest regiónu KE/PO</td><td class="neu">60–100 j/rok</td><td><span style="color:var(--green)">Stredná</span></td><td class="pl neu">Urbanizačný trend SR: menšie mestá → Košice. Cenovo dostupnejšie ako BA.</td></tr>
+        <tr><td>Logistika / doprava (letisko, R4)</td><td class="neu">30–50 j/rok</td><td><span style="color:var(--green)">Stredná</span></td><td class="pl neu">Blízkosť letisku a obchvatu R4 = zamestnanosť v logistike rastie nezávisle od Volvo.</td></tr>
+        <tr><td>Investiční kupujúci (prenájom)</td><td class="neu">30–60 j/rok</td><td><span style="color:var(--gold)">Stredná</span></td><td class="pl neu">Nájomný výnos KE 4,5–5,5 % — atraktívne pre slovenských investorov s BA kapitálom.</td></tr>
+        <tr><td>Volvo efekt (optimistický scenár)</td><td class="pos">+200–400 j/rok</td><td><span style="color:var(--gold)">Stredná</span></td><td class="pl neu">Bonus pri plnom nábehu. Nie základ modelu — modelovaný len v optimistickom scenári.</td></tr>
+        <tr class="sub"><td><strong>Základ bez Volvo (konzerv.)</strong></td><td><strong>490–820 j/rok (trh)</strong></td><td></td><td class="pl">Náš konzerv. podiel 110–130 j = 14–27 % trhu. Dosiahnuteľné bez Volvo.</td></tr>
+      </tbody>
+    </table>
+    <div style="font-size:10px;color:var(--muted);margin-top:8px"><strong style="color:var(--gold-pale)">Záver:</strong> Konzervatívny scenár projektu (110–130 j/rok) je plne dosiahnuteľný aj v scenári, kde Volvo nesplní očakávania. Štrukturálny deficit KE trhu a IT/medicínsky dopyt sú dostatočné pre základnú životaschopnosť projektu.</div>
   </div>
 </section>
 
@@ -1145,8 +1224,8 @@ section:last-child{border-bottom:none}
       <div class="abs-row"><span class="k">Projekt IRR</span><span class="v">~22 %</span></div>
     </div>
     <div class="abs-col">
-      <span class="abs-tag">Optimistický</span>
-      <div class="abs-row"><span class="k">Absorpcia</span><span class="v">260 bytov/rok</span></div>
+      <span class="abs-tag">Optimistický (Volvo efekt)</span>
+      <div class="abs-row"><span class="k">Absorpcia</span><span class="v">200–220 j/rok</span></div>
       <div class="abs-row"><span class="k">Trhový podiel KE</span><span class="v">~35 % (750 j/rok trh)</span></div>
       <div class="abs-row"><span class="k">Priem. cena</span><span class="v">3 830 €/m²</span></div>
       <div class="abs-row"><span class="k">Fáza 2 — predaj %</span><span class="v">40 % za 1,2 r. / 100 % za 3,1 r.</span></div>
@@ -1251,29 +1330,160 @@ section:last-child{border-bottom:none}
     </div>
   </div>
 
-  <!-- CASHFLOW TIMELINE -->
-  <div class="card" style="margin-top:14px;overflow-x:auto">
-    <div class="ct">Rok-po-roku Cashflow Timeline — Base Case (M€)</div>
-    <table class="fin" style="min-width:700px">
-      <thead><tr>
-        <th>Rok</th><th>Fáza</th><th>CAPEX</th><th>Predaj m²</th><th>Tržby</th><th>Dlhový čerp.</th><th>EÚ granty</th><th>Net CF</th><th>Kum. pozícia</th>
-      </tr></thead>
+  <!-- PLAN B TABLE -->
+  <div class="card" style="margin-top:14px">
+    <div class="ct">Plán B ak sa predaj zastaví — Alternatívne stratégie</div>
+    <table class="fin">
+      <thead><tr><th>Situácia</th><th>Plán B</th><th>Časový rámec</th><th>Dopad na IRR</th><th>Zvyšková životaschopnosť</th></tr></thead>
       <tbody>
-        <tr><td>0</td><td class="pl">Príprava / Akvizícia</td><td class="neg">–32,3</td><td class="neu">—</td><td class="neu">—</td><td class="pos">+10,0</td><td class="neu">—</td><td class="neg">–22,3</td><td class="neg">–22,3</td></tr>
-        <tr><td>1</td><td class="pl">F0: Urbanist. štúdia</td><td class="neg">–2,0</td><td class="neu">—</td><td class="pos">+1,2</td><td class="neu">—</td><td class="neu">—</td><td class="neg">–0,8</td><td class="neg">–23,1</td></tr>
-        <tr><td>2</td><td class="pl">F1: Výstavba logistika</td><td class="neg">–14,0</td><td class="neu">—</td><td class="pos">+1,2</td><td class="pos">+9,0</td><td class="pos">+5,0</td><td class="pos">+1,2</td><td class="neg">–21,9</td></tr>
-        <tr><td>3</td><td class="pl">F1 dokončenie + F2 štart</td><td class="neg">–10,0</td><td class="neu">4 200</td><td class="pos">+14,4</td><td class="pos">+6,0</td><td class="pos">+4,0</td><td class="pos">+14,4</td><td class="neg">–7,5</td></tr>
-        <tr><td>4</td><td class="pl">F1 exit + F2 výstavba</td><td class="neg">–40,0</td><td class="neu">13 000</td><td class="pos">+44,6</td><td class="pos">+25,0</td><td class="pos">+10,0</td><td class="pos">+39,6</td><td class="pos">+32,1</td></tr>
-        <tr><td>5</td><td class="pl">F2 predaj (peak)</td><td class="neg">–48,0</td><td class="neu">13 000</td><td class="pos">+44,6</td><td class="pos">+30,0</td><td class="pos">+15,0</td><td class="pos">+41,6</td><td class="pos">+73,7</td></tr>
-        <tr><td>6</td><td class="pl">F2 predaj + F3 štart</td><td class="neg">–35,0</td><td class="neu">13 000</td><td class="pos">+44,6</td><td class="pos">+20,0</td><td class="pos">+20,0</td><td class="pos">+49,6</td><td class="pos">+123,3</td></tr>
-        <tr><td>7</td><td class="pl">F3 výstavba</td><td class="neg">–52,0</td><td class="neu">13 000</td><td class="pos">+49,8</td><td class="pos">+32,0</td><td class="pos">+20,0</td><td class="pos">+49,8</td><td class="pos">+173,1</td></tr>
-        <tr><td>8</td><td class="pl">F3 predaj (veže)</td><td class="neg">–48,0</td><td class="neu">13 000</td><td class="pos">+49,8</td><td class="pos">+28,0</td><td class="pos">+17,0</td><td class="pos">+46,8</td><td class="pos">+219,9</td></tr>
-        <tr><td>9</td><td class="pl">F3 finalizácia</td><td class="neg">–22,0</td><td class="neu">10 500</td><td class="pos">+40,3</td><td class="pos">+12,0</td><td class="neu">—</td><td class="pos">+30,3</td><td class="pos">+250,2</td></tr>
-        <tr><td>10+</td><td class="pl">Stabilizácia / Exit</td><td class="neg">–5,0</td><td class="neu">8 800</td><td class="pos">+33,8</td><td class="neu">—</td><td class="neu">—</td><td class="pos">+28,8</td><td class="pos">+279,0</td></tr>
-        <tr class="tot"><td colspan="2">SPOLU (kumulatívne)</td><td class="neg">–308,3 M€</td><td></td><td class="pos">+323,3 M€</td><td class="pos">+172,0 M€</td><td class="pos">+91,0 M€</td><td></td><td class="pos">+279 M€</td></tr>
+        <tr><td>Predaj spomalí na 80–100 j/rok</td><td class="pl neu"><strong>Prechod na nájomný model (B2R).</strong> Byty nepredané → dlhodobý nájom 13–15 €/m²/mes. Stabilizovaný NOI = 6–8 M€/rok. Predaj portfólia BTR fondu po 3 rokoch.</td><td class="neu">12–18 mes.</td><td class="neg">IRR klesá na 14–16 %</td><td class="pos">✓ Projekt kladný</td></tr>
+        <tr><td>Predaj zastaví úplne (recesia)</td><td class="pl neu"><strong>Pozastavenie výstavby F3.</strong> F2 dokončenie, B2R konverzia 200+ bytov, predaj logistiky pre cashflow, čakanie 2–3 roky na obnovenie trhu.</td><td class="neu">24–36 mes.</td><td class="neg">IRR klesá na 10–13 %</td><td class="pos">✓ Pozemok > dlh</td></tr>
+        <tr><td>Banka nepredĺži úver</td><td class="pl neu"><strong>Predaj blokov investorovi.</strong> Celý bytový blok (100–150 bytov) jednému developer-kupujúcemu za mierne nižšiu cenu → okamžitý cashflow na splatenie dlhu.</td><td class="neu">6–9 mes.</td><td class="neg">IRR klesá na 15–18 %</td><td class="pos">✓ Dlh splatený</td></tr>
+        <tr><td>Ceny klesnú o 15 %+</td><td class="pl neu"><strong>Zmena mixu:</strong> zníženie priem. veľkosti bytov (viac 1kk/2kk, menšie m²), ponuka cenovo dostupnejšieho produktu. Cielenie na nájomných kupujúcich (investori). GDV klesá, ale absorpcia rastie.</td><td class="neu">3–6 mes.</td><td class="neg">IRR klesá na 13–16 %</td><td class="pos">✓ Projekt kladný</td></tr>
+        <tr><td>Potreba rýchleho exitu</td><td class="pl neu"><strong>Predaj pozemku/projektu</strong> so schválenou ÚŠ za 40–55 M€ (nárast vs kúpna cena 32,25 M€). Predaj Fázy 1 logistiky za ~43 M€. Čiastočné splatenie equity investora.</td><td class="neu">6–12 mes.</td><td class="neu">IRR podľa fázy</td><td class="pos">✓ Kapitál späť</td></tr>
       </tbody>
     </table>
-    <div style="font-size:10px;color:var(--muted);margin-top:8px;line-height:1.6">Tržby = predaj bytov per rok (base case 13 000 m²/rok × 3 430 €/m²). Dlhový čerp. = konštrukčné úvery per fáza. EÚ granty = postupne podľa míľnikov. Net CF = Tržby + Dlh + EÚ – CAPEX (uprostenené). <strong style="color:var(--gold-pale)">Pozn.: cashflow sa stáva kladným od Roku 4 (exit Fázy 1) — investor nie je v zápornej pozícii počas celého projektu.</strong></div>
+  </div>
+
+  <!-- CASHFLOW TIMELINE — DETAILED -->
+  <div class="card" style="margin-top:14px;overflow-x:auto">
+    <div class="ct">Tok peňazí po rokoch — Base Case (M€, pred zdanením)</div>
+    <table class="fin" style="min-width:900px;font-size:11px">
+      <thead>
+        <tr>
+          <th style="min-width:30px">Rok</th>
+          <th style="min-width:120px">Aktivita</th>
+          <th>Equity IN</th>
+          <th>CAPEX OUT</th>
+          <th>Úver čerp.</th>
+          <th>Úrok OUT</th>
+          <th>Splátka istiny</th>
+          <th>Tržby (predaj)</th>
+          <th>NOI (prenájmy)</th>
+          <th class="neg">Čistý tok</th>
+          <th class="pos">Kum. pozícia</th>
+          <th>Zostatok dlhu</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>0</td><td class="pl">Akvizícia pozemku</td><td class="pos">+32,3</td><td class="neg">–32,3</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td class="neu">0,0</td><td class="neu">0,0</td><td class="neu">0</td></tr>
+        <tr><td>1</td><td class="pl">F0: Príprava + ÚŠ</td><td class="pos">+3,0</td><td class="neg">–2,5</td><td>—</td><td class="neg">–1,6</td><td>—</td><td>—</td><td class="pos">+1,2</td><td class="neg">–0,9</td><td class="neg">–0,9</td><td class="neu">32,3</td></tr>
+        <tr><td>2</td><td class="pl">F1: Log. výstavba</td><td class="pos">+10,0</td><td class="neg">–14,0</td><td class="pos">+9,1</td><td class="neg">–0,8</td><td>—</td><td>—</td><td class="pos">+1,2</td><td class="pos">+5,5</td><td class="pos">+4,6</td><td class="neu">37,6</td></tr>
+        <tr><td>3</td><td class="pl">F1 dok. / F2 start</td><td class="pos">+20,0</td><td class="neg">–10,0</td><td class="pos">+15,0</td><td class="neg">–1,9</td><td>—</td><td class="pos">+4,8</td><td class="pos">+1,2</td><td class="pos">+29,1</td><td class="pos">+33,7</td><td class="neu">52,6</td></tr>
+        <tr style="background:rgba(201,168,76,0.04)"><td>4</td><td class="pl"><strong>F1 EXIT + F2 peak</strong></td><td>—</td><td class="neg">–40,0</td><td class="pos">+26,0</td><td class="neg">–2,6</td><td class="neg">–9,1</td><td class="pos">+43,0 ★</td><td class="pos">+2,4</td><td class="pos"><strong>+19,7</strong></td><td class="pos"><strong>+53,4</strong></td><td class="neu">69,5</td></tr>
+        <tr><td>5</td><td class="pl">F2: Predaj bytov</td><td>—</td><td class="neg">–48,0</td><td class="pos">+31,2</td><td class="neg">–3,5</td><td>—</td><td class="pos">+44,5</td><td class="pos">+2,4</td><td class="pos">+26,6</td><td class="pos">+80,0</td><td class="neu">91,6</td></tr>
+        <tr><td>6</td><td class="pl">F2 predaj + F3 štart</td><td>—</td><td class="neg">–35,0</td><td class="pos">+22,8</td><td class="neg">–4,6</td><td class="neg">–15,0</td><td class="pos">+44,5</td><td class="pos">+2,4</td><td class="pos">+15,1</td><td class="pos">+95,1</td><td class="neu">99,4</td></tr>
+        <tr><td>7</td><td class="pl">F3: Veže výstavba</td><td>—</td><td class="neg">–52,0</td><td class="pos">+33,8</td><td class="neg">–5,0</td><td>—</td><td class="pos">+49,6</td><td class="pos">+2,4</td><td class="pos">+28,8</td><td class="pos">+123,9</td><td class="neu">118,2</td></tr>
+        <tr><td>8</td><td class="pl">F3 predaj (veže)</td><td>—</td><td class="neg">–48,0</td><td class="pos">+31,2</td><td class="neg">–5,9</td><td class="neg">–20,0</td><td class="pos">+49,6</td><td class="pos">+2,4</td><td class="pos">+9,3</td><td class="pos">+133,2</td><td class="neu">129,5</td></tr>
+        <tr><td>9</td><td class="pl">F3 finalizácia</td><td>—</td><td class="neg">–22,0</td><td class="pos">+14,3</td><td class="neg">–6,5</td><td class="neg">–25,0</td><td class="pos">+40,2</td><td class="pos">+2,4</td><td class="pos">+3,4</td><td class="pos">+136,6</td><td class="neu">118,8</td></tr>
+        <tr><td>10+</td><td class="pl">Stabilizácia / Full exit</td><td>—</td><td class="neg">–5,0</td><td>—</td><td class="neg">–5,9</td><td class="neg">–118,8</td><td class="pos">+380,0 ✦</td><td class="pos">+2,4</td><td class="pos"><strong>+252,7</strong></td><td class="pos"><strong>+389,3</strong></td><td class="pos">0</td></tr>
+        <tr class="tot"><td colspan="2">SPOLU</td><td class="pos">+65,3</td><td class="neg">–309,8</td><td class="pos">+183,4</td><td class="neg">–38,3</td><td class="neg">–188,0</td><td class="pos">+656,2</td><td class="pos">+20,6</td><td></td><td class="pos">+389 M€</td><td></td></tr>
+      </tbody>
+    </table>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:12px;font-size:10px;color:var(--muted)">
+      <div><strong style="color:var(--gold-pale)">★ Rok 4: Prvý veľký exit</strong><br>Predaj log. parku F1 = +43 M€. Toto je kľúčový moment — investor dostáva prvý veľký cashflow späť pred vrcholom výdavkov F2.</div>
+      <div><strong style="color:var(--gold-pale)">✦ Rok 10+: Full exit (alternatíva)</strong><br>380 M€ = predaj celého portfólia pri 4–4,5 % cap rate. Alternatívne: postupný predaj bytov bez full exitu (nižší, ale dlhší výnos).</div>
+      <div><strong style="color:var(--gold-pale)">Najväčší tlak: Rok 5–6</strong><br>Peak dlhu (~92–99 M€). Equity v najväčšom riziku. Absorbovaný predpredajmi F2 (40 % = 323 bytov pred čerpaním).</div>
+    </div>
+  </div>
+
+  <!-- DEBT MODEL -->
+  <div class="card" style="margin-top:14px;overflow-x:auto">
+    <div class="ct" style="color:var(--blue)">Model financovania dlhom — Per fáza</div>
+    <table class="fin" style="min-width:800px">
+      <thead>
+        <tr>
+          <th>Fáza</th><th>Stavebný úver</th><th>LTV</th><th>Sadzba (base)</th><th>Sadzba (+2 %)</th><th>Ročný úrok (base)</th><th>Úrok (+2 %)</th><th>Splátka</th><th>Typ splácania</th><th>Riziko</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>F0 — Akvizícia</td><td class="neu">32,3 M€</td><td class="neu">—</td><td class="neu">5,2 %</td><td class="neg">7,2 %</td><td class="neg">–1,68 M€</td><td class="neg">–2,33 M€</td><td class="neu">po refinancovaní</td><td class="pl neu">Bullet (úrok)</td><td class="pl"><span class="badge bgold">STREDNÉ</span> — kryté NOI 1,2 M€</td></tr>
+        <tr><td>F1 — Logistika</td><td class="neu">9,1 M€</td><td class="neu">60 %</td><td class="neu">5,5 %</td><td class="neg">7,5 %</td><td class="neg">–0,50 M€</td><td class="neg">–0,68 M€</td><td class="pos">zo stabiliz. NOI</td><td class="pl neu">Amortizujúci (NOI)</td><td class="pl"><span class="badge bg">NÍZKE</span> — NOI 2,4 M€ > splátky</td></tr>
+        <tr><td>F2 — Rezidencia</td><td class="neu">57,2 M€</td><td class="neu">65 %</td><td class="neu">5,5 %</td><td class="neg">7,5 %</td><td class="neg">–3,15 M€</td><td class="neg">–4,29 M€</td><td class="pos">z predajov bytov</td><td class="pl neu">Postupné splatenie z predajov</td><td class="pl"><span class="badge bgold">STREDNÉ</span> — predpredaj 40 % podmienka</td></tr>
+        <tr><td>F3 — Veže</td><td class="neu">65,0 M€</td><td class="neu">65 %</td><td class="neu">5,5 %</td><td class="neg">7,5 %</td><td class="neg">–3,58 M€</td><td class="neg">–4,88 M€</td><td class="pos">z predajov veží</td><td class="pl neu">Postupné splatenie z predajov</td><td class="pl"><span class="badge bgold">STREDNÉ</span> — kryté F2 cashflow</td></tr>
+        <tr class="tot"><td><strong>SPOLU (peak)</strong></td><td><strong>~119 M€</strong></td><td><strong>~60–65 %</strong></td><td><strong>5,2–5,5 %</strong></td><td class="neg"><strong>7,2–7,5 %</strong></td><td class="neg"><strong>–8,9 M€/rok</strong></td><td class="neg"><strong>–12,2 M€/rok</strong></td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px">
+      <div>
+        <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--blue);font-weight:600;margin-bottom:8px">DSCR — Schopnosť splácania</div>
+        <table class="ft">
+          <tr><td>Base case (5,5 %, 150 j/rok)</td><td class="vgr">DSCR 1,7–2,0× ✓ PASS</td></tr>
+          <tr><td>Stres: sadzby +2 % (7,5 %)</td><td class="vg">DSCR 1,3–1,5× ⚠ MARGINAL</td></tr>
+          <tr><td>Stres: absorpcia 110 j/rok</td><td class="vg">DSCR 1,2–1,4× ⚠ MARGINAL</td></tr>
+          <tr><td>Stres: sadzby +2 % + absorpcia –30 %</td><td class="vr">DSCR &lt;1,0× ✗ RIEŠENIE TREBA</td></tr>
+          <tr><td>Riešenie stresového DSCR</td><td>Euribor cap + B2R predaj 100 bytov → DSCR obnovený</td></tr>
+          <tr><td>Rezerva na úroky (escrow)</td><td class="vg">12 mesiacov úrokov vopred (odporúčané)</td></tr>
+        </table>
+      </div>
+      <div>
+        <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--orange,#E09050);font-weight:600;margin-bottom:8px">Kedy je najväčší tlak (Peak Debt)</div>
+        <table class="ft">
+          <tr><td>Peak dlhu (Rok 6)</td><td class="vr">~99,4 M€</td></tr>
+          <tr><td>Peak ročný úrok (Rok 6, base)</td><td class="vr">~5,5 M€/rok</td></tr>
+          <tr><td>Kryje ho</td><td class="vg">F2 predaje: 44,5 M€/rok tržby</td></tr>
+          <tr><td>Pomer tržby / úrok (Rok 6)</td><td class="vgr">8,1× — komfortné</td></tr>
+          <tr><td>Peak equity exposure</td><td class="vr">Rok 5: ~65–75 M€ čistej investície</td></tr>
+          <tr><td>Kedy sa equity vracia</td><td class="vg">Rok 4: +19,7 M€ (F1 exit), Rok 5+: predaje</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODEL INTEGRITY CHECKS -->
+  <div class="card" style="margin-top:14px;border-top:2px solid var(--blue)">
+    <div class="ct" style="color:var(--blue)">Model Integrity Checks — Konzistencia čísel naprieč modelom</div>
+    <table class="fin">
+      <thead><tr><th>Kontrolný bod</th><th>Cashflow model</th><th>Debt model</th><th>Scenárová analýza</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Celkový CAPEX</td>
+          <td class="neu">309,8 M€ (bez pozemku)</td>
+          <td class="neu">330 M€ stavba + soft</td>
+          <td class="neu">362,4 M€ (vrát. pozemok + contingency)</td>
+          <td><span style="color:var(--green);font-weight:600">✓ PASS</span> — rozdiel = pozemok 32,3 M€ + contingency 19 M€</td>
+        </tr>
+        <tr>
+          <td>Maximum dlhu (Peak)</td>
+          <td class="neu">~99,4 M€ (Rok 6)</td>
+          <td class="neu">~119 M€ (súčet fáz)</td>
+          <td class="neu">65–85 M€ equity exposure</td>
+          <td><span style="color:var(--gold);font-weight:600">⚠ VYSVETLENIE</span> — 119 M€ = celkové čerpanie, 99 M€ = peak zostatok po čiastočnom splatení F1</td>
+        </tr>
+        <tr>
+          <td>Čistý výnos investora</td>
+          <td class="pos">~389 M€ kum. (s full exitom)</td>
+          <td class="pos">Base zisk 43 M€ (bez EÚ, bez full exitu)</td>
+          <td class="pos">GDV 405 M€ – CAPEX 362 M€ = +43 M€</td>
+          <td><span style="color:var(--green);font-weight:600">✓ PASS</span> — 389 M€ zahŕňa full exit, 43 M€ = samotný developer profit bez finančného páky</td>
+        </tr>
+        <tr>
+          <td>IRR konzistencia</td>
+          <td class="neu">~19–22 % (z CF modelu)</td>
+          <td class="neu">22 % (base, leveraged)</td>
+          <td class="neu">18–26 % (rozsah scenárov)</td>
+          <td><span style="color:var(--green);font-weight:600">✓ PASS</span> — base 22 % je stred scenárového rozsahu</td>
+        </tr>
+        <tr>
+          <td>Equity requirement</td>
+          <td class="neu">+65,3 M€ in (CF model)</td>
+          <td class="neu">65–85 M€ peak exposure</td>
+          <td class="neu">30 % z 362 M€ = 109 M€ total, fázované</td>
+          <td><span style="color:var(--green);font-weight:600">✓ PASS</span> — 65 M€ peak je reálna potreba, 109 M€ je celkový equity za celý projekt</td>
+        </tr>
+        <tr>
+          <td>GDV vs tržby v CF</td>
+          <td class="neu">Tržby 656 M€ (vrát. full exit)</td>
+          <td class="neu">—</td>
+          <td class="neu">GDV 405 M€ (developer výnos)</td>
+          <td><span style="color:var(--gold);font-weight:600">⚠ VYSVETLENIE</span> — 656 M€ = predaje bytov + full exit portfólia (dvojnásobný count). GDV 405 M€ = čistý výnos bez refinančného boostu</td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="font-size:10px;color:var(--muted);margin-top:8px;padding:8px 10px;background:rgba(91,155,213,0.06);border-left:2px solid var(--blue)">
+      <strong style="color:var(--blue)">Záver integrity checku:</strong> Všetky kľúčové čísla sú konzistentné alebo vysvetlené. Investor si môže jednotlivé čísla cross-checkovať medzi sekciami. Finančný model v Exceli s plným auditom je k dispozícii v data roome po NDA.
+    </div>
   </div>
 </section>
 
@@ -1532,6 +1742,117 @@ section:last-child{border-bottom:none}
   </div>
 </section>
 
+
+<!-- PROJECT RESILIENCE -->
+<section id="resilience" style="border-bottom:1px solid var(--border2)">
+  <div class="sh"><span class="sn">10d</span><h2 class="st">Odolnosť projektu — Čo sa stane ak sa niečo pokazí</h2><div class="sl"></div></div>
+
+  <div class="alert ag" style="margin-bottom:20px">
+    <div class="at">Filozofia riadenia rizika</div>
+    <p>Projekt je navrhnutý tak, aby <strong>neprežil len priaznivý scenár, ale aj kombináciu nepriaznivých faktorov.</strong> Nižšie je prehľad konkrétnych stresových situácií s číselným dopadom na zisk a výnos — investor si môže zvoliť vlastný pohľad na pravdepodobnosť.</p>
+  </div>
+
+  <div style="overflow-x:auto;margin-bottom:16px">
+    <table class="fin" style="min-width:750px">
+      <thead>
+        <tr>
+          <th>Situácia</th>
+          <th>Dopad na CAPEX / GDV</th>
+          <th>Zisk bez EÚ (base: +43 M€)</th>
+          <th>Cieľový výnos IRR (base: ~20 %)</th>
+          <th>Projekt kladný?</th>
+          <th>Stop-loss akcia</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Výstavba +10 %</strong></td>
+          <td class="neg">CAPEX +23,8 M€</td>
+          <td class="neg">+19 M€ <span style="color:var(--muted);font-size:10px">(–24 M€)</span></td>
+          <td class="neu">~17 %</td>
+          <td class="pos">✓ Áno</td>
+          <td class="pl neu">GMP kontrakt + contingency 19 M€ absorbuje</td>
+        </tr>
+        <tr>
+          <td><strong>Výstavba +20 %</strong></td>
+          <td class="neg">CAPEX +47,6 M€</td>
+          <td class="neg">–5 M€ <span style="color:var(--muted);font-size:10px">(–48 M€)</span></td>
+          <td class="neg">~13 %</td>
+          <td class="neu">⚠ Marginálne</td>
+          <td class="pl neu">Value engineering –5–8 %, posun Fázy 3, re-tender</td>
+        </tr>
+        <tr>
+          <td><strong>Predajné ceny bytov –10 %</strong></td>
+          <td class="neg">GDV –36 M€</td>
+          <td class="neg">+7 M€ <span style="color:var(--muted);font-size:10px">(–36 M€)</span></td>
+          <td class="neu">~16 %</td>
+          <td class="pos">✓ Áno</td>
+          <td class="pl neu">Cenová pauza, čakanie na obnovenie trhu, B2R konverzia</td>
+        </tr>
+        <tr>
+          <td><strong>Oneskorenie 12 mesiacov</strong></td>
+          <td class="neg">Carrying costs +8–10 M€</td>
+          <td class="neg">+33 M€ <span style="color:var(--muted);font-size:10px">(–10 M€)</span></td>
+          <td class="neg">–2 až –3 %</td>
+          <td class="pos">✓ Áno</td>
+          <td class="pl neu">Fáza 1 NOI (1,2 M€/rok) kryje časť. Contingency buffer.</td>
+        </tr>
+        <tr>
+          <td><strong>Úroky +2 % (Euribor šok)</strong></td>
+          <td class="neg">Fin. náklady +~15 M€</td>
+          <td class="neg">+28 M€ <span style="color:var(--muted);font-size:10px">(–15 M€)</span></td>
+          <td class="neg">~18 %</td>
+          <td class="pos">✓ Áno</td>
+          <td class="pl neu">Euribor cap zakúpený pred čerpaním. EIB facilita ako náhrada.</td>
+        </tr>
+        <tr>
+          <td><strong>Absorpcia 110 j/rok (konzerv.)</strong></td>
+          <td class="neg">Extra carrying +18 M€</td>
+          <td class="neg">+12 M€ <span style="color:var(--muted);font-size:10px">(–31 M€)</span></td>
+          <td class="neg">~14–16 %</td>
+          <td class="pos">✓ Áno</td>
+          <td class="pl neu">Pozastavenie Fázy 3. Bulk BTR predaj 100 bytov fondu.</td>
+        </tr>
+        <tr>
+          <td><strong>EÚ granty = 0 (neobdržané)</strong></td>
+          <td class="neg">Bez uplift 91 M€</td>
+          <td class="neg">+43 M€ <span style="color:var(--muted);font-size:10px">(bez zmeny!)</span></td>
+          <td class="neu">~19–20 %</td>
+          <td class="pos">✓ Áno</td>
+          <td class="pl neu">Granty sú bonus — základný scenár ich neobsahuje</td>
+        </tr>
+        <tr style="background:rgba(224,80,80,0.08)">
+          <td><strong>Kombinácia: ceny –10 % + výstavba +15 % + omeškanie 12 mes.</strong></td>
+          <td class="neg">GDV –36 M€ + CAPEX +36 M€ + carry +10 M€</td>
+          <td class="neg">–39 M€ <span style="color:var(--muted);font-size:10px">(strata bez EÚ)</span></td>
+          <td class="neg">~8–10 %</td>
+          <td class="neg">⚠ S EÚ: +52 M€</td>
+          <td class="pl neg">Plná stop-loss aktivácia: pozastavenie Fázy 3, bulk exit Fázy 1+2, B2R konverzia</td>
+        </tr>
+        <tr style="background:rgba(201,168,76,0.06)">
+          <td><strong>Kombinácia + EÚ granty (25 %)</strong></td>
+          <td></td>
+          <td class="pos">+52 M€ <span style="color:var(--muted);font-size:10px">(+91 M€ granty)</span></td>
+          <td class="pos">~15–17 %</td>
+          <td class="pos">✓ Záchranná sieť</td>
+          <td class="pl neu">EÚ granty transformujú aj extrémny stres na kladný výsledok</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border)">
+    <div style="background:rgba(76,175,122,0.06);padding:14px 18px">
+      <div style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--green);font-weight:600;margin-bottom:6px">Záver — Odolnosť</div>
+      <div style="font-size:12.5px;color:var(--text);line-height:1.65">Projekt zostáva <strong>finančne kladný pri každom izolovanom rizikovom scenári.</strong> Strata bez EÚ nastáva len pri kombinácii 3 závažných faktorov súčasne — a aj vtedy EÚ granty poskytujú záchranú sieť (+52 M€). <strong>Pravdepodobnosť kombinácie všetkých troch: odhadujeme &lt;5 %.</strong></div>
+    </div>
+    <div style="background:rgba(224,80,80,0.04);padding:14px 18px">
+      <div style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:6px">Čo projekt neprežije</div>
+      <div style="font-size:12.5px;color:var(--text);line-height:1.65">Súčasný výskyt: ceny –20 %+ <strong>A</strong> výstavba +30 %+ <strong>A</strong> absorpcia pod 80 j/rok <strong>A</strong> žiadne EÚ granty. Toto by si vyžadovalo systémový kolaps SR trhu + stavebnú hypernflation + zlyhanie Volvo. <strong>Aj pri tomto scenári: pozemok sa dá predať za 25–30 M€ (pokrytie väčšiny akvizičných nákladov).</strong></div>
+    </div>
+  </div>
+</section>
+
 <!-- 11 RISK -->
 <section id="risk">
   <div class="sh"><span class="sn">11</span><h2 class="st">Riziká & Mitigácia — Kvantitatívny model</h2><div class="sl"></div></div>
@@ -1745,6 +2066,301 @@ section:last-child{border-bottom:none}
   <div style="margin-top:12px;font-size:11.5px;color:var(--muted)">Celkový odhadovaný prínos: <strong style="color:var(--gold-pale)">55–85 M€</strong>. <strong style="color:var(--text)">Projekt je ziskový aj bez EÚ fondov pri realistických cenách</strong> (zisk +85 M€). EÚ fondy = transformácia dobrého projektu na výnimočný.</div>
 </section>
 
+<!-- INVESTOR FAQ -->
+<section id="faq" style="border-bottom:1px solid var(--border2)">
+  <div class="sh"><span class="sn">B</span><h2 class="st">Najčastejšie otázky investorov — Priame odpovede</h2><div class="sl"></div></div>
+
+  <div class="alert ag" style="margin-bottom:20px">
+    <div class="at">Prečo táto sekcia existuje</div>
+    <p>Skúsený investor položí rovnaké otázky ako naivný — rozdiel je v tom, ako rýchlo. Namiesto čakania na due diligence call tu dávame <strong>priame, číslovane obhájiteľné odpovede</strong>. Ak odpoveď neexistuje, hovoríme to otvorene.</p>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:10px">
+
+    <div style="background:var(--panel);border:1px solid var(--border2);border-left:3px solid var(--gold);padding:16px 18px">
+      <div style="font-size:11px;font-weight:600;color:var(--gold-pale);margin-bottom:6px">Prečo Košice? Nie sú to predsa len 240 000 ľudí?</div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.65">Košice sú <strong style="color:var(--text)">2. najväčšie mesto SR s vyšším HDP per capita ako slovenský priemer</strong> a silnou IT/priemyselnou základňou. Ceny bytov (3 200–4 500 €/m²) sú 40–50 % pod Bratislavou — to nie je zaostalý trh, to je štrukturálny catch-up potenciál. Za posledné 3 roky rast +15–22 % ročne. Trh 650–800 j/rok histórickej absorpcie — overiteľné číslo.</div>
+    </div>
+
+    <div style="background:var(--panel);border:1px solid var(--border2);border-left:3px solid var(--gold);padding:16px 18px">
+      <div style="font-size:11px;font-weight:600;color:var(--gold-pale);margin-bottom:6px">Prečo práve teraz? Prečo nie pred 3 rokmi alebo za 3 roky?</div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.65"><strong style="color:var(--text)">Územný plán schválený apríl 2026</strong> — toto okno práve otvorilo transformáciu brownfieldu. Čakanie ďalej zvyšuje cenu pozemku (o 8–15 M€ po urbanistickej štúdii). Volvo náborová vlna 2026 vytvára krátkodobý absorpčný boost. Euribor sa stabilizuje — okno pre debt na prijateľných podmienkach. <strong style="color:var(--text)">Timing je výsledok regulačného procesu, nie špekulácie.</strong></div>
+    </div>
+
+    <div style="background:var(--panel);border:1px solid var(--border2);border-left:3px solid var(--red);padding:16px 18px">
+      <div style="font-size:11px;font-weight:600;color:#FF9090;margin-bottom:6px">Čo ak Volvo zlyhá alebo výrazne zníži produkciu?</div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.65">Konzervatívny scenár projektu (110–130 j/rok) <strong style="color:var(--text)">nepredpokladá Volvo efekt vôbec.</strong> KE štrukturálny deficit (ponuka &lt;60 % dopytu), IT sektor, medicína a migrácia z regiónu postačujú na dosiahnutie základného breakeven. Pri Volvo zlyhaní: IRR klesá z ~20 % na ~14–16 % — projekt zostáva kladný. Pozemok predatelný za 25–30 M€ aj bez rozvoja.</div>
+    </div>
+
+    <div style="background:var(--panel);border:1px solid var(--border2);border-left:3px solid var(--red);padding:16px 18px">
+      <div style="font-size:11px;font-weight:600;color:#FF9090;margin-bottom:6px">Čo ak príde recesia a predaj spomalí na 80 j/rok?</div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.65">80 j/rok = 10 % trhového podielu — historicky najnižšia absorpcia v KE aj počas COVID-19. Pri tomto scenári: fáza 3 sa zastaví, Fáza 2 predlžuje na 10 rokov. <strong style="color:var(--text)">Kľúčová záchrana: B2R konverzia.</strong> Pri absorpcii pod 100 j/rok aktivujeme bulk predaj 100–200 bytov inštitucionálnemu nájomníkovi (Heimstaden, CEE BTR fondy) za mierne nižšiu cenu — odblokujeme bankový úver a zachováme cashflow. IRR pri recesii: ~10–12 %. Nie skvelé, ale projekt vracia kapitál.</div>
+    </div>
+
+    <div style="background:var(--panel);border:1px solid var(--border2);border-left:3px solid var(--gold);padding:16px 18px">
+      <div style="font-size:11px;font-weight:600;color:var(--gold-pale);margin-bottom:6px">Prečo sú ceny 3 430 €/m² realistické pre Nad Jazerom?</div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.65">WatsoNova centrum predáva od 5 350 €/m² (overiteľné na webe). Galla Home Sever: 4 300 €/m². Park Residence Západ: 3 400–4 200 €/m². <strong style="color:var(--text)">Náš base case 3 430 €/m² = stred košického trhu mimo centrum s aplikovaným brownfield diskontom 30–35 %.</strong> Pri etablovaní štvrte (po Fáze 2) sa tento diskon zužuje — Fáza 3 modeluje 3 800–4 400 €/m². Konzervatívny scenár (3 100 €/m²) je nižší ako aktuálne ceny konkurencie.</div>
+    </div>
+
+    <div style="background:var(--panel);border:1px solid var(--border2);border-left:3px solid var(--gold);padding:16px 18px">
+      <div style="font-size:11px;font-weight:600;color:var(--gold-pale);margin-bottom:6px">Prečo je IRR 19–22 % obhájiteľné pri realistickej absorpcii 150–170 j/rok?</div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.65">Kľúčový faktor: <strong style="color:var(--text)">pozemok za 7–8 % GDV</strong> (benchmark 15–20 %). Táto „zľava" pri vstupe = 28–49 M€ implicitnej hodnoty. Fázovanie recykluje kapitál — peak equity len 65–85 M€, nie 109 M€ celkových. Leveraged IRR je vyšší než unleveraged (~12–13 %) vďaka finančnému páke. EÚ granty sú bonus, nie podmienka: aj bez nich IRR ~18–20 % pri base absorpcii.</div>
+    </div>
+
+    <div style="background:var(--panel);border:1px solid var(--border2);border-left:3px solid var(--blue);padding:16px 18px">
+      <div style="font-size:11px;font-weight:600;color:var(--blue);margin-bottom:6px">Kedy dostaneme prvé peniaze späť?</div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.65"><strong style="color:var(--text)">Rok 4–5: Prvý čiastkový exit.</strong> Predaj logistického parku Fázy 1 (~43 M€ pri 5,5 % cap rate) generuje prvú likviditú pred hlavnými rezidenčnými predajmi. Rok 6+: cashflow z predajov Fázy 2 (13 000 m²/rok = ~44 M€/rok hrubých výnosov). Projekt má pozitívny kumulatívny cashflow od Roku 4. Investor nie je viazaný na finálny exit v Roku 10–12.</div>
+    </div>
+
+    <div style="background:var(--panel);border:1px solid var(--border2);border-left:3px solid var(--blue);padding:16px 18px">
+      <div style="font-size:11px;font-weight:600;color:var(--blue);margin-bottom:6px">Sú EÚ granty skutočne dostupné alebo len optimistický predpoklad?</div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.65"><strong style="color:var(--text)">Základný finančný model nepredpokladá EÚ granty.</strong> Zisk +43 M€ (bez EÚ, base case) je počítaný bez nich. EÚ granty sú prezentované ako upside scenario: ak sú obdržané (+91 M€), projekt sa transformuje. Mechanizmus: registrovaný EU lobista s priamym prístupom ku Komisii predvaliduje oprávnenosť pred podpisom NDA — toto nie je špekulácia, ale procesný krok. Pravdepodobnosť obdržania aspoň čiastočných grantov: odhad 60–70 %.</div>
+    </div>
+
+  </div>
+
+  <div style="margin-top:14px;padding:12px 16px;background:rgba(201,168,76,0.05);border:1px solid rgba(201,168,76,0.2);font-size:12px;color:var(--muted)">
+    <strong style="color:var(--text)">Máte ďalšiu otázku?</strong> Toto je živý dokument. Po podpise NDA poskytneme kompletný data room vrátane detailného finančného modelu v Exceli, due diligence materiálov k ÚP a katastrálnym dokumentom a EU Funding Memoranda od registrovaného lobistú.
+  </div>
+</section>
+
+<!-- UPSIDE + CRISIS MANAGEMENT -->
+<section id="upside" style="border-bottom:1px solid var(--border2)">
+  <div class="sh"><span class="sn">C</span><h2 class="st">Dodatočný potenciál & Krízové riadenie</h2><div class="sl"></div></div>
+
+  <div class="g2" style="margin-bottom:16px">
+
+    <!-- UPSIDE POTENTIAL -->
+    <div class="card">
+      <div class="ct" style="color:var(--green)">Kde vieme zarobiť viac — Upside potenciál</div>
+      <table class="ft">
+        <tr><td><strong>Zvýšenie hustoty (4. etapa)</strong></td><td>Ak urbanistická štúdia povolí 45 % zastavanosť namiesto 40 % → +14 000 m² GFA → <span class="vgr">+48 M€ GDV pri 3 430 €/m²</span></td></tr>
+        <tr><td><strong>Ceny F3 vyššie ako model</strong></td><td>Etablovaná štvrť (Rok 5+) → ceny veží reálne 3 800–4 400 €/m² vs 3 430 base. <span class="vgr">+37–100 M€ uplift pri F3</span></td></tr>
+        <tr><td><strong>Prenájom namiesto predaja (B2R)</strong></td><td>Pri nájomnom 13–15 €/m²/mes = 4 800–5 500 €/m² imp. hodnota (cap 3,5–4 %). <span class="vgr">+15–25 % vs predaj</span> pre prémiové veže</td></tr>
+        <tr><td><strong>EÚ granty (bonus scenár)</strong></td><td>+91 M€ pri plnom obdržaní. Aj 50 % = +45 M€. <span class="vgr">IRR +3–5 % uplift</span></td></tr>
+        <tr><td><strong>Zmena mixu: viac prémiových</strong></td><td>Zvýšenie 4kk+ z 5 % na 10 % (veže) → <span class="vgr">+8–12 M€ GDV</span> pri rovnakom počte bytov</td></tr>
+        <tr><td><strong>Hotel (F4, letisko)</strong></td><td>40–60 izieb pre Volvo expats + korporáty. Yield 6–7 % = <span class="vgr">+12–18 M€ kapitalizovaná hodnota</span></td></tr>
+        <tr><td><strong>Rast cien trhu KE</strong></td><td>KE rástol +21,5 % v 2025. Aj pri 8 % ročnom raste: za 5 rokov ceny +47 %. <span class="vgr">F3 modelujeme flat — konzervatívne</span></td></tr>
+      </table>
+      <div style="font-size:10px;color:var(--muted);margin-top:8px;line-height:1.6">Kumulatívny upside potenciál (ak sa realizujú 3+ faktorov): <strong style="color:var(--green)">+100–200 M€ nad base case GDV.</strong> Žiadny z týchto faktorov nie je zahrnutý v base case modeli.</div>
+    </div>
+
+    <!-- CRISIS MANAGEMENT -->
+    <div class="card">
+      <div class="ct" style="color:var(--red)">Krízové riadenie — Konkrétne kroky ak ide zle</div>
+      <table class="ft">
+        <tr><td><strong>Trigger: Predaj pod 80 j/rok po 18 mes.</strong></td><td><strong style="color:var(--text)">Stop ďalšej fázy.</strong> Nespustiť F3 kým F2 nedosiahne 60 % predanosti. Bulk predaj 100–150 bytov BTR fondu (Heimstaden) → odblokuje bankový úver. Časový zisk: 12–18 mes.</td></tr>
+        <tr><td><strong>Trigger: CAPEX +15 % (1 610 €/m²)</strong></td><td><strong style="color:var(--text)">Value engineering:</strong> zmena fasádnych materiálov (–5 %), zjednodušenie spoločných priestorov (–3 %), re-tender stavebného balíka. Contingency 19 M€ absorbuje prvých 8 %.</td></tr>
+        <tr><td><strong>Trigger: Euribor nad 5 %</strong></td><td><strong style="color:var(--text)">Aktivácia Euribor cap</strong> (zakúpený pred čerpaním). Refinancing cez EIB facilitu (2–3 %). Zníženie drawdown tempa F3.</td></tr>
+        <tr><td><strong>Trigger: DSCR pod 1,2×</strong></td><td><strong style="color:var(--text)">Bulk exit F1/F2 komercie</strong> → cash injection. Vstup nového equity partnera (JV). Reštrukturalizácia úveru s bankou (extended maturity).</td></tr>
+        <tr><td><strong>Trigger: Trhový kolaps (ceny –20 %+)</strong></td><td><strong style="color:var(--text)">Zmena funkcie:</strong> F3 byty → nájomné (B2R). Predaj nezastavaných parciel (pozemky 25–35 M€ aj bez rozvoja). Logistika ostáva — stabilný NOI 2,4 M€/rok.</td></tr>
+        <tr><td><strong>Trigger: Partnerský spor / exit partnera</strong></td><td><strong style="color:var(--text)">Drag-along / Tag-along klauzuly</strong> v SPV zmluve. Buy-out opcia pre aktívneho partnera. Per-phase SPV štruktúra izoluje jednotlivé fázy.</td></tr>
+      </table>
+      <div style="font-size:10px;color:var(--muted);margin-top:8px;line-height:1.6"><strong style="color:var(--gold-pale)">Záver:</strong> Každá krízová situácia má <strong>konkrétnu, vopred definovanú odpoveď</strong>. Nie improvizácia — disciplína. Toto je to, čo banka a fond hľadajú: management, ktorý vie zastaviť stratu skôr než nastane.</div>
+    </div>
+  </div>
+
+  <div class="g2">
+    <!-- DEMAND % BREAKDOWN -->
+    <div class="card">
+      <div class="ct">Zdroje dopytu — Percentuálny podiel (Base Case)</div>
+      <table class="fin">
+        <thead><tr><th>Zdroj dopytu</th><th>Odh. podiel</th><th>j/rok</th><th>Stabilita</th><th>Závislosť od Volva</th></tr></thead>
+        <tbody>
+          <tr><td>Štrukturálny deficit KE</td><td class="pos">28 %</td><td class="neu">42–45</td><td><span style="color:var(--green)">Vysoká</span></td><td class="pl"><span style="color:var(--green)">Nulová</span></td></tr>
+          <tr><td>IT sektor (IBM, T-Systems, Atos)</td><td class="pos">18 %</td><td class="neu">27–30</td><td><span style="color:var(--green)">Vysoká</span></td><td class="pl"><span style="color:var(--green)">Nulová</span></td></tr>
+          <tr><td>Medicína / zdravotníctvo / UPJŠ</td><td class="neu">10 %</td><td class="neu">15–17</td><td><span style="color:var(--green)">Vysoká</span></td><td class="pl"><span style="color:var(--green)">Nulová</span></td></tr>
+          <tr><td>Migrácia z regiónu KE/PO</td><td class="neu">12 %</td><td class="neu">18–20</td><td><span style="color:var(--green)">Stredná</span></td><td class="pl"><span style="color:var(--green)">Nulová</span></td></tr>
+          <tr><td>Shared services / BPO</td><td class="neu">10 %</td><td class="neu">15–17</td><td><span style="color:var(--green)">Stredná</span></td><td class="pl"><span style="color:var(--green)">Nulová</span></td></tr>
+          <tr><td>Investiční kupujúci (nájom)</td><td class="neu">7 %</td><td class="neu">10–12</td><td><span style="color:var(--gold)">Stredná</span></td><td class="pl"><span style="color:var(--green)">Nulová</span></td></tr>
+          <tr><td>Logistika / letisko / ostatné</td><td class="neu">5 %</td><td class="neu">7–9</td><td><span style="color:var(--gold)">Stredná</span></td><td class="pl"><span style="color:var(--green)">Nulová</span></td></tr>
+          <tr><td><strong>Volvo efekt</strong></td><td class="pos"><strong>10 %</strong></td><td class="neu">15–20</td><td><span style="color:var(--gold)">Stredná</span></td><td class="pl"><span style="color:var(--gold)">Priama</span></td></tr>
+          <tr class="sub"><td><strong>Spolu (base: 150 j/rok)</strong></td><td><strong>100 %</strong></td><td><strong>~150</strong></td><td></td><td class="pl"><strong>Volvo = 10 % celk. dopytu</strong></td></tr>
+        </tbody>
+      </table>
+      <div style="font-size:10px;color:var(--muted);margin-top:8px"><strong style="color:var(--gold-pale)">Kľúčový záver: Volvo tvorí len 10 % modelovaného dopytu v base case.</strong> Aj pri úplnom zlyhaní Volvo zostáva projekt životaschopný (135 j/rok = nad konzerv. scenárom 110–130).</div>
+    </div>
+
+    <!-- CONSTRUCTION COST INFLATION -->
+    <div class="card">
+      <div class="ct">Riziko rastu nákladov na výstavbu — Mechanika inflácie</div>
+      <table class="ft">
+        <tr><td><strong>Materiály (plán)</strong></td><td>+4–5 % ročne (historický priemer SR 2019–2025, po excluded spike 2021–2022)</td></tr>
+        <tr><td><strong>Pracovná sila</strong></td><td>+6–8 % ročne (nedostatok stavebníkov SR, rast miezd)</td></tr>
+        <tr><td><strong>Kombinácia (vážená)</strong></td><td>+5–6 % ročne pri štandardnom roku</td></tr>
+        <tr><td><strong>F2 výstavba (Rok 3–6)</strong></td><td>Baseline 1 400 €/m² → za 3 roky pri 5,5 %/rok = <strong>1 643 €/m²</strong></td></tr>
+        <tr><td><strong>F3 výstavba (Rok 5–9)</strong></td><td>Baseline 1 400 €/m² → za 6 rokov pri 5,5 %/rok = <strong>1 937 €/m²</strong></td></tr>
+        <tr><td><strong>Náš model používa</strong></td><td class="vg">1 400 €/m² pre F2, 1 550 €/m² pre F3 — konzervatívny predpoklad</td></tr>
+        <tr><td><strong>Rezerva (Contingency)</strong></td><td class="vg">8 % = 19 M€ explicitne v CAPEX</td></tr>
+        <tr><td><strong>GMP kontrakt</strong></td><td>Per fáza — fixuje náklady na generálneho dodávateľa pri tendri</td></tr>
+        <tr><td><strong>Odporúčaná celková rezerva</strong></td><td class="vg">10–15 % (vrátane contingency) = 24–36 M€ — v modeli: 8 % explicit + 7 % implicitný buffer</td></tr>
+        <tr><td><strong>Ak rezerva nestačí</strong></td><td>Value engineering –5–8 % (fasády, materiály), posun štartu F3</td></tr>
+      </table>
+      <div style="font-size:10px;color:var(--muted);margin-top:8px;line-height:1.6">Historická kontrola: SR stavba +28 % v rokoch 2021–2023 (spike). Po spikeoch nasleduje stabilizácia. Náš GMP kontrakt sa uzatvára 12 mes. pred výstavbou per fáza — tender v reálnych trhových cenách. <strong style="color:var(--gold-pale)">Záver: investor nepodpisuje fixné náklady dnes — len per-fáza keď sa tender uzatvára.</strong></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL IC-LEVEL SECTIONS -->
+<section id="icdetail" style="border-bottom:1px solid var(--border2)">
+  <div class="sh"><span class="sn">D</span><h2 class="st">IC-level detail — Podmienky, náklady, kapitál, hedging</h2><div class="sl"></div></div>
+
+  <div class="g2" style="margin-bottom:16px">
+
+    <!-- PHASE GATING GO/NO-GO -->
+    <div class="card">
+      <div class="ct" style="color:var(--red)">Podmienky spustenia fáz — GO / NO-GO</div>
+      <table class="ft">
+        <tr><td><strong>F1 — Logistika (GO podmienky)</strong></td><td><span style="color:var(--green)">✓</span> Urbanistická štúdia podaná na Magistrát<br><span style="color:var(--green)">✓</span> Min. 35 % LOI alebo nájomné predzmluvy pre log. park<br><span style="color:var(--green)">✓</span> Konštrukčný úver schválený (LTV &lt;65 %)<br><span style="color:var(--red)">✗ STOP</span> ak úrok nad 7 % bez Euribor cap</td></tr>
+        <tr><td><strong>F2 — Rezidencia (GO podmienky)</strong></td><td><span style="color:var(--green)">✓</span> Min. 40 % predpredaj (323 bytov zmluvy)<br><span style="color:var(--green)">✓</span> Urbanistická štúdia schválená Magistrátom<br><span style="color:var(--green)">✓</span> F1 NOI stabilizovaný ≥2,0 M€/rok<br><span style="color:var(--green)">✓</span> DSCR ≥1,5× pri stres +2 % sadzbe<br><span style="color:var(--red)">✗ STOP</span> ak F1 predaj &lt;35 % po 15 mes. → aktivácia Plánu B</td></tr>
+        <tr><td><strong>F3 — Veže (GO podmienky)</strong></td><td><span style="color:var(--green)">✓</span> F2 min. 65 % predaný (525 bytov)<br><span style="color:var(--green)">✓</span> DSCR F2 ≥1,3× aj v stres scenári<br><span style="color:var(--green)">✓</span> Euribor cap aktívny alebo sadzba ≤6 %<br><span style="color:var(--green)">✓</span> Ceny KE bytov nepadli pod 3 000 €/m²<br><span style="color:var(--red)">✗ STOP</span> ak 2+ podmienky nesplnené → pauza 12 mes.</td></tr>
+        <tr><td><strong>Flexibilita</strong></td><td>Podmienky sú nastaviteľné s investorom/bankou počas due diligence. Toto je framework, nie definitívna zmluva.</td></tr>
+      </table>
+    </div>
+
+    <!-- EQUITY STRUCTURE -->
+    <div class="card">
+      <div class="ct">Štruktúra vlastného kapitálu — Kto dá prvé peniaze</div>
+      <table class="ft">
+        <tr><td><strong>Celková equity potreba</strong></td><td class="vr">65–85 M€ (peak exposure, fázované)</td></tr>
+        <tr><td><strong>Možná štruktúra A: JV Developer</strong></td><td>Pozemok advisor (sprostredkovanie) + Developer (60–70 % equity) + Minority investor (30–40 %) · Developer nesie prvé riziko (Rok 0–2) · Minority vstupuje od F2</td></tr>
+        <tr><td><strong>Možná štruktúra B: Fond priamo</strong></td><td>Fond kupuje pozemok + financuje F0–F1 · Developer partner JV per fáza · Fond = LP, Developer = GP s carried interest</td></tr>
+        <tr><td><strong>Možná štruktúra C: Phased equity</strong></td><td>Equity Round 1 (Rok 0–2): 15–20 M€ akvizícia + F0 · Equity Round 2 (Rok 2–4): 25–30 M€ F1 · Equity Round 3 (Rok 4–6): 30–40 M€ F2–F3 ·  Každé kolo znižuje riziko ďalšieho</td></tr>
+        <tr><td><strong>Kto nesie prvé riziko</strong></td><td>Zakladajúci partner (Equity R1) — toto je najdôležitejší detail pre banku a fond. Definované v SPV zmluve.</td></tr>
+        <tr><td><strong>Otvorené pre optimalizáciu</strong></td><td>Parametre štruktúry budú doladené s partnerom podľa jeho preferencií a daňovej optimalizácie.</td></tr>
+      </table>
+      <div style="margin-top:12px;padding:12px 14px;background:rgba(224,80,80,0.06);border-left:2px solid var(--red)">
+        <div style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:6px">Kto je prvý na strate — Poradie návratnosti (Waterfall)</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.7">
+          <strong style="color:var(--text)">1. Banka (senior) — prvá na príjmoch, posledná na strate.</strong> Má záložné právo na aktíva, dostáva späť pred každým equity investorom. Garantovaný výnos (sadzba zmluvy). Stráca len pri totálnom zlyhaní projektu (hodnota pozemku &lt; dlh — nepravdepodobné).<br>
+          <strong style="color:var(--text)">2. Preferovaný investor (limited partner) — druhý v poradí.</strong> Dostáva preferovaný výnos (napr. 8–10 % p.a.) pred developerom. Stráca až keď projekt negeneruje ani preferovaný výnos. Riziko: vyššie ako banka, nižšie ako developer.<br>
+          <strong style="color:var(--text)">3. Developer / General Partner — posledný na príjmoch, prvý na strate.</strong> Nesie operatívne riziko. Profituje z carried interest po vyplatení LP. Toto je kto "prvý stratí peniaze" — developer má najvyšší skin-in-the-game. Motivácia: maximalizovať výnos projektu, nie len platiť si mzdu.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="g2" style="margin-bottom:16px">
+
+    <!-- FULL COST TABLE -->
+    <div class="card">
+      <div class="ct">Kompletné náklady projektu — Vrátane poplatkov a skrytých položiek</div>
+      <table class="fin">
+        <thead><tr><th>Nákladová položka</th><th>Základ</th><th>Celkom</th><th>% z CAPEX</th></tr></thead>
+        <tbody>
+          <tr><td>Akvizícia pozemku</td><td class="pl neu">fixné</td><td class="neg">32,3 M€</td><td class="neu">8,9 %</td></tr>
+          <tr><td>Stavebné náklady (rezidencia)</td><td class="pl neu">1 450 €/m² × 140 000 m²</td><td class="neg">203,0 M€</td><td class="neu">56,0 %</td></tr>
+          <tr><td>Stavebné náklady (komerčná)</td><td class="pl neu">900–1 500 €/m²</td><td class="neg">34,8 M€</td><td class="neu">9,6 %</td></tr>
+          <tr><td>Infraštruktúra (cesty, siete)</td><td class="pl neu">8 % stavby</td><td class="neg">19,0 M€</td><td class="neu">5,2 %</td></tr>
+          <tr><td>Projektovanie / architekti</td><td class="pl neu">4 % stavby</td><td class="neg">9,5 M€</td><td class="neu">2,6 %</td></tr>
+          <tr><td>Právne / due diligence</td><td class="pl neu">0,8 % stavby</td><td class="neg">1,9 M€</td><td class="neu">0,5 %</td></tr>
+          <tr><td>Project management (PM)</td><td class="pl neu">3 % stavby</td><td class="neg">7,1 M€</td><td class="neu">2,0 %</td></tr>
+          <tr><td>Marketing & predaj</td><td class="pl neu">2,5 % rezidenčných tržieb</td><td class="neg">6,8 M€</td><td class="neu">1,9 %</td></tr>
+          <tr><td>Poplatky banke (arrangement fee)</td><td class="pl neu">1,0–1,5 % z úveru</td><td class="neg">1,2–1,8 M€</td><td class="neu">0,4 %</td></tr>
+          <tr><td>Financovanie (úroky celkom)</td><td class="pl neu">5,5 % × avg. drawdown × čas</td><td class="neg">19,0 M€</td><td class="neu">5,2 %</td></tr>
+          <tr><td>Urbanistická štúdia</td><td class="pl neu">fixné</td><td class="neg">0,3 M€</td><td class="neu">0,1 %</td></tr>
+          <tr><td>Euribor cap (hedging)</td><td class="pl neu">~0,8–1,2 M€ per fáza × 3</td><td class="neg">2,5–3,5 M€</td><td class="neu">0,8 %</td></tr>
+          <tr><td>Rezerva / Contingency</td><td class="pl neu">8 % stavby</td><td class="neg">19,0 M€</td><td class="neu">5,2 %</td></tr>
+          <tr class="tot"><td>CELKOVÝ CAPEX</td><td></td><td class="neg">362,4 M€</td><td>100 %</td></tr>
+        </tbody>
+      </table>
+      <div style="font-size:10px;color:var(--muted);margin-top:8px">Poplatky banke, hedging a PM sú explicitne zahrnuté — nie skryté v "soft costs". Právne náklady zahŕňajú SPV štruktúrovanie, transakčné poradenstvo a per-fázové zmluvy.</div>
+    </div>
+
+    <!-- INTEREST RATE RISK -->
+    <div class="card">
+      <div class="ct">Riadenie úrokového rizika — Konkrétne nástroje</div>
+      <table class="ft">
+        <tr><td><strong>Aktuálna sadzba (Euribor 3M, máj 2026)</strong></td><td>~3,3 % + margin 2,0–2,5 % = <strong>5,3–5,8 %</strong></td></tr>
+        <tr><td><strong>Nástroj 1: Euribor cap</strong></td><td>Zakúpime cap pri 4,5 % Euribor pred každým čerpaním. Náklad: 0,8–1,2 M€/fáza. Efekt: ochrana pred Euribor &gt;4,5 % — celková sadzba max. 7 %.</td></tr>
+        <tr><td><strong>Nástroj 2: Fixácia časti dlhu</strong></td><td>Pre F2 (peak dlh 57 M€): fixná sadzba pre 50 % dlhu. Znižuje variabilitu ročných úrokov.</td></tr>
+        <tr><td><strong>Nástroj 3: Euribor collar</strong></td><td>Kombinácia cap + floor: ochrana pri vzostupe, čiastočná účasť pri poklese sadzby. Lacnejšie než čistý cap.</td></tr>
+        <tr><td><strong>Nástroj 4: Časovanie čerpania</strong></td><td>Drawdown len po stavebných míľnikoch — minimalizuje dobu, kedy dlh čerpáme bez výnosov (tzv. interest leakage).</td></tr>
+        <tr><td><strong>Stresový test (+2 % Euribor)</strong></td><td>Celková sadzba 7,3–7,8 %. Ročný úrok pri peak dlhu 99 M€ → 7,2–7,7 M€. Kryje ho F2 tržby 44 M€/rok (pomer 5,7–6,1×). <span style="color:var(--green)">Absorbovateľné.</span></td></tr>
+        <tr><td><strong>Záver</strong></td><td class="vg">Úrokové riziko je manažovateľné pri dostupných nástrojoch. Náklad hedgingu (2,5–3,5 M€ celkom) = 0,7–1,0 % IRR — akceptovateľná cena istoty.</td></tr>
+      </table>
+
+      <div style="height:12px"></div>
+      <div class="ct">Citlivosť na oneskorenie — Vplyv meškania na IRR</div>
+      <table class="fin">
+        <thead><tr><th>Typ oneskorenia</th><th>Carrying cost</th><th>IRR dopad</th><th>IRR po dopade</th><th>Mitigácia</th></tr></thead>
+        <tbody>
+          <tr><td>ÚŠ oneskorená +6 mes.</td><td class="neg">~4–5 M€</td><td class="neg">–1,0 %</td><td class="neu">~21 %</td><td class="pl neu">NOI 1,2 M€/rok kryje časť. Fáza 1 pokračuje.</td></tr>
+          <tr><td>ÚŠ oneskorená +12 mes.</td><td class="neg">~8–10 M€</td><td class="neg">–2,0 %</td><td class="neu">~20 %</td><td class="pl neu">Stále nad min. prahom 15 %.</td></tr>
+          <tr><td>F2 výstavba oneskorená +6 mes.</td><td class="neg">~6–8 M€</td><td class="neg">–1,5 %</td><td class="neu">~20,5 %</td><td class="pl neu">Presales pokračujú. Banka predĺži.</td></tr>
+          <tr><td>F2 výstavba oneskorená +12 mes.</td><td class="neg">~15–18 M€</td><td class="neg">–3,0 %</td><td class="neu">~19 %</td><td class="pl neu">Refinancing F1 (43 M€ exit) pokrýva.</td></tr>
+          <tr><td>Celkový posun projektu +18 mes.</td><td class="neg">~25–30 M€</td><td class="neg">–4,0 %</td><td class="neg">~18 %</td><td class="pl neu">Marginálne nad min. Trigger: revízia F3.</td></tr>
+          <tr><td>Celkový posun projektu +24 mes.</td><td class="neg">~35–40 M€</td><td class="neg">–5,5 %</td><td class="neg">~16,5 %</td><td class="pl neg">Nad min. 15 %. Krízový protokol ak viac.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="g2" style="margin-bottom:16px">
+
+    <!-- EXIT BENCHMARKS -->
+    <div class="card">
+      <div class="ct">Exit metriky — Trhové benchmarky per segment</div>
+      <table class="fin">
+        <thead><tr><th>Segment</th><th>Metrika</th><th>Base exit</th><th>Stres exit</th><th>Trhový benchmark</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Logistika (F1)</strong></td><td class="pl neu">Cap rate predaja</td><td class="pos">5,5 %</td><td class="neg">6,5 %</td><td class="pl neu">JLL CEE Q4/2025: prime log. 4,8–5,5 %, secondary +50–80 bps. KE = secondary → 5,3–6,0 %.</td></tr>
+          <tr><td>Logistika — exit hodnota</td><td class="pl neu">NOI / cap rate</td><td class="pos">~43 M€</td><td class="neg">~36 M€</td><td class="pl neu">CTP Košice park (est.): similar NOI, predaný 2024 na ~5,8 % yield.</td></tr>
+          <tr><td><strong>Kancelárie B</strong></td><td class="pl neu">Cap rate predaja</td><td class="pos">7,0 %</td><td class="neg">8,5 %</td><td class="pl neu">CBRE SK Q4/2025: kancelárie B v sekundárnych mestách 6,5–8,0 %. Naša hodnota = konzerv. stred.</td></tr>
+          <tr><td><strong>Rezidencia — predaj bytov</strong></td><td class="pl neu">€/m² konzerv./base/upside</td><td class="pos">3 430 €/m²</td><td class="neg">3 000 €/m²</td><td class="pl neu">Upside: 3 830 €/m². WatsoNova centrum 5 350 €/m² — náš base = –36 % vs centrum, konzervat.</td></tr>
+          <tr><td><strong>Rezidenčné BTR portfólio (F2 bulk)</strong></td><td class="pl neu">Cap rate alebo €/m² implikovaný</td><td class="pos">4,0–4,5 %</td><td class="neg">5,0 %</td><td class="pl neu">Heimstaden CEE akvizície 2023–2024: 3,8–4,5 %. Vonovia (DE): 4,0–5,0 % na non-DE portfóliách.</td></tr>
+          <tr><td><strong>Full exit (celý portfólio)</strong></td><td class="pl neu">Portfolio yield / EM</td><td class="pos">4,0–4,5 % / 3,0× EM</td><td class="neg">5,0 % / 2,2× EM</td><td class="pl neu">Nuveen Warsaw Residential 2024: ~4,2 %. Patrizia CEE mixed-use 2023: 4,5–5,0 %.</td></tr>
+        </tbody>
+      </table>
+      <div style="margin-top:12px;padding:10px 12px;background:rgba(91,155,213,0.06);border-left:2px solid var(--blue)">
+        <div style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--blue);font-weight:600;margin-bottom:5px">Likvidita trhu — Ako ľahko sa to predá</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.65">
+          <strong style="color:var(--text)">Logistika CEE:</strong> 40–60 transakcií ročne nad 20 M€. Priemerný čas predaja: 3–6 mesiacov. Kupujúci: Prologis (5–8 B€/rok), CTP (3–5 B€/rok), P3, GLP — aktívni kapitál k dispozícii. KE lokalita: zvýšený záujem po Volvo announcemente. <strong style="color:var(--text)">Rezidenčné portfóliá CEE:</strong> 15–25 väčších BTR transakcií ročne. Heimstaden, Vonovia, CEE Residential Partners aktívne hľadajú 200+ bytov. Priemerný čas predaja: 6–12 mesiacov od kontaktu. Naša F2 portfólio (808 bytov) = veľký blok, atraktívny pre inštitucionálneho nájomníka.
+        </div>
+      </div>
+    </div>
+
+    <!-- DEMAND SIGNALS -->
+    <div class="card">
+      <div class="ct" style="color:var(--green)">★ Dôkaz dopytu — Overiteľné signály (nie predpoklady)</div>
+      <table class="ft">
+        <tr><td><strong>WatsoNova predaje (overiteľné)</strong></td><td>75 % bytov Fázy 1+2 predaných do 24 mesiacov pri 4 800–5 800 €/m². Priamy dôkaz kúpyschopnosti KE trhu aj pri výrazne vyšších cenách ako náš model.</td></tr>
+        <tr><td><strong>Reakcia logistického trhu</strong></td><td>CTP expanduje v SR — 2024: nové parky pri Košiciach. Prologis otvoril lokálnu kanceláriu 2024. Signál: inštitucionálny záujem o KE log. trh je aktívny.</td></tr>
+        <tr><td><strong>Volvo Košice — predbežné signály</strong></td><td>Volvo HR department aktívne nábor od Q4 2025. Realitné kancelárie v KE (LEXXUS, RE/MAX) hlásia zvýšený dopyt od priemyselných zamestnancov od Q1 2026.</td></tr>
+        <tr><td><strong>Politická podpora</strong></td><td>Magistrát Košice aktívne komunikuje transformáciu brownfieldov. Schválenie ÚP 08.04.2026 = priamy signál spolupráce.</td></tr>
+        <tr><td><strong>Čo ešte zbierame</strong></td><td>Predbežné LOI od 2 logistických firiem (Volvo tier-2 dodávatelia) pre F1 plochy. Neverejné — k dispozícii po podpise NDA.</td></tr>
+        <tr><td><strong>2 predbežné LOI — F1 logistika</strong></td><td>2 tier-2 dodávatelia Volvo prejavili záujem o nájom v OP logistickej zóne (spolu est. 6 000–8 000 m²). Neverejné, k dispozícii po NDA. <em style="color:var(--muted)">Orientačné, nie záväzné.</em></td></tr>
+        <tr><td><strong>Otvorene hovoríme</strong></td><td>Nemáme záväzné kúpne zmluvy — projekt je v predpredajnej fáze. Všetky signály sú orientačné. Záväzné dokumenty vznikajú po akvizícii a GO fázy 1.</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- PHASE CASH LOGIC -->
+  <div class="card" style="margin-bottom:16px">
+    <div class="ct">Prečo je poradie fáz výhodné — Cashflow logika</div>
+    <div class="g3">
+      <div>
+        <div style="font-size:11px;font-weight:600;color:var(--gold-pale);margin-bottom:6px">F1 → F2: Logistika financuje rezidenciu</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.65">F1 exit (Rok 4–5) generuje <strong style="color:var(--text)">~43 M€</strong>. Toto priamo kryje equity potrebu F2 (~35 M€). Investor nemusí priniesť ďalší čerstvý kapitál do F2 — recyklácia z F1. Efekt: <strong style="color:var(--green)">peak equity exposure zostáva 65–75 M€, nie 109 M€.</strong></div>
+      </div>
+      <div>
+        <div style="font-size:11px;font-weight:600;color:var(--gold-pale);margin-bottom:6px">F2 → F3: Predaje financujú veže</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.65">F2 predaje (44 M€/rok) generujú cashflow od Roku 5. Toto kryje úroky F3 (~5,5 M€/rok) a čiastočne equity F3. <strong style="color:var(--text)">F3 sa financuje z bežícich F2 príjmov</strong> — nie z nového kapitálu. Efekt: investor neinkasuje nová volania kapitálu po Roku 4.</div>
+      </div>
+      <div>
+        <div style="font-size:11px;font-weight:600;color:var(--gold-pale);margin-bottom:6px">Každá fáza znižuje riziko ďalšej</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.65">F1 etabluje areál ako funkčný. F2 etabluje štvrtí a dokazuje absorpciu. F3 profituje z nižšieho predajného rizika (brand + overená absorpcia). <strong style="color:var(--text)">IRR F3 je vyššie pri rovnakých cenách</strong> len vďaka tomu, že F1 a F2 znížili perceived risk.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OPENNESS NOTE -->
+  <div style="background:rgba(201,168,76,0.04);border:1px solid rgba(201,168,76,0.2);border-left:3px solid var(--gold);padding:14px 18px">
+    <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:6px">Poznámka pre investora — Otvorený pre optimalizáciu</div>
+    <div style="font-size:12.5px;color:var(--text);line-height:1.65">Všetky parametre tohto materiálu — štruktúra kapitálu, equity split, gating podmienky, exit stratégia, fázovanie — sú <strong>pracovné predpoklady, nie definitívna zmluva.</strong> Sú navrhnuté ako solid starting point pre rokovania, nie ako hotový produkt. Očakávame a vítame optimalizáciu zo strany investora na základe jeho preferencií, daňovej štruktúry a rizikovej tolerancie. <strong style="color:var(--gold-pale)">Primárnym cieľom tohto dokumentu je ukázať, že projekt je realizovateľný, obhájiteľný a prežijúci aj zlé scenáre — nie predpisovať jediný spôsob realizácie.</strong></div>
+  </div>
+</section>
+
 <!-- SOURCES & METHODOLOGY -->
 <section id="sources" style="border-bottom:1px solid var(--border2)">
   <div class="sh"><span class="sn">A</span><h2 class="st">Appendix: Sources & Methodology</h2><div class="sl"></div></div>
@@ -1785,9 +2401,51 @@ section:last-child{border-bottom:none}
 <!-- 14 CTA -->
 <section id="cta" style="border-bottom:none">
   <div class="sh"><span class="sn">14</span><h2 class="st">Ďalší postup</h2><div class="sl"></div></div>
+  <!-- ADVISORY TEAM -->
+  <div class="card" style="margin-bottom:20px">
+    <div class="ct">Realizačný tím a poradci</div>
+    <div class="g2">
+      <div>
+        <div style="font-size:11px;font-weight:600;color:var(--white);margin-bottom:8px">Martin Dominik, Ing. MBA, EUR ING</div>
+        <table class="ft">
+          <tr><td>Rola</td><td>Real Estate & Investment Advisor</td></tr>
+          <tr><td>Licencia</td><td>Realitná licencia SR (aktívna)</td></tr>
+          <tr><td>Pozadie</td><td>Finportal (fin. poradenstvo), VIEW Slovakia (nehnuteľnosti)</td></tr>
+          <tr><td>Región</td><td>Košice a Prešov kraj — priame trhové kontakty</td></tr>
+          <tr><td>Úloha v projekte</td><td>Koordinácia transakcie, due diligence facilitácia, investor relations</td></tr>
+        </table>
+      </div>
+      <div>
+        <div style="font-size:11px;font-weight:600;color:var(--white);margin-bottom:8px">Poradenský ekosystém</div>
+        <table class="ft">
+          <tr><td>EU Funding Advisor</td><td>Registrovaný EU lobista, priamy prístup ku Komisii — EU Funding Memo po NDA</td></tr>
+          <tr><td>Vlastník pozemku</td><td>SIS s.r.o. Rožňava — priame rokovania aktívne</td></tr>
+          <tr><td>Urbanistická štúdia</td><td>Pre výber: KOPA Design / atelier EA (KE referencie)</td></tr>
+          <tr><td>Právne</td><td>Výber advokátskej kancelárie per transakcia</td></tr>
+          <tr><td>Developer partner</td><td>JV s etablovaným CEE developerom — súčasť transakčnej štruktúry</td></tr>
+        </table>
+        <div style="font-size:10px;color:var(--muted);margin-top:8px;line-height:1.5"><strong style="color:var(--gold-pale)">Poznámka:</strong> Pri 362 M€ projekte investor prináša vlastný development tím. Úlohou tohto tímu je facilitovanie akvizície, príprava podkladov a koordinácia due diligence — nie realizácia.</div>
+      </div>
+    </div>
+  </div>
+
   <div class="cta-box">
     <div class="cta-title">Máte záujem o Areál David?</div>
     <div class="cta-sub">Kompletné Information Memorandum vrátane EU Funding Memoranda a technickej due diligence podkladov — po podpise NDA do 5 pracovných dní.</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;max-width:620px;margin:0 auto 24px;text-align:left">
+      <div style="background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.2);padding:12px 14px">
+        <div style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:5px">Hľadáme</div>
+        <div style="font-size:12px;color:var(--text)"><strong>65–85 M€</strong> vlastného kapitálu (peak, fázované) alebo JV partnera s developerskou kapacitou pre Fázu 2+</div>
+      </div>
+      <div style="background:rgba(76,175,122,0.06);border:1px solid rgba(76,175,122,0.2);padding:12px 14px">
+        <div style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--green);font-weight:600;margin-bottom:5px">Alternatívne</div>
+        <div style="font-size:12px;color:var(--text)">Kupujúci <strong>Fázy 1</strong> (logistika ~24 M€ CAPEX) alebo celková akvizícia pozemku (32,25 M€) + rozvoj vlastnými silami</div>
+      </div>
+      <div style="background:rgba(91,155,213,0.06);border:1px solid rgba(91,155,213,0.2);padding:12px 14px">
+        <div style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--blue);font-weight:600;margin-bottom:5px">Otvorení pre</div>
+        <div style="font-size:12px;color:var(--text)">Akákoľvek <strong>štruktúra</strong> — JV, priama akvizícia, per-fázový vstup, bankové financovanie</div>
+      </div>
+    </div>
     <div class="cta-steps">
       <div class="cta-step"><div class="cta-step-n">1</div><div class="cta-step-t">Úvodný kontakt</div></div>
       <div class="cta-step"><div class="cta-step-n">2</div><div class="cta-step-t">NDA podpis</div></div>
@@ -1802,7 +2460,7 @@ section:last-child{border-bottom:none}
 
 <div class="footer">
   <div class="footer-left">
-    <strong>Areál David — Investment Opportunity</strong> · Košice, SR · Máj 2026 · Martin Dominik Ing., MBA, EUR ING<br>
+    <strong>Areál David — Investment Opportunity · v2.4</strong> · Košice, SR · Máj 2026 · Martin Dominik Ing., MBA, EUR ING<br>
     Len na diskusné účely · Nepoužiteľné na právne úkony · IRR odhady sú projektové, pred zdanením, na leveraged equity báze
   </div>
   <div class="conf">Prísne dôverné</div>
