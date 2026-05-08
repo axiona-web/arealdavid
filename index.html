@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --gold:#C9A84C;--gold-dim:#9A7A32;--gold-pale:#F0E0B0;
+  --dark:#0A0D0B;--dark2:#111714;--dark3:#182018;
+  --panel:#1C2A1E;--border:rgba(201,168,76,0.18);--border2:rgba(201,168,76,0.08);
+  --text:#E4E8E0;--muted:#8A9A88;--white:#F2F5EF;
+  --red:#E05050;--green:#4CAF7A;--blue:#5B9BD5;--orange:#E09050;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--dark);color:var(--text);font-size:14px;line-height:1.65}
+
+/* TOP NAV */
+.topnav{position:sticky;top:0;z-index:100;background:rgba(10,13,11,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);height:56px}
+.topnav-inner{display:flex;align-items:center;width:100%;padding:0 32px;height:56px;gap:0}
+.topnav-logo{display:flex;flex-direction:column;text-decoration:none;margin-right:32px;flex-shrink:0;line-height:1}
+.logo-main{font-family:'Playfair Display',serif;font-size:17px;color:var(--white)}
+.logo-main em{font-style:italic;color:var(--gold)}
+.logo-sub{font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-top:2px}
+.topnav-links{display:flex;align-items:stretch;flex:1;gap:0}
+.tnl{display:flex;align-items:center;height:56px;padding:0 13px;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);text-decoration:none;border-bottom:2px solid transparent;transition:all .18s;white-space:nowrap}
+.tnl:hover{color:var(--gold-pale);border-bottom-color:rgba(201,168,76,0.35)}
+.tnl.active{color:var(--gold);border-bottom-color:var(--gold)}
+.tnl-eib{color:rgba(91,155,213,0.8)!important}
+.tnl-eib:hover,.tnl-eib.active{color:var(--blue)!important;border-bottom-color:var(--blue)!important;background:rgba(91,155,213,0.05)}
+.topnav-right{display:flex;align-items:center;gap:10px;margin-left:auto;flex-shrink:0}
+.lang-btn{background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.25);color:var(--gold);font-size:9px;letter-spacing:2px;padding:4px 9px;cursor:pointer;font-family:'DM Mono',monospace;transition:all .15s}
+.lang-btn:hover{background:rgba(201,168,76,0.18)}
+.tnl-cta{background:var(--gold);color:var(--dark);padding:6px 14px;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;font-weight:600;transition:all .18s}
+.tnl-cta:hover{background:var(--gold-pale)}
+
+/* SECTIONS */
+section{padding:48px 60px;border-bottom:1px solid var(--border2)}
+section:last-child{border-bottom:none}
+.sh{display:flex;align-items:baseline;gap:14px;margin-bottom:26px}
+.sn{font-family:'DM Mono',monospace;font-size:11px;color:var(--gold-dim);flex-shrink:0}
+.st{font-family:'Playfair Display',serif;font-size:24px;font-weight:600;color:var(--white)}
+.sl{flex:1;height:1px;background:var(--border)}
+
+/* CARDS & GRIDS */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+.card{background:var(--panel);border:1px solid var(--border2);padding:18px}
+.ct{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dim);font-weight:600;margin-bottom:10px;padding-bottom:7px;border-bottom:1px solid var(--border2)}
+
+/* ALERTS */
+.alert{padding:13px 17px;border-left:3px solid;margin-bottom:14px}
+.ag{border-color:var(--gold);background:rgba(201,168,76,0.05)}
+.agr{border-color:var(--green);background:rgba(76,175,122,0.05)}
+.ab{border-color:var(--blue);background:rgba(91,155,213,0.07)}
+.ar{border-color:var(--red);background:rgba(224,80,80,0.05)}
+.at{font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:600;margin-bottom:4px}
+.ag .at{color:var(--gold)}.agr .at{color:var(--green)}.ab .at{color:var(--blue)}.ar .at{color:var(--red)}
+.alert p{font-size:13px;color:var(--text);line-height:1.6}
+
+/* TABLES */
+.ft{width:100%;border-collapse:collapse}
+.ft tr{border-bottom:1px solid var(--border2)}
+.ft tr:last-child{border-bottom:none}
+.ft td{padding:7px 0;font-size:13px;vertical-align:top}
+.ft td:first-child{color:var(--muted);width:55%}
+.ft td:last-child{color:var(--text);font-weight:500;text-align:right}
+.vg{color:var(--gold)!important;font-family:'Playfair Display',serif;font-size:15px!important;font-weight:600!important}
+.vgr{color:var(--green)!important}.vr{color:var(--red)!important}
+.fin{width:100%;border-collapse:collapse}
+.fin thead tr{background:rgba(201,168,76,0.07);border-bottom:1px solid var(--border)}
+.fin th{padding:8px 10px;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dim);font-weight:600;text-align:left}
+.fin th:not(:first-child){text-align:right}
+.fin td{padding:7px 10px;font-size:12px;border-bottom:1px solid var(--border2)}
+.fin td:not(:first-child){text-align:right;font-family:'DM Mono',monospace}
+.fin td.pl{font-family:'DM Sans',sans-serif}
+.fin tr.tot td{background:rgba(201,168,76,0.08);border-top:1px solid var(--border);font-weight:700;color:var(--gold)}
+.neg{color:var(--red)}.pos{color:var(--green)}.neu{color:var(--muted)}
+
+/* PAGE HERO */
+.page-hero{padding:52px 60px 40px;background:linear-gradient(135deg,var(--dark2) 0%,var(--dark3) 100%);border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:400px;height:400px;background:radial-gradient(circle,rgba(201,168,76,0.07) 0%,transparent 65%);pointer-events:none}
+.ph-tag{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);border:1px solid rgba(201,168,76,0.28);display:inline-block;padding:4px 12px;margin-bottom:14px}
+.ph-title{font-family:'Playfair Display',serif;font-size:40px;font-weight:700;color:var(--white);line-height:1.1;margin-bottom:8px}
+.ph-title em{font-style:italic;color:var(--gold)}
+.ph-sub{font-size:13px;color:var(--muted);max-width:680px;line-height:1.6;margin-bottom:28px}
+.ph-kpis{display:flex;gap:1px;background:var(--border)}
+.ph-kpi{background:var(--dark2);padding:14px 20px;text-align:center;min-width:120px}
+.ph-kv{font-family:'Playfair Display',serif;font-size:20px;color:var(--gold);display:block;line-height:1}
+.ph-kl{font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);display:block;margin-top:3px}
+
+/* EIB PAGE specific */
+.eib-accent{color:var(--blue)!important}
+.eib-border{border-color:var(--blue)!important}
+.page-hero.eib::before{background:radial-gradient(circle,rgba(91,155,213,0.08) 0%,transparent 65%)}
+.ph-tag.eib{color:var(--blue);border-color:rgba(91,155,213,0.3)}
+.ph-title.eib em{color:var(--blue)}
+
+/* METRIC BOXES */
+.metric-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:20px}
+.metric{background:var(--panel);padding:18px;position:relative;overflow:hidden}
+.metric::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gold)}
+.metric.green::before{background:var(--green)}.metric.blue::before{background:var(--blue)}
+.mv{font-family:'Playfair Display',serif;font-size:24px;color:var(--gold);display:block;margin-bottom:4px}
+.metric.green .mv{color:var(--green)}.metric.blue .mv{color:var(--blue)}
+.ml{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
+.mn{font-size:11px;color:var(--muted);margin-top:5px}
+
+/* PHASE NAV CARD */
+.phase-nav{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-top:28px}
+.pnav{background:var(--panel);padding:16px;text-decoration:none;transition:all .18s;border-bottom:2px solid transparent}
+.pnav:hover{background:rgba(201,168,76,0.07);border-bottom-color:var(--gold)}
+.pnav.eib:hover{background:rgba(91,155,213,0.07);border-bottom-color:var(--blue)}
+.pnav-num{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dim);margin-bottom:5px;font-family:'DM Mono',monospace}
+.pnav.eib .pnav-num{color:var(--blue)}
+.pnav-name{font-family:'Playfair Display',serif;font-size:15px;color:var(--white)}
+.pnav-sub{font-size:11px;color:var(--muted);margin-top:3px}
+.pnav-arr{font-size:14px;color:var(--muted);margin-top:8px}
+
+@media(max-width:900px){
+  section{padding:36px 24px}
+  .page-hero{padding:36px 24px 28px}
+  .ph-title{font-size:28px}
+  .g2,.g3,.metric-row,.phase-nav{grid-template-columns:1fr}
+  .ph-kpis{flex-wrap:wrap}
+  .topnav-inner{padding:0 16px}
+  .tnl{padding:0 9px;font-size:9px}
+}
+</style>
+<title data-sk="Areál David — Investičná príležitosť | Košice" data-en="Areál David — Investment Opportunity | Košice">Areál David — Investičná príležitosť | Košice</title>
+</head>
+<body>
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="index.html" class="topnav-logo">
+      <span class="logo-main">Areál <em>David</em></span>
+      <span class="logo-sub">Košice · 98 400 m²</span>
+    </a>
+    <div class="topnav-links">
+      <a href="index.html" class="tnl" data-page="index"><span data-sk="Prehľad" data-en="Overview">Prehľad</span></a>
+      <a href="faza1.html" class="tnl" data-page="faza1"><span data-sk="Fáza 1 — Logistika" data-en="Phase 1 — Logistics">Fáza 1 — Logistika</span></a>
+      <a href="faza2.html" class="tnl" data-page="faza2"><span data-sk="Fáza 2 — Rezidencia" data-en="Phase 2 — Residential">Fáza 2 — Rezidencia</span></a>
+      <a href="faza3.html" class="tnl" data-page="faza3"><span data-sk="Fáza 3 — Prémiové veže" data-en="Phase 3 — Premium Towers">Fáza 3 — Veže</span></a>
+      <a href="najom.html" class="tnl tnl-eib" data-page="najom"><span data-sk="EIB Nájomný model" data-en="EIB Rental Model">EIB Nájom</span></a>
+    </div>
+    <div class="topnav-right">
+      <button class="lang-btn" id="langBtn" onclick="toggleLang()">EN</button>
+      <a href="index.html#cta" class="tnl-cta"><span data-sk="Kontakt" data-en="Contact">Kontakt</span></a>
+    </div>
+  </div>
+</nav>
+
+<script>
+// ── LANGUAGE TOGGLE ──────────────────────────────────────────
+let lang = localStorage.getItem('adlang') || 'sk';
+
+function applyLang(l) {
+  lang = l;
+  localStorage.setItem('adlang', l);
+  document.documentElement.lang = l;
+  document.querySelectorAll('[data-sk]').forEach(el => {
+    el.textContent = el.dataset[l] || el.dataset.sk;
+  });
+  const btn = document.getElementById('langBtn');
+  if(btn) btn.textContent = l === 'sk' ? 'EN' : 'SK';
+}
+
+function toggleLang() {
+  applyLang(lang === 'sk' ? 'en' : 'sk');
+}
+
+// ── NAV ACTIVE STATE ─────────────────────────────────────────
+function setActive(page) {
+  document.querySelectorAll('.tnl[data-page]').forEach(a => {
+    a.classList.toggle('active', a.dataset.page === page);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  applyLang(lang);
+});
+</script>
+<script>setActive('index');</script>
+
+<div class="page-hero">
+  <div class="ph-tag"><span data-sk="Investičná príležitosť · Košice, SR" data-en="Investment Opportunity · Košice, Slovakia">Investičná príležitosť · Košice, SR</span></div>
+  <div class="ph-title">Areál <em>David</em></div>
+  <div class="ph-sub"><span data-sk="98 400 m² brownfieldového pozemku v Košiciach – Nad Jazerom. Schválený územný plán. Polyfunkčný rozvoj vo 4 fázach. Cieľový výnos 19–22 % IRR na vlastný kapitál." data-en="98,400 m² brownfield site in Košice – Nad Jazerom. Approved zoning plan. Mixed-use development in 4 phases. Target return 19–22% IRR on equity.">98 400 m² brownfieldového pozemku v Košiciach – Nad Jazerom. Schválený územný plán. Polyfunkčný rozvoj vo 4 fázach. Cieľový výnos 19–22 % IRR na vlastný kapitál.</span></div>
+  <div class="ph-kpis">
+    <div class="ph-kpi"><span class="ph-kv">32,25 M€</span><span class="ph-kl"><span data-sk="Cena pozemku" data-en="Land price">Cena pozemku</span></span></div>
+    <div class="ph-kpi"><span class="ph-kv">405–447 M€</span><span class="ph-kl">GDV</span></div>
+    <div class="ph-kpi"><span class="ph-kv">~22 %</span><span class="ph-kl"><span data-sk="Cieľový IRR" data-en="Target IRR">Cieľový IRR</span></span></div>
+    <div class="ph-kpi"><span class="ph-kv">3,0×</span><span class="ph-kl"><span data-sk="Equity múltipel" data-en="Equity multiple">Equity múltipel</span></span></div>
+    <div class="ph-kpi"><span class="ph-kv">~1 616</span><span class="ph-kl"><span data-sk="Bytových jednotiek" data-en="Residential units">Bytových jednotiek</span></span></div>
+    <div class="ph-kpi"><span class="ph-kv">9–11 r.</span><span class="ph-kl"><span data-sk="Horizont" data-en="Horizon">Horizont</span></span></div>
+  </div>
+</div>
+
+<div class="main-content">
+
+<!-- CORE EDGE BOX -->
+<section>
+  <div style="background:linear-gradient(135deg,rgba(201,168,76,0.1) 0%,rgba(201,168,76,0.02) 100%);border:1px solid rgba(201,168,76,0.3);border-left:4px solid var(--gold);padding:18px 22px;margin-bottom:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px">
+    <div>
+      <div style="font-size:8px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:6px">Core Investment Edge</div>
+      <div style="font-size:13.5px;color:var(--white);line-height:1.6;max-width:680px"><span data-sk="Pozemok za 7–8 % GDV (benchmark 15–20 %) so schváleným ÚP, tisíce nových pracovných miest Volvo ako štrukturálny dopyt, fázovanie recyklujúce kapitál — cieľový IRR 19–22 % pri konzervatívnych vstupoch, downside obmedzený na 14–17 %." data-en="Land at 7–8% of GDV (benchmark 15–20%) with approved zoning, thousands of new Volvo jobs as structural demand, phasing recycling capital — target IRR 19–22% at conservative inputs, downside limited to 14–17%.">Pozemok za 7–8 % GDV (benchmark 15–20 %) so schváleným ÚP, tisíce nových pracovných miest Volvo ako štrukturálny dopyt, fázovanie recyklujúce kapitál — cieľový IRR 19–22 % pri konzervatívnych vstupoch, downside obmedzený na 14–17 %.</span></div>
+    </div>
+    <div style="text-align:center;flex-shrink:0">
+      <div style="font-family:'Playfair Display',serif;font-size:34px;color:var(--gold)">22 %</div>
+      <div style="font-size:8px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase"><span data-sk="Cieľový IRR" data-en="Base IRR">Cieľový IRR</span></div>
+      <div style="font-family:'Playfair Display',serif;font-size:22px;color:var(--green);margin-top:4px">3,0×</div>
+      <div style="font-size:8px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase"><span data-sk="Equity múltipel" data-en="Equity Multiple">Equity múltipel</span></div>
+    </div>
+  </div>
+
+  <!-- 3 SCENARIOS -->
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:20px">
+    <div style="background:var(--panel);padding:20px">
+      <span style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--blue);font-weight:600;display:block;margin-bottom:8px"><span data-sk="Konzervatívny scenár" data-en="Conservative scenario">Konzervatívny scenár</span></span>
+      <div style="font-family:'Playfair Display',serif;font-size:16px;color:var(--white);margin-bottom:12px"><span data-sk="Bez Volvo efektu" data-en="No Volvo effect">Bez Volvo efektu</span></div>
+      <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border2);font-size:12px"><span style="color:var(--muted)"><span data-sk="Absorpcia" data-en="Absorption">Absorpcia</span></span><span style="color:var(--blue);font-family:'DM Mono',monospace">110–130 j/rok</span></div>
+      <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border2);font-size:12px"><span style="color:var(--muted)"><span data-sk="Cena €/m²" data-en="Price €/m²">Cena €/m²</span></span><span style="color:var(--blue);font-family:'DM Mono',monospace">3 100</span></div>
+      <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border2);font-size:12px"><span style="color:var(--muted)">GDV</span><span style="color:var(--blue);font-family:'DM Mono',monospace">381 M€</span></div>
+      <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border2);font-size:12px"><span style="color:var(--muted)"><span data-sk="Zisk (bez EÚ)" data-en="Profit (ex-EU)">Zisk (bez EÚ)</span></span><span style="color:var(--blue);font-family:'DM Mono',monospace">+19 M€</span></div>
+      <div style="display:flex;justify-content:space-between;padding:4px 0;font-size:12px"><span style="color:var(--muted)">IRR</span><span style="color:var(--blue);font-family:'DM Mono',monospace">~14–16 %</span></div>
+    </div>
+    <div style="background:linear-gradient(160deg,rgba(201,168,76,0.08) 0%,var(--panel) 100%);padding:20px;border-left:1px solid var(--border);border-right:1px solid var(--border)">
+      <span style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;display:block;margin-bottom:8px">★ <span data-sk="Base / Realistický" data-en="Base / Realistic">Base / Realistický</span></span>
+      <div style="font-family:'Playfair Display',serif;font-size:16px;color:var(--white);margin-bottom:12px"><span data-sk="Štrukturálny dopyt" data-en="Structural demand">Štrukturálny dopyt</span></div>
+      <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border2);font-size:12px"><span style="color:var(--muted)"><span data-sk="Absorpcia" data-en="Absorption">Absorpcia</span></span><span style="color:var(--gold);font-family:'DM Mono',monospace">150–170 j/rok</span></div>
+      <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border2);font-size:12px"><span style="color:var(--muted)"><span data-sk="Cena €/m²" data-en="Price €/m²">Cena €/m²</span></span><span style="color:var(--gold);font-family:'DM Mono',monospace">3 430</span></div>
+      <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border2);font-size:12px"><span style="color:var(--muted)">GDV</span><span style="color:var(--gold);font-family:'DM Mono',monospace">405 M€</span></div>
+      <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border2);font-size:12px"><span style="color:var(--muted)"><span data-sk="Zisk (bez EÚ)" data-en="Profit (ex-EU)">Zisk (bez EÚ)</span></span><span style="color:var(--gold);font-family:'DM Mono',monospace">+43 M€</span></div>
+      <div style="display:flex;justify-content:space-between;padding:4px 0;font-size:12px"><span style="color:var(--muted)">IRR</span><span style="color:var(--gold);font-family:'DM Mono',monospace">~19–22 %</span></div>
+    </div>
+    <div style="background:var(--panel);padding:20px">
+      <span style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--green);font-weight:600;display:block;margin-bottom:8px"><span data-sk="Optimistický (Volvo)" data-en="Optimistic (Volvo)">Optimistický (Volvo)</span></span>
+      <div style="font-family:'Playfair Display',serif;font-size:16px;color:var(--white);margin-bottom:12px"><span data-sk="Plný Volvo efekt + EÚ" data-en="Full Volvo effect + EU">Plný Volvo efekt + EÚ</span></div>
+      <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border2);font-size:12px"><span style="color:var(--muted)"><span data-sk="Absorpcia" data-en="Absorption">Absorpcia</span></span><span style="color:var(--green);font-family:'DM Mono',monospace">200–220 j/rok</span></div>
+      <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border2);font-size:12px"><span style="color:var(--muted)"><span data-sk="Cena €/m²" data-en="Price €/m²">Cena €/m²</span></span><span style="color:var(--green);font-family:'DM Mono',monospace">3 830</span></div>
+      <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border2);font-size:12px"><span style="color:var(--muted)">GDV</span><span style="color:var(--green);font-family:'DM Mono',monospace">447 M€</span></div>
+      <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border2);font-size:12px"><span style="color:var(--muted)"><span data-sk="Zisk s EÚ" data-en="Profit with EU">Zisk s EÚ</span></span><span style="color:var(--green);font-family:'DM Mono',monospace">+175 M€</span></div>
+      <div style="display:flex;justify-content:space-between;padding:4px 0;font-size:12px"><span style="color:var(--muted)">IRR</span><span style="color:var(--green);font-family:'DM Mono',monospace">~24–26 %</span></div>
+    </div>
+  </div>
+
+  <!-- NAVIGATE TO PHASES -->
+  <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:10px"><span data-sk="Detailné podstránky fáz" data-en="Detailed phase pages">Detailné podstránky fáz</span></div>
+  <div class="phase-nav">
+    <a href="faza1.html" class="pnav">
+      <div class="pnav-num">Fáza 1 · Rok 2–4</div>
+      <div class="pnav-name"><span data-sk="Logistika & Kancelárie" data-en="Logistics & Offices">Logistika & Kancelárie</span></div>
+      <div class="pnav-sub"><span data-sk="OP zóna, sawtooth haly, exit ~43 M€" data-en="Railway buffer zone, sawtooth halls, exit ~€43M">OP zóna, exit ~43 M€</span></div>
+      <div class="pnav-arr">→</div>
+    </a>
+    <a href="faza2.html" class="pnav">
+      <div class="pnav-num">Fáza 2 · Rok 3–7</div>
+      <div class="pnav-name"><span data-sk="Rezidenčné bloky" data-en="Residential Blocks">Rezidenčné bloky</span></div>
+      <div class="pnav-sub"><span data-sk="808 bytov, lamela fasády, predaj jednotlivo" data-en="808 units, lamella facades, individual sales">808 bytov, lamela fasády</span></div>
+      <div class="pnav-arr">→</div>
+    </a>
+    <a href="faza3.html" class="pnav">
+      <div class="pnav-num">Fáza 3 · Rok 5–10</div>
+      <div class="pnav-name"><span data-sk="Prémiové veže" data-en="Premium Towers">Prémiové veže</span></div>
+      <div class="pnav-sub"><span data-sk="808 bytov, stupňovitá veža, 3 800–4 400 €/m²" data-en="808 units, stepped tower, €3,800–4,400/m²">808 bytov, 3 800–4 400 €/m²</span></div>
+      <div class="pnav-arr">→</div>
+    </a>
+    <a href="najom.html" class="pnav eib">
+      <div class="pnav-num" style="color:var(--blue)">EIB · Alternatíva</div>
+      <div class="pnav-name" style="color:var(--white)"><span data-sk="Nájomný model EIB" data-en="EIB Rental Model">Nájomný model EIB</span></div>
+      <div class="pnav-sub"><span data-sk="100 % EIB financovanie, BTR, stabilný NOI" data-en="100% EIB financing, BTR, stable NOI">100 % EIB, BTR, stabilný NOI</span></div>
+      <div class="pnav-arr" style="color:var(--blue)">→</div>
+    </a>
+  </div>
+</section>
+
+<!-- FINANCOVANIE OVERVIEW -->
+<section>
+  <div class="sh"><span class="sn">02</span><h2 class="st"><span data-sk="Štruktúra kapitálu — Prehľad" data-en="Capital Structure — Overview">Štruktúra kapitálu — Prehľad</span></h2><div class="sl"></div></div>
+  <div class="g2" style="margin-bottom:16px">
+    <div class="card">
+      <div class="ct"><span data-sk="Kto dáva peniaze a kedy" data-en="Capital sources and timing">Kto dáva peniaze a kedy</span></div>
+      <table class="ft">
+        <tr><td><span data-sk="Celkový CAPEX" data-en="Total CAPEX">Celkový CAPEX</span></td><td>362,4 M€</td></tr>
+        <tr><td><span data-sk="Peak equity (vlastné zdroje)" data-en="Peak equity">Peak equity</span></td><td class="vg">65–85 M€</td></tr>
+        <tr><td><span data-sk="Senior dlh (banka)" data-en="Senior debt (bank)">Senior dlh (banka)</span></td><td>~235 M€ (65 % LTV)</td></tr>
+        <tr><td><span data-sk="EÚ granty (bonus)" data-en="EU grants (upside)">EÚ granty (bonus scenár)</span></td><td class="vgr">+91 M€</td></tr>
+        <tr><td><span data-sk="Prvý exit (Rok 4–5)" data-en="First exit (Year 4–5)">Prvý exit — logistika (Rok 4–5)</span></td><td class="vgr">+43 M€</td></tr>
+        <tr><td><span data-sk="Sadzba (base)" data-en="Rate (base)">Sadzba (base) Euribor+2,5 %</span></td><td>~5,2–5,8 %</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <div class="ct"><span data-sk="IRR vysvetlenie — prečo 22 % pri zisku 43 M€" data-en="IRR explanation — why 22% on €43M profit">IRR — prečo 22 % pri zisku 43 M€</span></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:12px">
+        <div style="background:var(--panel);padding:14px">
+          <div style="font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:6px"><span data-sk="BEZ páky (vlastné 362 M€)" data-en="WITHOUT leverage (own €362M)">BEZ páky</span></div>
+          <div style="font-family:'Playfair Display',serif;font-size:22px;color:var(--muted)">~1,2 %</div>
+          <div style="font-size:11px;color:var(--muted)"><span data-sk="ročne — nevýhodné" data-en="per year — unattractive">ročne — nevýhodné</span></div>
+        </div>
+        <div style="background:rgba(201,168,76,0.06);padding:14px">
+          <div style="font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:6px"><span data-sk="S pákou (vlastné 75 M€)" data-en="WITH leverage (own €75M)">S pákou ★</span></div>
+          <div style="font-family:'Playfair Display',serif;font-size:22px;color:var(--gold)">~22 %</div>
+          <div style="font-size:11px;color:var(--muted)"><span data-sk="ročne — cieľový výnos" data-en="per year — target return">ročne — cieľový výnos</span></div>
+        </div>
+      </div>
+      <div style="font-size:11px;color:var(--muted);line-height:1.65"><span data-sk="Banka dá 235 M€. Vy vložíte len 65–85 M€. Zarobíte rovnakých 43 M€ — ale na oveľa menšom vlastnom kapitáli. F1 exit v Roku 4 vracia peniaze skôr → IRR výrazne rastie." data-en="Bank provides €235M. You invest only €65–85M. Same €43M profit — but on much less equity. F1 exit in Year 4 returns capital early → IRR rises significantly.">Banka dá 235 M€. Vy vložíte len 65–85 M€. Zarobíte rovnakých 43 M€ — ale na oveľa menšom vlastnom kapitáli. F1 exit v Roku 4 vracia peniaze skôr → IRR výrazne rastie.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta" style="border-bottom:none;text-align:center;padding:60px">
+  <div style="font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px"><span data-sk="Ďalší krok" data-en="Next step">Ďalší krok</span></div>
+  <div style="font-family:'Playfair Display',serif;font-size:32px;color:var(--white);margin-bottom:10px"><span data-sk="Máte záujem o Areál David?" data-en="Interested in Areál David?">Máte záujem o Areál David?</span></div>
+  <div style="font-size:13px;color:var(--muted);margin-bottom:28px"><span data-sk="Kompletný investičný materiál po podpise NDA do 5 pracovných dní." data-en="Complete investment material after NDA signing within 5 business days.">Kompletný investičný materiál po podpise NDA do 5 pracovných dní.</span></div>
+  <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+    <a href="mailto:info@axiona-group.sk" style="background:var(--gold);color:var(--dark);padding:12px 28px;font-size:10px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;font-weight:700"><span data-sk="Kontaktovať nás" data-en="Contact us">Kontaktovať nás</span></a>
+    <a href="najom.html" style="background:rgba(91,155,213,0.15);border:1px solid rgba(91,155,213,0.4);color:var(--blue);padding:12px 28px;font-size:10px;letter-spacing:2px;text-transform:uppercase;text-decoration:none"><span data-sk="EIB Nájomný model →" data-en="EIB Rental Model →">EIB Nájomný model →</span></a>
+  </div>
+  <div style="font-size:10px;color:var(--muted);margin-top:24px">Martin Dominik Ing., MBA, EUR ING · Real Estate & Investment Advisor · Košice, SR · v2.4 · Máj 2026</div>
+</section>
+
+</div>
+</body>
+</html>
