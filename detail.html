@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --gold:#C9A84C;--gold-dim:#9A7A32;--gold-pale:#F0E0B0;
+  --dark:#0A0D0B;--dark2:#111714;--dark3:#182018;
+  --panel:#1C2A1E;--border:rgba(201,168,76,0.18);--border2:rgba(201,168,76,0.08);
+  --text:#E4E8E0;--muted:#8A9A88;--white:#F2F5EF;
+  --red:#E05050;--green:#4CAF7A;--blue:#5B9BD5;--orange:#E09050;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--dark);color:var(--text);font-size:14px;line-height:1.65}
+
+/* TOP NAV */
+.topnav{position:sticky;top:0;z-index:100;background:rgba(10,13,11,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);height:56px}
+.topnav-inner{display:flex;align-items:center;width:100%;padding:0 32px;height:56px;gap:0}
+.topnav-logo{display:flex;flex-direction:column;text-decoration:none;margin-right:32px;flex-shrink:0;line-height:1}
+.logo-main{font-family:'Playfair Display',serif;font-size:17px;color:var(--white)}
+.logo-main em{font-style:italic;color:var(--gold)}
+.logo-sub{font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-top:2px}
+.topnav-links{display:flex;align-items:stretch;flex:1;gap:0}
+.tnl{display:flex;align-items:center;height:56px;padding:0 13px;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);text-decoration:none;border-bottom:2px solid transparent;transition:all .18s;white-space:nowrap}
+.tnl:hover{color:var(--gold-pale);border-bottom-color:rgba(201,168,76,0.35)}
+.tnl.active{color:var(--gold);border-bottom-color:var(--gold)}
+.tnl-eib{color:rgba(91,155,213,0.8)!important}
+.tnl-eib:hover,.tnl-eib.active{color:var(--blue)!important;border-bottom-color:var(--blue)!important;background:rgba(91,155,213,0.05)}
+.topnav-right{display:flex;align-items:center;gap:10px;margin-left:auto;flex-shrink:0}
+.lang-btn{background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.25);color:var(--gold);font-size:9px;letter-spacing:2px;padding:4px 9px;cursor:pointer;font-family:'DM Mono',monospace;transition:all .15s}
+.lang-btn:hover{background:rgba(201,168,76,0.18)}
+.tnl-cta{background:var(--gold);color:var(--dark);padding:6px 14px;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;font-weight:600;transition:all .18s}
+.tnl-cta:hover{background:var(--gold-pale)}
+
+/* SECTIONS */
+section{padding:48px 60px;border-bottom:1px solid var(--border2)}
+section:last-child{border-bottom:none}
+.sh{display:flex;align-items:baseline;gap:14px;margin-bottom:26px}
+.sn{font-family:'DM Mono',monospace;font-size:11px;color:var(--gold-dim);flex-shrink:0}
+.st{font-family:'Playfair Display',serif;font-size:24px;font-weight:600;color:var(--white)}
+.sl{flex:1;height:1px;background:var(--border)}
+
+/* CARDS & GRIDS */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+.card{background:var(--panel);border:1px solid var(--border2);padding:18px}
+.ct{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dim);font-weight:600;margin-bottom:10px;padding-bottom:7px;border-bottom:1px solid var(--border2)}
+
+/* ALERTS */
+.alert{padding:13px 17px;border-left:3px solid;margin-bottom:14px}
+.ag{border-color:var(--gold);background:rgba(201,168,76,0.05)}
+.agr{border-color:var(--green);background:rgba(76,175,122,0.05)}
+.ab{border-color:var(--blue);background:rgba(91,155,213,0.07)}
+.ar{border-color:var(--red);background:rgba(224,80,80,0.05)}
+.at{font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:600;margin-bottom:4px}
+.ag .at{color:var(--gold)}.agr .at{color:var(--green)}.ab .at{color:var(--blue)}.ar .at{color:var(--red)}
+.alert p{font-size:13px;color:var(--text);line-height:1.6}
+
+/* TABLES */
+.ft{width:100%;border-collapse:collapse}
+.ft tr{border-bottom:1px solid var(--border2)}
+.ft tr:last-child{border-bottom:none}
+.ft td{padding:7px 0;font-size:13px;vertical-align:top}
+.ft td:first-child{color:var(--muted);width:55%}
+.ft td:last-child{color:var(--text);font-weight:500;text-align:right}
+.vg{color:var(--gold)!important;font-family:'Playfair Display',serif;font-size:15px!important;font-weight:600!important}
+.vgr{color:var(--green)!important}.vr{color:var(--red)!important}
+.fin{width:100%;border-collapse:collapse}
+.fin thead tr{background:rgba(201,168,76,0.07);border-bottom:1px solid var(--border)}
+.fin th{padding:8px 10px;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dim);font-weight:600;text-align:left}
+.fin th:not(:first-child){text-align:right}
+.fin td{padding:7px 10px;font-size:12px;border-bottom:1px solid var(--border2)}
+.fin td:not(:first-child){text-align:right;font-family:'DM Mono',monospace}
+.fin td.pl{font-family:'DM Sans',sans-serif}
+.fin tr.tot td{background:rgba(201,168,76,0.08);border-top:1px solid var(--border);font-weight:700;color:var(--gold)}
+.neg{color:var(--red)}.pos{color:var(--green)}.neu{color:var(--muted)}
+
+/* PAGE HERO */
+.page-hero{padding:52px 60px 40px;background:linear-gradient(135deg,var(--dark2) 0%,var(--dark3) 100%);border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:400px;height:400px;background:radial-gradient(circle,rgba(201,168,76,0.07) 0%,transparent 65%);pointer-events:none}
+.ph-tag{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);border:1px solid rgba(201,168,76,0.28);display:inline-block;padding:4px 12px;margin-bottom:14px}
+.ph-title{font-family:'Playfair Display',serif;font-size:40px;font-weight:700;color:var(--white);line-height:1.1;margin-bottom:8px}
+.ph-title em{font-style:italic;color:var(--gold)}
+.ph-sub{font-size:13px;color:var(--muted);max-width:680px;line-height:1.6;margin-bottom:28px}
+.ph-kpis{display:flex;gap:1px;background:var(--border)}
+.ph-kpi{background:var(--dark2);padding:14px 20px;text-align:center;min-width:120px}
+.ph-kv{font-family:'Playfair Display',serif;font-size:20px;color:var(--gold);display:block;line-height:1}
+.ph-kl{font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);display:block;margin-top:3px}
+
+/* EIB PAGE specific */
+.eib-accent{color:var(--blue)!important}
+.eib-border{border-color:var(--blue)!important}
+.page-hero.eib::before{background:radial-gradient(circle,rgba(91,155,213,0.08) 0%,transparent 65%)}
+.ph-tag.eib{color:var(--blue);border-color:rgba(91,155,213,0.3)}
+.ph-title.eib em{color:var(--blue)}
+
+/* METRIC BOXES */
+.metric-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:20px}
+.metric{background:var(--panel);padding:18px;position:relative;overflow:hidden}
+.metric::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gold)}
+.metric.green::before{background:var(--green)}.metric.blue::before{background:var(--blue)}
+.mv{font-family:'Playfair Display',serif;font-size:24px;color:var(--gold);display:block;margin-bottom:4px}
+.metric.green .mv{color:var(--green)}.metric.blue .mv{color:var(--blue)}
+.ml{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
+.mn{font-size:11px;color:var(--muted);margin-top:5px}
+
+/* PHASE NAV CARD */
+.phase-nav{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-top:28px}
+.pnav{background:var(--panel);padding:16px;text-decoration:none;transition:all .18s;border-bottom:2px solid transparent}
+.pnav:hover{background:rgba(201,168,76,0.07);border-bottom-color:var(--gold)}
+.pnav.eib:hover{background:rgba(91,155,213,0.07);border-bottom-color:var(--blue)}
+.pnav-num{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dim);margin-bottom:5px;font-family:'DM Mono',monospace}
+.pnav.eib .pnav-num{color:var(--blue)}
+.pnav-name{font-family:'Playfair Display',serif;font-size:15px;color:var(--white)}
+.pnav-sub{font-size:11px;color:var(--muted);margin-top:3px}
+.pnav-arr{font-size:14px;color:var(--muted);margin-top:8px}
+
+@media(max-width:900px){
+  section{padding:36px 24px}
+  .page-hero{padding:36px 24px 28px}
+  .ph-title{font-size:28px}
+  .g2,.g3,.metric-row,.phase-nav{grid-template-columns:1fr}
+  .ph-kpis{flex-wrap:wrap}
+  .topnav-inner{padding:0 16px}
+  .tnl{padding:0 9px;font-size:9px}
+}
+</style>
+<title>Due Diligence | Areál David</title>
+</head>
+<body>
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="index.html" class="topnav-logo">
+      <span class="logo-main">Areál <em>David</em></span>
+      <span class="logo-sub">Košice · 98 400 m²</span>
+    </a>
+    <div class="topnav-links">
+      <a href="index.html" class="tnl" data-page="index"><span data-sk="Prehľad" data-en="Overview">Prehľad</span></a>
+      <a href="faza1.html" class="tnl" data-page="faza1"><span data-sk="Fáza 1 — Logistika" data-en="Phase 1 — Logistics">Fáza 1 — Logistika</span></a>
+      <a href="faza2.html" class="tnl" data-page="faza2"><span data-sk="Fáza 2 — Rezidencia" data-en="Phase 2 — Residential">Fáza 2 — Rezidencia</span></a>
+      <a href="faza3.html" class="tnl" data-page="faza3"><span data-sk="Fáza 3 — Prémiové veže" data-en="Phase 3 — Premium Towers">Fáza 3 — Veže</span></a>
+      <a href="najom.html" class="tnl tnl-eib" data-page="najom"><span data-sk="EIB Nájomný model" data-en="EIB Rental Model">EIB Nájom</span></a>
+    </div>
+    <div class="topnav-right">
+      <button class="lang-btn" id="langBtn" onclick="toggleLang()">EN</button>
+      <a href="index.html#cta" class="tnl-cta"><span data-sk="Kontakt" data-en="Contact">Kontakt</span></a>
+    </div>
+  </div>
+</nav>
+
+<script>
+// ── LANGUAGE TOGGLE ──────────────────────────────────────────
+let lang = localStorage.getItem('adlang') || 'sk';
+
+function applyLang(l) {
+  lang = l;
+  localStorage.setItem('adlang', l);
+  document.documentElement.lang = l;
+  document.querySelectorAll('[data-sk]').forEach(el => {
+    el.textContent = el.dataset[l] || el.dataset.sk;
+  });
+  const btn = document.getElementById('langBtn');
+  if(btn) btn.textContent = l === 'sk' ? 'EN' : 'SK';
+}
+
+function toggleLang() {
+  applyLang(lang === 'sk' ? 'en' : 'sk');
+}
+
+// ── NAV ACTIVE STATE ─────────────────────────────────────────
+function setActive(page) {
+  document.querySelectorAll('.tnl[data-page]').forEach(a => {
+    a.classList.toggle('active', a.dataset.page === page);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  applyLang(lang);
+});
+</script>
+<script>setActive('detail');</script>
+
+<div class="page-hero">
+  <div class="ph-tag"><span data-sk="Due Diligence · Detailná analýza" data-en="Due Diligence · Detailed Analysis">Due Diligence · Detailná analýza</span></div>
+  <div class="ph-title">Due <em>Diligence</em></div>
+  <div class="ph-sub"><span data-sk="Riziká, scenáre, odolnosť projektu, FAQ investorov, zdroje a metodika. Všetky podklady potrebné pre Investment Committee." data-en="Risks, scenarios, project resilience, investor FAQ, sources and methodology. All materials needed for Investment Committee.">Riziká, scenáre, odolnosť projektu, FAQ investorov, zdroje a metodika. Všetky podklady pre Investment Committee.</span></div>
+  <div class="ph-kpis">
+    <div class="ph-kpi"><span class="ph-kv">v2.4</span><span class="ph-kl"><span data-sk="Verzia" data-en="Version">Verzia</span></span></div>
+    <div class="ph-kpi"><span class="ph-kv">Máj 2026</span><span class="ph-kl"><span data-sk="Dátum" data-en="Date">Dátum</span></span></div>
+    <div class="ph-kpi"><span class="ph-kv">14–17 %</span><span class="ph-kl"><span data-sk="Downside IRR" data-en="Downside IRR">Downside IRR</span></span></div>
+    <div class="ph-kpi"><span class="ph-kv">&lt;5 %</span><span class="ph-kl"><span data-sk="Pravdep. straty" data-en="Loss probability">Pravdep. straty</span></span></div>
+  </div>
+</div>
+<div class="main-content">
+
+<!-- SOURCE OF TRUTH -->
+<section>
+  <div class="sh"><span class="sn">00</span><h2 class="st"><span data-sk="Kľúčové predpoklady — platné pre celý model" data-en="Key assumptions — valid for entire model">Kľúčové predpoklady — platné pre celý model</span></h2><div class="sl"></div></div>
+  <div class="alert ag" style="margin-bottom:16px"><div class="at">Source of Truth · v2.4</div><p><span data-sk="Všetky výpočty vychádzajú z nasledujúcich predpokladov. Konzistentne aplikované naprieč cashflow modelom, debt modelom, scenármi aj sensitivity analýzou." data-en="All calculations are based on the following assumptions, consistently applied across cash flow model, debt model, scenarios and sensitivity analysis.">Všetky výpočty vychádzajú z nasledujúcich predpokladov. Konzistentne aplikované naprieč celým modelom.</span></p></div>
+  <div class="g3">
+    <div class="card">
+      <div class="ct"><span data-sk="Finančné predpoklady" data-en="Financial assumptions">Finančné predpoklady</span></div>
+      <table class="ft">
+        <tr><td>Euribor 3M (máj 2026)</td><td>~3,3 %</td></tr>
+        <tr><td><span data-sk="Celková sadzba (base)" data-en="Total rate (base)">Celková sadzba (base)</span></td><td class="vg">5,2–5,8 %</td></tr>
+        <tr><td><span data-sk="Stresová sadzba (+2 %)" data-en="Stress rate (+2%)">Stresová sadzba</span></td><td class="vr">7,2–7,8 %</td></tr>
+        <tr><td>LTV max.</td><td>60–65 %</td></tr>
+        <tr><td><span data-sk="Predpredaj podmienka" data-en="Pre-sales condition">Predpredaj podmienka</span></td><td class="vr">min. 40 %</td></tr>
+        <tr><td><span data-sk="Diskontná sadzba (DCF)" data-en="Discount rate (DCF)">Diskontná sadzba</span></td><td>15 %</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <div class="ct"><span data-sk="Trhové predpoklady" data-en="Market assumptions">Trhové predpoklady</span></div>
+      <table class="ft">
+        <tr><td><span data-sk="Cena (konzervatívny)" data-en="Price (conservative)">Cena (konzervatívny)</span></td><td>3 100 €/m²</td></tr>
+        <tr><td><span data-sk="Cena (base) ★" data-en="Price (base) ★">Cena (base) ★</span></td><td class="vg">3 430 €/m²</td></tr>
+        <tr><td><span data-sk="Cena (stres / breakpoint)" data-en="Price (stress / breakpoint)">Cena (stres)</span></td><td class="vr">2 950 €/m²</td></tr>
+        <tr><td><span data-sk="Absorpcia (base) ★" data-en="Absorption (base) ★">Absorpcia (base) ★</span></td><td class="vg">150–170 j/rok</td></tr>
+        <tr><td><span data-sk="Trh KE (historicky)" data-en="KE market (historical)">Trh KE (historicky)</span></td><td>650–800 j/rok</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <div class="ct"><span data-sk="Stavebné predpoklady" data-en="Construction assumptions">Stavebné predpoklady</span></div>
+      <table class="ft">
+        <tr><td><span data-sk="Stavba (baseline)" data-en="Construction (baseline)">Stavba (baseline)</span></td><td class="vg">1 400 €/m²</td></tr>
+        <tr><td><span data-sk="Inflácia nákladov" data-en="Cost inflation">Inflácia nákladov</span></td><td>+5–6 %/rok</td></tr>
+        <tr><td>Contingency</td><td>8 % = 19 M€</td></tr>
+        <tr><td><span data-sk="Celková rezerva" data-en="Total reserve">Celková rezerva</span></td><td>10–15 %</td></tr>
+        <tr><td><span data-sk="GMP kontrakt" data-en="GMP contract">GMP kontrakt</span></td><td><span data-sk="Per fáza" data-en="Per phase">Per fáza</span></td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- SCENÁRE POROVNANIE -->
+<section>
+  <div class="sh"><span class="sn">09</span><h2 class="st"><span data-sk="Porovnanie scenárov exitu — A vs B vs C" data-en="Exit scenario comparison — A vs B vs C">Porovnanie scenárov exitu</span></h2><div class="sl"></div></div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:16px">
+    <div style="background:linear-gradient(160deg,rgba(201,168,76,0.09) 0%,var(--panel) 100%);padding:18px;border-top:3px solid var(--gold)">
+      <div style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:6px">★ <span data-sk="Stratégia A — Odporúčaná" data-en="Strategy A — Recommended">Stratégia A — Odporúčaná</span></div>
+      <div style="font-family:'Playfair Display',serif;font-size:15px;color:var(--white);margin-bottom:10px"><span data-sk="Predaj bytov jednotlivo" data-en="Individual apartment sales">Predaj bytov jednotlivo</span></div>
+      <table class="ft">
+        <tr><td><span data-sk="Logistika F1" data-en="Logistics F1">Logistika F1</span></td><td class="vg">+43 M€</td></tr>
+        <tr><td><span data-sk="Byty F2+F3" data-en="Apartments F2+F3">Byty F2+F3</span></td><td class="vg">+360 M€</td></tr>
+        <tr><td><span data-sk="Komercia" data-en="Commercial">Komercia</span></td><td class="vg">+33 M€</td></tr>
+        <tr><td>GDV <span data-sk="celkom" data-en="total">celkom</span></td><td class="vg">~405 M€</td></tr>
+        <tr><td><span data-sk="Zisk (bez EÚ)" data-en="Profit (ex-EU)">Zisk (bez EÚ)</span></td><td class="vg">+43 M€</td></tr>
+        <tr><td>IRR</td><td class="vg">~19–22 %</td></tr>
+      </table>
+    </div>
+    <div style="background:var(--panel);padding:18px;border-top:3px solid var(--blue)">
+      <div style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--blue);font-weight:600;margin-bottom:6px"><span data-sk="Stratégia B — Záchranná" data-en="Strategy B — Fallback">Stratégia B — Záchranná</span></div>
+      <div style="font-family:'Playfair Display',serif;font-size:15px;color:var(--white);margin-bottom:10px"><span data-sk="BTR hold + portfóliový exit" data-en="BTR hold + portfolio exit">BTR hold + portfóliový exit</span></div>
+      <table class="ft">
+        <tr><td><span data-sk="Logistika F1" data-en="Logistics F1">Logistika F1</span></td><td>+43 M€</td></tr>
+        <tr><td><span data-sk="Byty — BTR (4,5 %)" data-en="Apartments — BTR (4.5%)">Byty — BTR (4,5 %)</span></td><td>+233 M€</td></tr>
+        <tr><td><span data-sk="Komercia" data-en="Commercial">Komercia</span></td><td>+33 M€</td></tr>
+        <tr><td>GDV <span data-sk="celkom" data-en="total">celkom</span></td><td class="neg">~309 M€</td></tr>
+        <tr><td><span data-sk="Zisk (bez EÚ)" data-en="Profit (ex-EU)">Zisk (bez EÚ)</span></td><td class="neg">–53 M€</td></tr>
+        <tr><td>IRR</td><td class="neg"><span data-sk="Záporný bez EÚ" data-en="Negative ex-EU">Záporný bez EÚ</span></td></tr>
+      </table>
+    </div>
+    <div style="background:var(--panel);padding:18px;border-top:3px solid var(--green)">
+      <div style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--green);font-weight:600;margin-bottom:6px"><span data-sk="Stratégia C — Hybrid" data-en="Strategy C — Hybrid">Stratégia C — Hybrid</span></div>
+      <div style="font-family:'Playfair Display',serif;font-size:15px;color:var(--white);margin-bottom:10px"><span data-sk="75 % predaj + 25 % BTR" data-en="75% sales + 25% BTR">75 % predaj + 25 % BTR</span></div>
+      <table class="ft">
+        <tr><td><span data-sk="Predané byty (75 %)" data-en="Sold units (75%)">Predané byty (75 %)</span></td><td class="vg">+270 M€</td></tr>
+        <tr><td><span data-sk="BTR (25 % pri 4,5 %)" data-en="BTR (25% at 4.5%)">BTR 25 % (4,5 %)</span></td><td class="vg">+58 M€</td></tr>
+        <tr><td><span data-sk="Logistika + Komercia" data-en="Logistics + Commercial">Log. + Komercia</span></td><td class="vg">+76 M€</td></tr>
+        <tr><td>GDV <span data-sk="celkom" data-en="total">celkom</span></td><td class="vg">~404 M€</td></tr>
+        <tr><td><span data-sk="Zisk (bez EÚ)" data-en="Profit (ex-EU)">Zisk (bez EÚ)</span></td><td class="vg">+42 M€</td></tr>
+        <tr><td>IRR</td><td class="vg">~19–21 %</td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="alert agr"><div class="at"><span data-sk="Záver" data-en="Conclusion">Záver</span></div><p><span data-sk="Stratégia A (predaj po kusoch) maximalizuje výnos. Stratégia B je záchranná sieť pri kolapse predaja — nie optimálna stratégia. Stratégia C je rozumný kompromis pre investora chcúceho aj stabilný nájomný príjem." data-en="Strategy A (individual sales) maximises return. Strategy B is a safety net if sales collapse — not an optimal strategy. Strategy C is a reasonable compromise for investors wanting stable rental income too.">Stratégia A maximalizuje výnos. Stratégia B je záchranná sieť pri kolapse predaja. Stratégia C je kompromis pre investora chcúceho aj nájomný príjem.</span></p></div>
+</section>
+
+<!-- ODOLNOSŤ PROJEKTU -->
+<section>
+  <div class="sh"><span class="sn">10d</span><h2 class="st"><span data-sk="Odolnosť projektu — Stresové scenáre" data-en="Project resilience — Stress scenarios">Odolnosť projektu — Stresové scenáre</span></h2><div class="sl"></div></div>
+  <div style="overflow-x:auto">
+    <table class="fin" style="min-width:700px">
+      <thead><tr>
+        <th><span data-sk="Situácia" data-en="Situation">Situácia</span></th>
+        <th><span data-sk="Dopad na zisk" data-en="Profit impact">Dopad na zisk</span></th>
+        <th>IRR</th>
+        <th><span data-sk="Projekt kladný?" data-en="Project positive?">Projekt kladný?</span></th>
+        <th>Stop-loss</th>
+      </tr></thead>
+      <tbody>
+        <tr><td><span data-sk="Výstavba +10 %" data-en="Construction +10%">Výstavba +10 %</span></td><td class="neg">–24 M€</td><td class="neu">~17 %</td><td class="pos">✓</td><td class="pl neu"><span data-sk="GMP + contingency 19 M€" data-en="GMP + €19M contingency">GMP + contingency 19 M€</span></td></tr>
+        <tr><td><span data-sk="Ceny bytov –10 %" data-en="Apartment prices –10%">Ceny bytov –10 %</span></td><td class="neg">–36 M€</td><td class="neu">~16 %</td><td class="pos">✓</td><td class="pl neu"><span data-sk="Pauza predaja, BTR konverzia" data-en="Sales pause, BTR conversion">Pauza predaja, BTR</span></td></tr>
+        <tr><td><span data-sk="Absorpcia 110 j/rok" data-en="Absorption 110 units/yr">Absorpcia 110 j/rok</span></td><td class="neg">–31 M€</td><td class="neu">~14–16 %</td><td class="pos">✓</td><td class="pl neu"><span data-sk="Stop Fázy 3, bulk BTR predaj" data-en="Stop Phase 3, bulk BTR sale">Stop F3, bulk BTR</span></td></tr>
+        <tr><td><span data-sk="Euribor +2 %" data-en="Euribor +2%">Euribor +2 %</span></td><td class="neg">–15 M€</td><td class="neu">~18 %</td><td class="pos">✓</td><td class="pl neu"><span data-sk="Euribor cap zakúpený pred čerpaním" data-en="Euribor cap purchased pre-drawdown">Euribor cap</span></td></tr>
+        <tr><td><span data-sk="EÚ granty = 0" data-en="EU grants = 0">EÚ granty = 0</span></td><td class="neu">0 M€</td><td class="pos">~19–20 %</td><td class="pos">✓</td><td class="pl neu"><span data-sk="Granty nie sú v base case" data-en="Grants not in base case">Granty nie sú v base</span></td></tr>
+        <tr><td><span data-sk="Kombinácia: ceny –10 % + výstavba +15 %" data-en="Combo: prices –10% + construction +15%">Kombinácia –10 % / +15 %</span></td><td class="neg">–60 M€</td><td class="neg">~11 %</td><td class="neu">⚠</td><td class="pl neg"><span data-sk="Plná stop-loss aktivácia" data-en="Full stop-loss activation">Plná stop-loss</span></td></tr>
+        <tr style="background:rgba(201,168,76,0.05)"><td><strong><span data-sk="Kombinácia + EÚ granty" data-en="Combo + EU grants">Kombinácia + EÚ granty</span></strong></td><td class="pos">+52 M€</td><td class="pos">~15–17 %</td><td class="pos">✓</td><td class="pl pos"><span data-sk="EÚ = záchranná sieť" data-en="EU = safety net">EÚ = záchranná sieť</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- RIZIKÁ -->
+<section>
+  <div class="sh"><span class="sn">11</span><h2 class="st"><span data-sk="Riziká & Mitigácia" data-en="Risks & Mitigation">Riziká & Mitigácia</span></h2><div class="sl"></div></div>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <div style="background:var(--panel);border:1px solid var(--border2);border-left:3px solid var(--red);padding:14px 16px">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:8px">
+        <div><span style="font-size:9px;background:rgba(224,80,80,0.15);color:var(--red);padding:2px 8px;margin-right:8px">P=45 %</span><strong><span data-sk="Oneskorenie urbanistickej štúdie o 12+ mes." data-en="Urban study delayed 12+ months">Oneskorenie urbanistickej štúdie</span></strong></div>
+        <div style="font-size:12px;color:var(--red)">IRR –2 až –3 %</div>
+      </div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.6"><strong style="color:var(--text)"><span data-sk="Mitigácia:" data-en="Mitigation:">Mitigácia:</span></strong> <span data-sk="Urbanistická štúdia objednaná Deň 1 po akvizícii. Fáza 1 (OP zóna) nečaká na štúdiu — spúšťa sa paralelne. Contingency 19 M€ absorbuje carrying costs 2 rokov." data-en="Urban study ordered Day 1 post-acquisition. Phase 1 (buffer zone) doesn't wait — starts in parallel. €19M contingency absorbs 2 years of carrying costs.">Urbanistická štúdia objednaná Deň 1. Fáza 1 nečaká — spúšťa sa paralelne. Contingency 19 M€ absorbuje 2 roky carrying costs.</span></div>
+    </div>
+    <div style="background:var(--panel);border:1px solid var(--border2);border-left:3px solid var(--red);padding:14px 16px">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:8px">
+        <div><span style="font-size:9px;background:rgba(224,80,80,0.15);color:var(--red);padding:2px 8px;margin-right:8px">P=35 %</span><strong><span data-sk="Absorpcia pod 150 j/rok" data-en="Absorption below 150 units/yr">Absorpcia pod 150 j/rok</span></strong></div>
+        <div style="font-size:12px;color:var(--red)">IRR –4 %</div>
+      </div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.6"><strong style="color:var(--text)"><span data-sk="Mitigácia:" data-en="Mitigation:">Mitigácia:</span></strong> <span data-sk="Predpredaj 40 % podmienka pred čerpaním. BTR opcia: bulk predaj 100–150 bytov BTR fondu. Pozastavenie Fázy 3 kým F2 nedosiahne 65 %." data-en="40% pre-sales required before drawdown. BTR option: bulk sale of 100–150 units. Pause Phase 3 until F2 reaches 65%.">Predpredaj 40 % podmienka. BTR bulk predaj 100–150 bytov. Pozastavenie Fázy 3 kým F2 ≥ 65 %.</span></div>
+    </div>
+    <div style="background:var(--panel);border:1px solid var(--border2);border-left:3px solid var(--orange);padding:14px 16px">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:8px">
+        <div><span style="font-size:9px;background:rgba(224,144,80,0.15);color:var(--orange);padding:2px 8px;margin-right:8px">P=40 %</span><strong><span data-sk="Inflácia stavebných nákladov +10–15 %" data-en="Construction cost inflation +10–15%">Inflácia stavebných nákladov +10–15 %</span></strong></div>
+        <div style="font-size:12px;color:var(--orange)">IRR –2,5 %</div>
+      </div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.6"><strong style="color:var(--text)"><span data-sk="Mitigácia:" data-en="Mitigation:">Mitigácia:</span></strong> <span data-sk="GMP kontrakt per fáza — fixuje náklady na generálneho dodávateľa. Fázovaný tender: každá fáza tendrovaná 12 mes. pred výstavbou. Contingency 8 % = 19 M€." data-en="GMP contract per phase — fixes costs with the main contractor. Phased tender: each phase tendered 12 months before construction. 8% contingency = €19M.">GMP kontrakt per fáza. Fázovaný tender 12 mes. pred výstavbou. Contingency 8 % = 19 M€.</span></div>
+    </div>
+    <div style="background:var(--panel);border:1px solid var(--border2);border-left:3px solid var(--orange);padding:14px 16px">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:8px">
+        <div><span style="font-size:9px;background:rgba(224,144,80,0.15);color:var(--orange);padding:2px 8px;margin-right:8px">P=25 %</span><strong><span data-sk="Predajné ceny –10 % vs base" data-en="Sales prices –10% vs base">Predajné ceny –10 % vs base</span></strong></div>
+        <div style="font-size:12px;color:var(--orange)">IRR –4,5 %</div>
+      </div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.6"><strong style="color:var(--text)"><span data-sk="Mitigácia:" data-en="Mitigation:">Mitigácia:</span></strong> <span data-sk="Fázovanie umožňuje pauzu predaja. BTR konverzia pri cene pod 3 200 €/m². KE trh nikdy neklesal pod 2 800 €/m² — veľký buffer." data-en="Phasing allows sales pause. BTR conversion if price drops below €3,200/m². KE market never fell below €2,800/m² — large buffer.">Fázovanie umožňuje pauzu. BTR konverzia pod 3 200 €/m². KE nikdy pod 2 800 €/m².</span></div>
+    </div>
+    <div style="background:var(--panel);border:1px solid var(--border2);border-left:3px solid var(--green);padding:14px 16px">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:8px">
+        <div><span style="font-size:9px;background:rgba(76,175,122,0.12);color:var(--green);padding:2px 8px;margin-right:8px">P=10 %</span><strong><span data-sk="Regulačná zmena ÚP" data-en="Zoning regulation change">Regulačná zmena ÚP</span></strong></div>
+        <div style="font-size:12px;color:var(--green)"><span data-sk="Nízke riziko" data-en="Low risk">Nízke riziko</span></div>
+      </div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.6"><strong style="color:var(--text)"><span data-sk="Mitigácia:" data-en="Mitigation:">Mitigácia:</span></strong> <span data-sk="ÚP schválený a podpísaný Magistrátom Košice 08.04.2026. Zmena vyžaduje celý legislatívny cyklus 3+ rokov a verejné prerokovanie." data-en="Zoning approved and signed by Košice City Hall on 08.04.2026. Change requires full 3+ year legislative cycle and public consultation.">ÚP schválený Magistrátom 08.04.2026. Zmena vyžaduje 3+ rokov a verejné prerokovanie.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="sh"><span class="sn">FAQ</span><h2 class="st"><span data-sk="Najčastejšie otázky investorov" data-en="Investor FAQ">Najčastejšie otázky investorov</span></h2><div class="sl"></div></div>
+  <div style="display:flex;flex-direction:column;gap:8px">
+    <div style="background:var(--panel);border:1px solid var(--border2);border-left:3px solid var(--gold);padding:14px 16px">
+      <div style="font-size:11px;font-weight:600;color:var(--gold-pale);margin-bottom:5px"><span data-sk="Prečo Košice a nie Bratislava?" data-en="Why Košice and not Bratislava?">Prečo Košice a nie Bratislava?</span></div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.65"><span data-sk="Košice sú 2. najväčšie mesto SR s rastúcim HDP per capita. Ceny bytov (3 200–4 500 €/m²) sú 40–50 % pod Bratislavou — štrukturálny catch-up potenciál. Trh 650–800 j/rok histórickej absorpcie. Volvo závod 8,2 km — pracovné miesta pre tisíce ľudí." data-en="Košice is Slovakia's 2nd largest city with growing GDP per capita. Apartment prices (€3,200–4,500/m²) are 40–50% below Bratislava — structural catch-up potential. Market of 650–800 units/yr historical absorption. Volvo plant 8.2km away — thousands of jobs.">Košice sú 2. najväčšie mesto SR s rastúcim HDP. Ceny 40–50 % pod BA → štrukturálny catch-up. Volvo závod 8,2 km. Historická absorpcia 650–800 j/rok.</span></div>
+    </div>
+    <div style="background:var(--panel);border:1px solid var(--border2);border-left:3px solid var(--red);padding:14px 16px">
+      <div style="font-size:11px;font-weight:600;color:#FF9090;margin-bottom:5px"><span data-sk="Čo ak Volvo zlyhá alebo zníži produkciu?" data-en="What if Volvo fails or cuts production?">Čo ak Volvo zlyhá alebo zníži produkciu?</span></div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.65"><span data-sk="Konzervatívny scenár (110–130 j/rok) nepredpokladá Volvo efekt vôbec. KE štrukturálny deficit, IT sektor, medicína a migrácia z regiónu postačujú na dosiahnutie základného breakeven. Pri Volvo zlyhaní: IRR klesá na ~14–16 % — projekt zostáva kladný." data-en="The conservative scenario (110–130 units/yr) assumes zero Volvo effect. KE structural deficit, IT sector, healthcare and regional migration are sufficient for basic breakeven. If Volvo fails: IRR drops to ~14–16% — project remains positive.">Konzervatívny scenár nepredpokladá Volvo efekt. IT, medicína a migrácia z regiónu postačujú. Volvo zlyhanie → IRR 14–16 %, projekt zostáva kladný.</span></div>
+    </div>
+    <div style="background:var(--panel);border:1px solid var(--border2);border-left:3px solid var(--red);padding:14px 16px">
+      <div style="font-size:11px;font-weight:600;color:#FF9090;margin-bottom:5px"><span data-sk="Čo ak príde recesia a predaj spomalí na 80 j/rok?" data-en="What if recession hits and sales slow to 80 units/yr?">Čo ak príde recesia a predaj spomalí?</span></div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.65"><span data-sk="Pri 80 j/rok: Fáza 3 sa zastaví, F2 predlžuje. Aktivujeme bulk predaj 100–200 bytov BTR fondu (Heimstaden typ) za mierne nižšiu cenu → odblokuje bankový úver. IRR pri recesii: ~10–12 %. Projekt vracia kapitál." data-en="At 80 units/yr: Phase 3 stops, F2 extends. We activate bulk sale of 100–200 units to a BTR fund (Heimstaden type) at slightly lower price → unblocks bank loan. IRR in recession: ~10–12%. Project returns capital.">Pri 80 j/rok: F3 sa zastaví. Bulk predaj 100–200 bytov BTR fondu odblokuje bankový úver. IRR ~10–12 %. Projekt vracia kapitál.</span></div>
+    </div>
+    <div style="background:var(--panel);border:1px solid var(--border2);border-left:3px solid var(--gold);padding:14px 16px">
+      <div style="font-size:11px;font-weight:600;color:var(--gold-pale);margin-bottom:5px"><span data-sk="Kedy dostaneme prvé peniaze späť?" data-en="When do we get the first money back?">Kedy dostaneme prvé peniaze späť?</span></div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.65"><span data-sk="Rok 4–5: Predaj logistického parku F1 (~43 M€). Rok 5+: cashflow z predajov F2 (~44 M€/rok hrubých tržieb). Projekt má pozitívny kumulatívny cashflow od Roku 4." data-en="Year 4–5: Sale of logistics park F1 (~€43M). Year 5+: cash flow from F2 sales (~€44M/yr gross). Project has positive cumulative cash flow from Year 4.">Rok 4–5: Predaj logistiky F1 (~43 M€). Rok 5+: predaje F2 ~44 M€/rok. Kumulatívny cashflow kladný od Roku 4.</span></div>
+    </div>
+    <div style="background:var(--panel);border:1px solid var(--border2);border-left:3px solid var(--gold);padding:14px 16px">
+      <div style="font-size:11px;font-weight:600;color:var(--gold-pale);margin-bottom:5px"><span data-sk="Sú EÚ granty skutočne dostupné?" data-en="Are EU grants really available?">Sú EÚ granty skutočne dostupné?</span></div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.65"><span data-sk="Základný finančný model nepredpokladá EÚ granty — zisk +43 M€ je bez nich. EÚ granty sú prezentované ako upside: +91 M€ ak sú obdržané. Pravdepodobnosť aspoň čiastočného obdržania: odhadujeme 60–70 %." data-en="The base financial model assumes no EU grants — +€43M profit is without them. EU grants are presented as upside: +€91M if received. Probability of at least partial receipt: estimated at 60–70%.">Základný model granty nezahŕňa. +43 M€ zisk je bez grantov. EÚ granty = +91 M€ upside. Pravdepodobnosť aspoň čiastočného obdržania: ~60–70 %.</span></div>
+    </div>
+    <div style="background:var(--panel);border:1px solid var(--border2);border-left:3px solid var(--blue);padding:14px 16px">
+      <div style="font-size:11px;font-weight:600;color:var(--blue);margin-bottom:5px"><span data-sk="Kto je prvý na strate?" data-en="Who loses money first?">Kto je prvý na strate?</span></div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.65"><span data-sk="1. Banka (senior) — posledná na strate, garantovaný výnos. 2. Preferovaný investor (LP) — dostáva preferovaný výnos 8–10 % pred developerom. 3. Developer / GP — prvý na strate, nesie operatívne riziko, profituje z carried interest." data-en="1. Bank (senior) — last to lose, guaranteed return. 2. Preferred investor (LP) — receives preferred 8–10% return before developer. 3. Developer / GP — first to lose, bears operational risk, profits from carried interest.">1. Banka — posledná na strate. 2. Preferovaný investor (LP) — 8–10 % p.a. pred developerom. 3. Developer / GP — prvý na strate, profituje z carried interest.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SOURCES -->
+<section>
+  <div class="sh"><span class="sn">A</span><h2 class="st"><span data-sk="Zdroje & Metodika" data-en="Sources & Methodology">Zdroje & Metodika</span></h2><div class="sl"></div></div>
+  <div class="g2">
+    <div class="card">
+      <div class="ct"><span data-sk="Kľúčové zdroje dát" data-en="Key data sources">Kľúčové zdroje dát</span></div>
+      <table class="ft">
+        <tr><td><span data-sk="Ceny bytov KE" data-en="KE apartment prices">Ceny bytov KE</span></td><td><span data-sk="Realitná únia SR Q1/2026, WatsoNova.sk (apríl 2026)" data-en="Slovak Real Estate Union Q1/2026, WatsoNova.sk (April 2026)">Realitná únia SR Q1/2026, WatsoNova.sk</span></td></tr>
+        <tr><td><span data-sk="Absorpcia trhu" data-en="Market absorption">Absorpcia trhu</span></td><td><span data-sk="CTR Real Estate 2026, CBRE Slovakia Q4/2025" data-en="CTR Real Estate 2026, CBRE Slovakia Q4/2025">CTR Real Estate 2026, CBRE Slovakia</span></td></tr>
+        <tr><td><span data-sk="Log. nájmy & yieldy" data-en="Logistics rents & yields">Log. nájmy & yieldy</span></td><td><span data-sk="JLL CEE Logistics Q4/2025, CTP Investor Pres. 2025" data-en="JLL CEE Logistics Q4/2025, CTP Investor Pres. 2025">JLL CEE Q4/2025, CTP 2025</span></td></tr>
+        <tr><td><span data-sk="Exit yieldy CEE" data-en="CEE exit yields">Exit yieldy CEE</span></td><td><span data-sk="CBRE CEE Investment MarketView Q4/2025" data-en="CBRE CEE Investment MarketView Q4/2025">CBRE CEE Q4/2025</span></td></tr>
+        <tr><td><span data-sk="Stavebné náklady" data-en="Construction costs">Stavebné náklady</span></td><td><span data-sk="ŠÚ SR, RICS CEE 2025" data-en="Statistics Office SR, RICS CEE 2025">ŠÚ SR, RICS CEE 2025</span></td></tr>
+        <tr><td><span data-sk="Územný plán" data-en="Zoning plan">Územný plán</span></td><td><span data-sk="ÚPN-M Košice, Magistrát 08.04.2026" data-en="KE City Zoning Plan, signed 08.04.2026">ÚPN-M Košice, 08.04.2026</span></td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <div class="ct"><span data-sk="Disclaimer" data-en="Disclaimer">Disclaimer</span></div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.75"><span data-sk="Tento materiál predstavuje pracovný investičný podklad pre úvodné rokovania. Všetky čísla sú modelované predpoklady a odhady — nie záruky výnosu. Môžu sa meniť v závislosti od trhu, financovania a finálnej štruktúry projektu. Investícia do developerského projektu je riziková. Odporúčame nezávislé právne a finančné poradenstvo." data-en="This material constitutes a working investment document for initial discussions. All figures are modelled assumptions and estimates — not guarantees of return. They may change depending on market, financing and final project structure. Development investment is risky. We recommend independent legal and financial advice.">Tento materiál je pracovný podklad pre úvodné rokovania. Všetky čísla sú modelované predpoklady — nie záruky výnosu. Odporúčame nezávislé právne a finančné poradenstvo.</span></div>
+      <div style="margin-top:12px;font-size:11px;color:rgba(138,154,136,0.7)">Martin Dominik Ing., MBA, EUR ING · v2.4 · Máj 2026</div>
+    </div>
+  </div>
+</section>
+
+</div>
+</body>
+</html>
